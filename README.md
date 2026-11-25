@@ -71,6 +71,6 @@ Same for `brand-guide/terravis.html` → `assets/docs/Terravis-Energy-Brand-Guid
 ## Before publishing
 
 - Media contact is theskar@worksport.com on both pages; investor relations stays on the IR line.
-- Leadership is text-only beyond the CEO. Add headshots and bios if wanted.
+- Leadership headshots other than the CEO and COO were pulled from investors.worksport.com, where most are small circular crops on white. Replace them with original full-frame headshots when marketing has them (drop the file in assets/leadership and update TEAM_EXEC / TEAM_BOARD in js/press.js).
 - The ZeroFrost patent release has no day in its list entry (the IR post page carries no date); fill it in when known.
 - Photography is the company's own shoots and renders. Confirm nothing in the gallery is customer UGC before it goes public.

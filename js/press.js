@@ -18,7 +18,7 @@ const BUNDLES = [
   { file: 'downloads/Worksport-Web-Ready-Images.zip', name: 'Web-Ready Images', thumb: 'images/thumbs/hd3-silver-truck-mountains.jpg',
     desc: 'Every photo in this kit resized to 1,600 px JPEG for web and social use.' },
   { file: 'downloads/Worksport-Leadership-Headshots.zip', name: 'Leadership Headshots', thumb: 'images/thumbs/steven-rossi.jpg',
-    desc: 'Steven Rossi, Founder and Chief Executive Officer.' },
+    desc: 'Steven Rossi, the executive team and the board of directors, as shown on investors.worksport.com.' },
   { file: 'downloads/Worksport-Brand-Guide.zip', name: 'Brand Guide (PDF)', thumb: 'logos/worksport/WKSP-Emblem-Blue-PNG.png', pad: true,
     desc: 'Logo usage, colour and typography for Worksport and its product wordmarks, 2026 edition.' },
   { file: 'downloads/Terravis-Energy-Press-Kit.zip', name: 'Terravis Energy Press Kit', thumb: 'terravis/thumbs/aetherlux-outdoor-unit-angle.jpg',
@@ -110,6 +110,25 @@ const IMAGES = [
   ['factory-rail-inventory.jpg', 'Rail inventory', 'factory'],
   ['campus-exterior-flags.jpg', 'Worksport Campus, West Seneca, NY', 'factory'],
 ];
+
+/* ---------- Team (photo = file in leadership/) ---------- */
+const TEAM_EXEC = [
+  ['Chris Bernaudo', 'Chief Operations Officer', 'Chris-Bernaudo-COO.jpg'],
+  ['Jennifer Kartychak', 'Chief Financial Officer', 'Jennifer-Kartychak.jpg'],
+  ['Nilay Choksi', 'General Counsel', 'Nilay-Choksi.jpg'],
+  ['Tyler Sunderville', 'Director of Operations, West Seneca Factory', 'Tyler-Sunderville.jpg'],
+  ['Chris Lofstrand', 'Operational Controller', 'Chris-Lofstrand.jpg'],
+  ['Chris Lundberg', 'Sales Manager', 'Chris-Lundberg.jpg'],
+  ['Josh Swanigan', 'Sales Manager', 'Josh-Swanigan.jpg'],
+];
+const TEAM_BOARD = [
+  ['Steven Rossi', 'Founder & CEO, Chairman', 'Steven-Rossi-CEO.jpg'],
+  ['Lorenzo Rossi', 'Director', 'Lorenzo-Rossi.jpg'],
+  ['Bill Caragol', 'Independent Director', 'Bill-Caragol.jpg'],
+  ['Amb. Ned Siegel', 'Independent Director', 'Ned-Siegel.jpg'],
+  ['Craig Loverock', 'Independent Director', 'Craig-Loverock.jpg'],
+];
+
 const GALLERY_INITIAL = 8;   /* images shown before "Show all" */
 const NEWS_INITIAL = 6;      /* releases shown before "Show more" */
 
@@ -236,6 +255,17 @@ function updateLB() {
   const a = document.getElementById('lb-dl'); a.href = u(orig); a.setAttribute('download', '');
 }
 
+
+function renderTeam(id, list) {
+  const el = document.getElementById(id); if (!el) return;
+  el.innerHTML = list.map(([n, t, f]) => `
+    <a class="person" href="${u('leadership/' + f)}" download title="Download headshot">
+      <img src="${u('leadership/' + f)}" alt="${esc(n)}" loading="lazy">
+      <div class="pb"><div class="pn">${esc(n)}</div><div class="pt">${esc(t)}</div></div>
+      <span class="pd">${ICON_DL}</span>
+    </a>`).join('');
+}
+
 function renderNews(list, initial) {
   const el = document.getElementById('news-list'); if (!el) return;
   el.innerHTML = list.map(([d, t, h], i) => `
@@ -266,7 +296,7 @@ async function loadManifest() { try { MANIFEST = await (await fetch('js/manifest
 if (!window.KIT) {
   document.addEventListener('DOMContentLoaded', async () => {
     await loadManifest();
-    renderBundles(BUNDLES); renderProducts(PRODUCTS); renderLogos(BRAND_LOGOS, PRODUCT_LOGOS); renderGallery(IMAGES, GALLERY_INITIAL); renderNews(NEWS, NEWS_INITIAL);
+    renderBundles(BUNDLES); renderProducts(PRODUCTS); renderLogos(BRAND_LOGOS, PRODUCT_LOGOS); renderGallery(IMAGES, GALLERY_INITIAL); renderTeam('team-exec', TEAM_EXEC); renderTeam('team-board', TEAM_BOARD); renderNews(NEWS, NEWS_INITIAL);
     wireCommon();
   });
 }
