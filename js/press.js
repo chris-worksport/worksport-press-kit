@@ -1,10 +1,11 @@
 /* Worksport Press Kit — data and behaviour.
    Edit the data blocks at the top to add or swap assets. File sizes come from js/manifest.json
-   (regenerate with tools/build-manifest.py after adding files). */
+   (regenerate with tools/build-manifest.py after adding files).
+   The Terravis media room (terravis.html) reuses the render functions below with its own data: see js/terravis.js. */
 
 const ASSET_BASE = 'assets/';
 
-/* ---------- Download bundles (hero cards, Slate-style) ---------- */
+/* ---------- Download bundles ---------- */
 const BUNDLES = [
   { file: 'downloads/Worksport-Press-Kit-All.zip', name: 'Worksport Press Kit — Everything', thumb: 'images/thumbs/nexus-lifestyle-red-f150.jpg',
     desc: 'Logos, full-resolution product and manufacturing photography, leadership headshots and the brand guide in one archive.', all: true },
@@ -19,29 +20,31 @@ const BUNDLES = [
   { file: 'downloads/Worksport-Leadership-Headshots.zip', name: 'Leadership Headshots', thumb: 'images/thumbs/steven-rossi.jpg',
     desc: 'Steven Rossi, Founder and Chief Executive Officer.' },
   { file: 'downloads/Worksport-Brand-Guide.zip', name: 'Brand Guide (PDF)', thumb: 'logos/worksport/WKSP-Emblem-Blue-PNG.png', pad: true,
-    desc: 'Logo usage, colour and typography reference.' },
+    desc: 'Logo usage, colour and typography for Worksport and its product wordmarks, 2026 edition.' },
+  { file: 'downloads/Terravis-Energy-Press-Kit.zip', name: 'Terravis Energy Press Kit', thumb: 'terravis/thumbs/aetherlux-outdoor-unit-angle.jpg',
+    desc: 'Logos, AetherLux renders and the Terravis brand guide. See the Terravis media room for the full set.' },
 ];
 
 /* ---------- Products ---------- */
 const PRODUCTS = [
-  { id: 'nexus', tag: 'Hard tonneau cover', name: 'NEXUS', logo: 'logos/products/NEXUS/Nexus_FullFormat-H-Black-REV-A.png', img: 'images/thumbs/nexus-lifestyle-red-f150.jpg',
+  { id: 'nexus', tag: 'Hard tonneau cover', name: 'NEXUS', logo: 'logos/products/NEXUS/Nexus_FullFormat-H-White-REV-A.png', img: 'images/thumbs/nexus-lifestyle-red-f150.jpg',
     desc: 'Worksport’s flagship flip-up hard tonneau cover with proprietary single-side operation. Launched into commercial production in April 2026 and made at the Worksport Campus in West Seneca, New York.',
     links: [['Product page', 'https://www.worksport.com/products/nexus'], ['Logo files', '#logos']] },
-  { id: 'hd3', tag: 'Heavy-duty tonneau cover', name: 'HD3', logo: 'logos/products/HD3/HD3_FullFormat-Black.png', img: 'images/thumbs/hd3-silver-truck-mountains.jpg',
+  { id: 'hd3', tag: 'Heavy-duty tonneau cover', name: 'HD3', logo: 'logos/products/HD3/HD3_FullFormat-White.png', img: 'images/thumbs/hd3-silver-truck-mountains.jpg',
     desc: 'Heavy-duty tri-fold hard cover built for work and fleet use. In production since October 2025 and sold through dealers and distributors across North America.',
     links: [['Product page', 'https://www.worksport.com/products/hd3'], ['Logo files', '#logos']] },
-  { id: 'al4', tag: 'Premium tonneau cover', name: 'AL4', logo: 'logos/products/AL4/AL4_FullFormat-Black.png', img: 'images/thumbs/al4-gmc-sierra-lumber.jpg',
+  { id: 'al4', tag: 'Premium tonneau cover', name: 'AL4', logo: 'logos/products/AL4/AL4_FullFormat-White.png', img: 'images/thumbs/al4-gmc-sierra-lumber.jpg',
     desc: 'Premium hard-folding tonneau cover, designed and manufactured in-house. The AL4 was Worksport’s first U.S.-made cover and anchored the company’s 2025 growth.',
     links: [['Product page', 'https://www.worksport.com/products/al4'], ['Logo files', '#logos']] },
-  { id: 'solis', tag: 'Solar tonneau cover', name: 'SOLIS', logo: 'logos/products/SOLIS/SOLIS_FullFormat-Black.png', img: 'images/thumbs/solis-ford-f150.jpg',
+  { id: 'solis', tag: 'Solar tonneau cover', name: 'SOLIS', logo: 'logos/products/SOLIS/SOLIS_FullFormat-White.png', img: 'images/thumbs/solis-ford-f150.jpg',
     desc: 'A folding solar tonneau cover that turns the truck bed into a power source. Pairs with COR to form a portable energy system for work, recreation, travel and backup power.',
     links: [['Product page', 'https://www.worksport.com/products/solis'], ['Logo files', '#logos']] },
-  { id: 'cor', tag: 'Portable battery generator', name: 'COR', logo: 'logos/products/COR/COR-FullLogo-Rev-Black-PNG.png', img: 'images/thumbs/cor-portable-battery-render.jpg',
+  { id: 'cor', tag: 'Portable battery generator', name: 'COR', logo: 'logos/products/COR/COR-FullLogo-Rev-White-PNG.png', img: 'images/thumbs/cor-portable-battery-render.jpg',
     desc: 'Portable battery generator and mobile energy storage system. UL and CSA certified, available through worksport.com and Amazon, and designed to charge from SOLIS on the move.',
     links: [['Product page', 'https://www.worksport.com/products/cor'], ['Logo files', '#logos']] },
-  { id: 'terravis', tag: 'Subsidiary', name: 'Terravis Energy', logo: null, img: 'images/thumbs/terravis-dodge-worksite.jpg',
-    desc: 'Worksport’s clean-energy subsidiary developing the patented Zerofrost™ cold-climate heat pump technology marketed as AetherLux™.',
-    links: [['terravisenergy.com', 'https://terravisenergy.com']] },
+  { id: 'family', tag: 'The system', name: 'SOLIS + COR', logo: null, img: 'images/thumbs/solis-cor-hero-closeup.jpg',
+    desc: 'Together SOLIS and COR form a mobile power platform: solar generation on the bed, swappable battery storage in the truck, and power for tools, camp, travel or emergency backup.',
+    links: [['SOLIS + COR', 'https://www.worksport.com/products/solis']] },
 ];
 
 /* ---------- Brand logos ---------- */
@@ -67,47 +70,48 @@ const PRODUCT_LOGOS = [
   { name: 'COR', light: 'logos/products/COR/COR-FullLogo-Rev-Black-PNG.png', dark: 'logos/products/COR/COR-FullLogo-Rev-White-PNG.png', svg: 'logos/products/COR/COR-FullLogo-Rev-Black-EPS.eps', svgLabel: 'EPS' },
 ];
 
-/* ---------- Image gallery (file = name in images/originals, thumb/web share the name as .jpg) ---------- */
+/* ---------- Image gallery (file = name in images/originals; thumb/web share the name as .jpg) ---------- */
 const IMAGES = [
   ['nexus-lifestyle-red-f150.jpg', 'NEXUS on a Ford F-150', 'nexus'],
+  ['solis-cor-jeep-canyon.jpg', 'SOLIS + COR, canyon', 'solis'],
+  ['hd3-silver-truck-mountains.jpg', 'HD3 in the mountains', 'hd3'],
+  ['factory-assembly-line.jpg', 'Assembly line, Worksport Campus', 'factory'],
   ['nexus-open-bed-gear.jpg', 'NEXUS flipped open, bed loaded', 'nexus'],
+  ['solis-ford-f150.jpg', 'SOLIS on a Ford F-150', 'solis'],
+  ['al4-gmc-sierra-lumber.png', 'AL4 on a GMC Sierra', 'hd3'],
+  ['cor-portable-battery-render.jpg', 'COR portable battery', 'solis'],
   ['nexus-blue-f150-road.jpg', 'NEXUS on the road', 'nexus'],
   ['nexus-hand-release.jpg', 'NEXUS release handle', 'nexus'],
   ['nexus-tailgate-work.jpg', 'NEXUS at the tailgate', 'nexus'],
   ['nexus-fall-grey-truck.png', 'NEXUS, fall shoot', 'nexus'],
   ['nexus-fall-loading.png', 'Loading under a NEXUS', 'nexus'],
-  ['hd3-silver-truck-mountains.jpg', 'HD3 in the mountains', 'hd3'],
   ['hd3-outdoor-f150-mountains.png', 'HD3 on a Ford F-150', 'hd3'],
   ['hd3-grey-truck-site.jpg', 'HD3 on the job site', 'hd3'],
-  ['al4-gmc-sierra-lumber.png', 'AL4 on a GMC Sierra', 'hd3'],
   ['al4-dodge-ram-rambox.png', 'AL4 on a Ram 1500', 'hd3'],
   ['al4-toyota-tundra-barn.png', 'AL4 on a Toyota Tundra', 'hd3'],
   ['all-hard-covers-lineup.jpg', 'Worksport hard cover line-up', 'hd3'],
-  ['solis-ford-f150.jpg', 'SOLIS on a Ford F-150', 'solis'],
   ['solis-jeep-gladiator.jpg', 'SOLIS on a Jeep Gladiator', 'solis'],
   ['solis-open-panels-tundra.jpg', 'SOLIS panels deployed', 'solis'],
   ['solis-folded-barn.jpg', 'SOLIS folded', 'solis'],
   ['solis-lifestyle-sunset.png', 'SOLIS at sunset', 'solis'],
   ['solis-lifestyle-golden-hour.png', 'SOLIS, golden hour', 'solis'],
-  ['solis-cor-jeep-canyon.jpg', 'SOLIS + COR, canyon', 'solis'],
   ['solis-cor-dodge-night.jpg', 'SOLIS + COR at night', 'solis'],
   ['solis-cor-hero-closeup.jpg', 'SOLIS + COR close-up', 'solis'],
-  ['cor-portable-battery-render.jpg', 'COR portable battery', 'solis'],
   ['cor-battery-studio.png', 'COR, studio', 'solis'],
   ['cor-home-use.jpg', 'COR at home', 'solis'],
   ['cor-moving-day.jpg', 'COR on moving day', 'solis'],
   ['solis-nexus-cor-family.png', 'SOLIS, NEXUS and COR', 'solis'],
-  ['terravis-dodge-worksite.jpg', 'Terravis Energy on site', 'solis'],
+  ['terravis-dodge-worksite.jpg', 'SOLIS + COR on site', 'solis'],
   ['factory-floor-overview.jpg', 'Worksport Campus production floor', 'factory'],
-  ['factory-assembly-line.jpg', 'Assembly line', 'factory'],
   ['factory-panel-assembly.jpg', 'Panel assembly', 'factory'],
   ['factory-production-cell.jpg', 'Production cell', 'factory'],
   ['factory-press-line.jpg', 'Press line', 'factory'],
   ['factory-panel-build.jpg', 'Building a panel', 'factory'],
-  ['factory-team-member.jpg', 'Worksport team member', 'factory'],
   ['factory-rail-inventory.jpg', 'Rail inventory', 'factory'],
   ['campus-exterior-flags.jpg', 'Worksport Campus, West Seneca, NY', 'factory'],
 ];
+const GALLERY_INITIAL = 8;   /* images shown before "Show all" */
+const NEWS_INITIAL = 6;      /* releases shown before "Show more" */
 
 /* ---------- Press releases (newest first) ---------- */
 const NEWS = [
@@ -137,11 +141,14 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;',
 const u = p => ASSET_BASE + p;
 const webName = f => f.replace(/\.(png|jpeg)$/i, '.jpg');
 
-function renderBundles() {
-  const el = document.getElementById('bundles');
-  el.innerHTML = BUNDLES.map(b => `
+/* Image folders: the main kit uses images/, the Terravis page sets window.KIT = { dir: 'terravis' } */
+const KIT = window.KIT || { dir: 'images' };
+
+function renderBundles(list) {
+  const el = document.getElementById('bundles'); if (!el) return;
+  el.innerHTML = list.map(b => `
     <a class="dl-card" href="${u(b.file)}" download>
-      <div class="thumb ${b.pad ? 'pad' : ''}"><img src="${u(b.thumb)}" alt="" loading="lazy"></div>
+      <div class="thumb ${b.pad ? 'pad' : ''} ${b.dark ? 'dark' : ''}"><img src="${u(b.thumb)}" alt="" loading="lazy"></div>
       <div class="body">
         <div>
           <div class="name">${esc(b.name)}</div>
@@ -151,13 +158,16 @@ function renderBundles() {
         <span class="icon">${ICON_DL}</span>
       </div>
     </a>`).join('');
-  const all = BUNDLES.find(b => b.all);
-  document.querySelectorAll('[data-download-all]').forEach(a => { a.href = u(all.file); a.setAttribute('download', ''); });
-  const s = document.getElementById('all-size'); if (s) s.textContent = sizeOf(all.file);
+  const all = list.find(b => b.all);
+  if (all) {
+    document.querySelectorAll('[data-download-all]').forEach(a => { a.href = u(all.file); a.setAttribute('download', ''); });
+    const s = document.getElementById('all-size'); if (s) s.textContent = sizeOf(all.file);
+  }
 }
 
-function renderProducts() {
-  document.getElementById('products-grid').innerHTML = PRODUCTS.map(p => `
+function renderProducts(list) {
+  const el = document.getElementById('products-grid'); if (!el) return;
+  el.innerHTML = list.map(p => `
     <article class="prod" id="prod-${p.id}">
       <div class="img"><img src="${u(p.img)}" alt="${esc(p.name)}" loading="lazy"></div>
       <div class="body">
@@ -169,8 +179,9 @@ function renderProducts() {
     </article>`).join('');
 }
 
-function renderLogos() {
-  document.getElementById('brand-logos').innerHTML = BRAND_LOGOS.map(l => `
+function renderLogos(brand, product) {
+  const b = document.getElementById('brand-logos');
+  if (b) b.innerHTML = brand.map(l => `
     <div class="logo-tile">
       <div class="art ${l.bg}"><img class="${l.emblem ? 'emblem' : ''}" src="${u(l.src)}" alt="${esc(l.name)}"></div>
       <div class="body">
@@ -178,7 +189,8 @@ function renderLogos() {
         <div class="fmts">${Object.entries(l.files).map(([k, f]) => `<a class="chip" href="${u(f)}" download>${ICON_DL}${k} <span style="opacity:.6">${sizeOf(f)}</span></a>`).join('')}</div>
       </div>
     </div>`).join('');
-  document.getElementById('product-logos').innerHTML = PRODUCT_LOGOS.map(l => `
+  const p = document.getElementById('product-logos');
+  if (p && product) p.innerHTML = product.map(l => `
     <div class="plogo-tile">
       <div class="art"><img src="${u(l.light)}" alt="${esc(l.name)} logo, black"></div>
       <div class="art dark"><img src="${u(l.dark)}" alt="${esc(l.name)} logo, white"></div>
@@ -187,19 +199,23 @@ function renderLogos() {
 }
 
 let galleryIndex = [];
-function renderGallery() {
-  const el = document.getElementById('gallery');
-  galleryIndex = IMAGES;
-  el.innerHTML = IMAGES.map(([f, cap, cat], i) => `
-    <button class="gal-item" data-cat="${cat}" data-i="${i}" type="button" aria-label="View ${esc(cap)}">
-      <img src="${u('images/thumbs/' + webName(f))}" alt="${esc(cap)}" loading="lazy">
+let galleryExpanded = false;
+function renderGallery(list, initial) {
+  const el = document.getElementById('gallery'); if (!el) return;
+  galleryIndex = list;
+  el.innerHTML = list.map(([f, cap, cat], i) => `
+    <button class="gal-item ${i >= initial ? 'collapsed' : ''}" data-cat="${cat}" data-i="${i}" type="button" aria-label="View ${esc(cap)}">
+      <img src="${u(KIT.dir + '/thumbs/' + webName(f))}" alt="${esc(cap)}" loading="lazy">
       <span class="lbl">${esc(cap)}</span>
-      <a class="dl" href="${u('images/originals/' + f)}" download title="Download full resolution" aria-label="Download ${esc(cap)}" onclick="event.stopPropagation()">${ICON_DL}</a>
+      <a class="dl" href="${u(KIT.dir + '/originals/' + f)}" download title="Download full resolution" aria-label="Download ${esc(cap)}" onclick="event.stopPropagation()">${ICON_DL}</a>
     </button>`).join('');
   el.addEventListener('click', e => { const b = e.target.closest('.gal-item'); if (b) openLB(+b.dataset.i); });
+  const moreRow = document.getElementById('gallery-more'); const moreBtn = document.getElementById('gallery-more-btn');
+  if (moreRow) { if (list.length <= initial) moreRow.classList.add('hidden'); moreBtn.addEventListener('click', () => { galleryExpanded = true; el.querySelectorAll('.collapsed').forEach(x => x.classList.remove('collapsed')); moreRow.classList.add('hidden'); }); }
   document.querySelectorAll('.filters button').forEach(btn => btn.addEventListener('click', () => {
     document.querySelectorAll('.filters button').forEach(b => b.setAttribute('aria-pressed', b === btn));
     const c = btn.dataset.filter;
+    if (!galleryExpanded) { galleryExpanded = true; el.querySelectorAll('.collapsed').forEach(x => x.classList.remove('collapsed')); if (moreRow) moreRow.classList.add('hidden'); }
     el.querySelectorAll('.gal-item').forEach(it => it.classList.toggle('hidden', c !== 'all' && it.dataset.cat !== c));
   }));
 }
@@ -209,37 +225,48 @@ let lbIdx = 0;
 function openLB(i) { lbIdx = i; updateLB(); document.getElementById('lb').classList.add('open'); document.body.style.overflow = 'hidden'; }
 function closeLB() { document.getElementById('lb').classList.remove('open'); document.body.style.overflow = ''; }
 function stepLB(d) { const vis = visibleIdx(); const k = vis.indexOf(lbIdx); lbIdx = vis[(k + d + vis.length) % vis.length]; updateLB(); }
-function visibleIdx() { return [...document.querySelectorAll('.gal-item:not(.hidden)')].map(b => +b.dataset.i); }
+function visibleIdx() { return [...document.querySelectorAll('.gal-item:not(.hidden):not(.collapsed)')].map(b => +b.dataset.i); }
 function updateLB() {
   const [f, cap] = galleryIndex[lbIdx];
-  document.getElementById('lb-img').src = u('images/web/' + webName(f));
+  document.getElementById('lb-img').src = u(KIT.dir + '/web/' + webName(f));
   document.getElementById('lb-img').alt = cap;
   document.getElementById('lb-name').textContent = cap;
-  const orig = 'images/originals/' + f;
+  const orig = KIT.dir + '/originals/' + f;
   document.getElementById('lb-meta').textContent = `${f} · ${typeOf(f)} · ${sizeOf(orig)}`;
   const a = document.getElementById('lb-dl'); a.href = u(orig); a.setAttribute('download', '');
 }
 
-function renderNews() {
-  document.getElementById('news-list').innerHTML = NEWS.map(([d, t, h]) => `
-    <li><a href="${h}" target="_blank" rel="noopener"><span class="d">${esc(d)}</span><span class="t">${esc(t)}</span><span class="arrow">${ICON_ARROW}</span></a></li>`).join('');
+function renderNews(list, initial) {
+  const el = document.getElementById('news-list'); if (!el) return;
+  el.innerHTML = list.map(([d, t, h], i) => `
+    <li class="${i >= initial ? 'collapsed' : ''}"><a href="${h}" target="_blank" rel="noopener"><span class="d">${esc(d)}</span><span class="t">${esc(t)}</span><span class="arrow">${ICON_ARROW}</span></a></li>`).join('');
+  const moreRow = document.getElementById('news-more'); const moreBtn = document.getElementById('news-more-btn');
+  if (moreRow) { if (list.length <= initial) moreRow.classList.add('hidden'); moreBtn.addEventListener('click', () => { el.querySelectorAll('.collapsed').forEach(x => x.classList.remove('collapsed')); moreRow.classList.add('hidden'); }); }
 }
 
-function copyText(id, btn) {
+function copyText(id) {
   const t = document.getElementById(id).innerText;
   navigator.clipboard.writeText(t).then(() => toast('Copied to clipboard'), () => toast('Copy failed'));
 }
 let toastT;
 function toast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 1800); }
 
-document.addEventListener('DOMContentLoaded', async () => {
-  try { MANIFEST = await (await fetch('js/manifest.json')).json(); } catch (e) { MANIFEST = {}; }
-  renderBundles(); renderProducts(); renderLogos(); renderGallery(); renderNews();
+function wireCommon() {
   document.getElementById('lb-x').addEventListener('click', closeLB);
   document.getElementById('lb-prev').addEventListener('click', () => stepLB(-1));
   document.getElementById('lb-next').addEventListener('click', () => stepLB(1));
   document.getElementById('lb').addEventListener('click', e => { if (e.target.id === 'lb') closeLB(); });
   document.addEventListener('keydown', e => { if (!document.getElementById('lb').classList.contains('open')) return; if (e.key === 'Escape') closeLB(); if (e.key === 'ArrowLeft') stepLB(-1); if (e.key === 'ArrowRight') stepLB(1); });
-  document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', () => copyText(b.dataset.copy, b)));
-  document.getElementById('year').textContent = new Date().getFullYear();
-});
+  document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', () => copyText(b.dataset.copy)));
+  const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+}
+
+async function loadManifest() { try { MANIFEST = await (await fetch('js/manifest.json')).json(); } catch (e) { MANIFEST = {}; } }
+
+if (!window.KIT) {
+  document.addEventListener('DOMContentLoaded', async () => {
+    await loadManifest();
+    renderBundles(BUNDLES); renderProducts(PRODUCTS); renderLogos(BRAND_LOGOS, PRODUCT_LOGOS); renderGallery(IMAGES, GALLERY_INITIAL); renderNews(NEWS, NEWS_INITIAL);
+    wireCommon();
+  });
+}

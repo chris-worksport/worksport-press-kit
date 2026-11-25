@@ -1,0 +1,41 @@
+/* Terravis Energy media room — overrides press.css tokens with the Terravis look:
+   black, Terravis yellow #FFCE2D, ZeroFrost blue #1AA7E6, squared display type. */
+:root{
+  --brand:#FFCE2D;
+  --brand-hover:#FFD95C;
+  --brand-active:#E6B81F;
+  --accent:#FFCE2D;
+  --on-brand:#0B0B0B;
+  --zf:#1AA7E6;
+  --bg:#070708;
+  --bg-2:#0E0E10;
+  --surface:#151517;
+  --surface-2:#1D1D20;
+  --line:rgba(255,255,255,.10);
+  --line-2:rgba(255,255,255,.2);
+  --ink:#FFFFFF;
+  --ink-2:#C9C9CD;
+  --ink-3:#86868C;
+  --font-display:'Exo 2','Poppins',system-ui,sans-serif;
+}
+.site-header{background:rgba(0,0,0,.85)}
+.hero .bg::after{background:linear-gradient(180deg,rgba(7,7,8,.2) 0%,rgba(7,7,8,.45) 45%,rgba(7,7,8,.96) 100%)}
+.hero h1{letter-spacing:-.01em;font-weight:800}
+.hero .eyebrow::before,.kicker{color:var(--brand)}
+.btn-primary{color:#0B0B0B}
+.btn-ghost:hover{background:#fff;color:#000;border-color:#fff}
+.dl-card .icon{color:#0B0B0B}
+.logo-tile .art.blue{background:var(--zf)}
+.logo-tile .art.yellow{background:var(--brand)}
+.sw .c.zf{background:var(--zf)}
+.spec{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:900px){.spec{grid-template-columns:repeat(4,1fr)}}
+.spec .s{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+.spec .s .n{font-family:var(--font-display);font-size:30px;font-weight:800;color:var(--brand);line-height:1}
+.spec .s .l{font-size:12px;color:var(--ink-3);margin-top:6px;line-height:1.4}
+.back{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--ink-2);text-decoration:none;margin-left:auto;white-space:nowrap}
+.back:hover{color:var(--brand)}
+.back svg{width:16px;height:16px}
+@media(min-width:1100px){.back{margin-left:0}}
+.parent{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--ink-3)}
+.parent img{height:20px;width:auto;opacity:.8}

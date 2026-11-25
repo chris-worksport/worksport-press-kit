@@ -63,10 +63,6 @@
   "bytes": 132641,
   "size": "130 KB"
  },
- "images/thumbs/factory-team-member.jpg": {
-  "bytes": 90106,
-  "size": "88 KB"
- },
  "images/thumbs/hd3-grey-truck-site.jpg": {
   "bytes": 86008,
   "size": "84 KB"
@@ -219,10 +215,6 @@
   "bytes": 551312,
   "size": "538 KB"
  },
- "images/web/factory-team-member.jpg": {
-  "bytes": 325954,
-  "size": "318 KB"
- },
  "images/web/hd3-grey-truck-site.jpg": {
   "bytes": 364200,
   "size": "356 KB"
@@ -234,6 +226,10 @@
  "images/web/hd3-silver-truck-mountains.jpg": {
   "bytes": 488797,
   "size": "477 KB"
+ },
+ "images/web/hero-nexus-banner.jpg": {
+  "bytes": 826381,
+  "size": "807 KB"
  },
  "images/web/nexus-blue-f150-road.jpg": {
   "bytes": 316110,
@@ -370,10 +366,6 @@
  "images/originals/factory-rail-inventory.jpg": {
   "bytes": 2656567,
   "size": "2.5 MB"
- },
- "images/originals/factory-team-member.jpg": {
-  "bytes": 1792955,
-  "size": "1.7 MB"
  },
  "images/originals/hd3-grey-truck-site.jpg": {
   "bytes": 2312631,
@@ -755,6 +747,30 @@
   "bytes": 5778,
   "size": "6 KB"
  },
+ "logos/terravis/20261119-AetherLux-AppLogo-PDF.pdf": {
+  "bytes": 245049,
+  "size": "239 KB"
+ },
+ "logos/terravis/20261119-AetherLux-AppLogo-PNG.png": {
+  "bytes": 38219,
+  "size": "37 KB"
+ },
+ "logos/terravis/20261119-AetherLux-AppLogo-SVG.svg": {
+  "bytes": 848,
+  "size": "1 KB"
+ },
+ "logos/terravis/AetherLux-Badge.svg": {
+  "bytes": 3593,
+  "size": "4 KB"
+ },
+ "logos/terravis/TVE-logo-white.svg": {
+  "bytes": 11200,
+  "size": "11 KB"
+ },
+ "logos/terravis/TVE_Logo_20250305.png": {
+  "bytes": 6279,
+  "size": "6 KB"
+ },
  "logos/worksport/WKSP-Emblem-AllVariants-PDF.pdf": {
   "bytes": 812074,
   "size": "793 KB"
@@ -819,40 +835,180 @@
   "bytes": 2641,
   "size": "3 KB"
  },
- "docs/Worksport-Brand-Guide.pdf": {
-  "bytes": 515150,
-  "size": "503 KB"
+ "docs/Terravis-Energy-Brand-Guide-2026.pdf": {
+  "bytes": 897964,
+  "size": "877 KB"
+ },
+ "docs/Worksport-Brand-Guide-2026.pdf": {
+  "bytes": 2118941,
+  "size": "2.0 MB"
+ },
+ "terravis/thumbs/aetherlux-home-summer.jpg": {
+  "bytes": 114383,
+  "size": "112 KB"
+ },
+ "terravis/thumbs/aetherlux-home-winter.jpg": {
+  "bytes": 89265,
+  "size": "87 KB"
+ },
+ "terravis/thumbs/aetherlux-indoor-unit-angle.jpg": {
+  "bytes": 20154,
+  "size": "20 KB"
+ },
+ "terravis/thumbs/aetherlux-indoor-unit.jpg": {
+  "bytes": 21974,
+  "size": "21 KB"
+ },
+ "terravis/thumbs/aetherlux-outdoor-unit-angle.jpg": {
+  "bytes": 41547,
+  "size": "41 KB"
+ },
+ "terravis/thumbs/aetherlux-outdoor-unit-badge.jpg": {
+  "bytes": 38838,
+  "size": "38 KB"
+ },
+ "terravis/thumbs/aetherlux-outdoor-unit-dark.jpg": {
+  "bytes": 14029,
+  "size": "14 KB"
+ },
+ "terravis/thumbs/aetherlux-outdoor-unit-detail.jpg": {
+  "bytes": 44134,
+  "size": "43 KB"
+ },
+ "terravis/thumbs/aetherlux-outdoor-unit-front.jpg": {
+  "bytes": 33678,
+  "size": "33 KB"
+ },
+ "terravis/thumbs/aetherlux-outdoor-unit-rear.jpg": {
+  "bytes": 49114,
+  "size": "48 KB"
+ },
+ "terravis/web/aetherlux-home-summer.jpg": {
+  "bytes": 628133,
+  "size": "613 KB"
+ },
+ "terravis/web/aetherlux-home-winter.jpg": {
+  "bytes": 379078,
+  "size": "370 KB"
+ },
+ "terravis/web/aetherlux-indoor-unit-angle.jpg": {
+  "bytes": 77767,
+  "size": "76 KB"
+ },
+ "terravis/web/aetherlux-indoor-unit.jpg": {
+  "bytes": 83807,
+  "size": "82 KB"
+ },
+ "terravis/web/aetherlux-outdoor-unit-angle.jpg": {
+  "bytes": 173105,
+  "size": "169 KB"
+ },
+ "terravis/web/aetherlux-outdoor-unit-badge.jpg": {
+  "bytes": 178205,
+  "size": "174 KB"
+ },
+ "terravis/web/aetherlux-outdoor-unit-dark.jpg": {
+  "bytes": 58886,
+  "size": "58 KB"
+ },
+ "terravis/web/aetherlux-outdoor-unit-detail.jpg": {
+  "bytes": 196169,
+  "size": "192 KB"
+ },
+ "terravis/web/aetherlux-outdoor-unit-front.jpg": {
+  "bytes": 149164,
+  "size": "146 KB"
+ },
+ "terravis/web/aetherlux-outdoor-unit-rear.jpg": {
+  "bytes": 204937,
+  "size": "200 KB"
+ },
+ "terravis/originals/aetherlux-home-summer.jpg": {
+  "bytes": 8462208,
+  "size": "8.1 MB"
+ },
+ "terravis/originals/aetherlux-home-winter.jpg": {
+  "bytes": 3272814,
+  "size": "3.1 MB"
+ },
+ "terravis/originals/aetherlux-indoor-unit-angle.png": {
+  "bytes": 697387,
+  "size": "681 KB"
+ },
+ "terravis/originals/aetherlux-indoor-unit.png": {
+  "bytes": 710670,
+  "size": "694 KB"
+ },
+ "terravis/originals/aetherlux-outdoor-unit-angle.jpg": {
+  "bytes": 296640,
+  "size": "290 KB"
+ },
+ "terravis/originals/aetherlux-outdoor-unit-badge.jpg": {
+  "bytes": 331772,
+  "size": "324 KB"
+ },
+ "terravis/originals/aetherlux-outdoor-unit-dark.jpg": {
+  "bytes": 102413,
+  "size": "100 KB"
+ },
+ "terravis/originals/aetherlux-outdoor-unit-detail.jpg": {
+  "bytes": 367143,
+  "size": "359 KB"
+ },
+ "terravis/originals/aetherlux-outdoor-unit-front.jpg": {
+  "bytes": 259452,
+  "size": "253 KB"
+ },
+ "terravis/originals/aetherlux-outdoor-unit-rear.jpg": {
+  "bytes": 369134,
+  "size": "360 KB"
  },
  "leadership/Steven-Rossi-CEO.jpg": {
   "bytes": 73783,
   "size": "72 KB"
  },
+ "downloads/Terravis-AetherLux-Renders.zip": {
+  "bytes": 14620302,
+  "size": "13.9 MB"
+ },
+ "downloads/Terravis-Brand-Guide.zip": {
+  "bytes": 800206,
+  "size": "781 KB"
+ },
+ "downloads/Terravis-Energy-Press-Kit.zip": {
+  "bytes": 15678509,
+  "size": "15.0 MB"
+ },
+ "downloads/Terravis-Logos.zip": {
+  "bytes": 257151,
+  "size": "251 KB"
+ },
  "downloads/Worksport-Brand-Guide.zip": {
-  "bytes": 453382,
-  "size": "443 KB"
+  "bytes": 1979901,
+  "size": "1.9 MB"
  },
  "downloads/Worksport-Leadership-Headshots.zip": {
   "bytes": 73477,
   "size": "72 KB"
  },
  "downloads/Worksport-Logos.zip": {
-  "bytes": 4706177,
+  "bytes": 4706037,
   "size": "4.5 MB"
  },
  "downloads/Worksport-Manufacturing-Images.zip": {
-  "bytes": 40755762,
-  "size": "38.9 MB"
+  "bytes": 39126896,
+  "size": "37.3 MB"
  },
  "downloads/Worksport-Press-Kit-All.zip": {
-  "bytes": 182818184,
-  "size": "174.3 MB"
+  "bytes": 198394290,
+  "size": "189.2 MB"
  },
  "downloads/Worksport-Product-Images.zip": {
   "bytes": 136827700,
   "size": "130.5 MB"
  },
  "downloads/Worksport-Web-Ready-Images.zip": {
-  "bytes": 16436982,
-  "size": "15.7 MB"
+  "bytes": 16938062,
+  "size": "16.2 MB"
  }
 }
