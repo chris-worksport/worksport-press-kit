@@ -38,6 +38,8 @@ const TVE_IMAGES = [
   ['aetherlux-winter-installation.png', 'AetherLux wall installation with line-set cover and disconnect', 'home'],
   ['aetherlux-winter-approach.png', 'AetherLux installation, approach view', 'home'],
   ['aetherlux-winter-rear.png', 'Modern home, rear elevation', 'home'],
+  ['aetherlux-night-snow-M1.png', 'AetherLux in falling snow, night', 'home'],
+  ['aetherlux-night-snow-M11.png', 'AetherLux on a snowy evening', 'home'],
   /* Production and sample photographs (TVE Library › Image Assets). Exterior views only. */
   ['aetherlux-photo-production-line.jpg', 'AetherLux units on the production line', 'photo'],
   ['aetherlux-photo-units-factory.jpg', 'AetherLux units at the factory', 'photo'],
@@ -61,6 +63,14 @@ const TVE_IMAGES = [
 const TVE_VIDEOS = [
   { src: 'mp4', file: 'video/AetherLux-Commercial-720p.mp4', poster: 'terravis/web/aetherlux-winter-exterior.jpg', title: 'AetherLux™ commercial', note: '3 min · 720p web copy; 4K master on request' },
   { src: 'mp4', file: 'video/aetherlux-pro-in-action.mp4', poster: 'terravis/web/aetherlux-outdoor-front-right.jpg', title: 'AetherLux Pro in action', note: 'Short clip from aetherlux.terravisenergy.com' },
+  { src: 'mp4', file: 'video/box-tve-the-proof.mp4', poster: 'video/box-tve-the-proof.jpg', title: 'The Proof', note: '2025 · Box' },
+  { src: 'mp4', file: 'video/box-tve-investor-video.mp4', poster: 'video/box-tve-investor-video.jpg', title: 'Terravis Energy investor video', note: '2025 · Box' },
+  /* Motion graphics from the TVE Library (AetherLux_ESD_v11_Package/motion) */
+  { src: 'mp4', file: 'video/tve-motion-snow-backdrop.mp4', poster: 'video/tve-motion-snow-backdrop.jpg', title: 'AetherLux in falling snow (loop)', note: 'Motion graphic · TVE Library' },
+  { src: 'mp4', file: 'video/tve-motion-snowing.mp4', poster: 'video/tve-motion-snowing.jpg', title: 'AetherLux, snowy evening (loop)', note: 'Motion graphic · TVE Library' },
+  { src: 'mp4', file: 'video/tve-motion-frost-coil.mp4', poster: 'video/tve-motion-frost-coil.jpg', title: 'Heating with a frost-free outdoor coil', note: 'Motion graphic · TVE Library' },
+  { src: 'mp4', file: 'video/tve-motion-zerofrost-vs-conventional.mp4', poster: 'video/tve-motion-zerofrost-vs-conventional.jpg', title: 'ZeroFrost™ vs a conventional heat pump', note: 'Motion graphic · TVE Library' },
+  { src: 'mp4', file: 'video/tve-motion-three-zones.mp4', poster: 'video/tve-motion-three-zones.jpg', title: 'One outdoor unit, three indoor zones', note: 'Motion graphic · TVE Library' },
 ];
 
 const TVE_NEWS = [
