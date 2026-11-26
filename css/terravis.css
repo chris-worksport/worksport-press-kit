@@ -18,7 +18,7 @@
   --ink-3:#86868C;
   --font-display:'Exo 2','Poppins',system-ui,sans-serif;
 }
-.site-header{background:rgba(0,0,0,.85)}
+.site-header{background:rgba(0,0,0,.72)}
 .hero .bg::after{background:linear-gradient(180deg,rgba(7,7,8,.2) 0%,rgba(7,7,8,.45) 45%,rgba(7,7,8,.96) 100%)}
 .hero h1{letter-spacing:-.01em;font-weight:800}
 .hero .eyebrow::before,.kicker{color:var(--brand)}
@@ -33,9 +33,17 @@
 .spec .s{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
 .spec .s .n{font-family:var(--font-display);font-size:30px;font-weight:800;color:var(--brand);line-height:1}
 .spec .s .l{font-size:12px;color:var(--ink-3);margin-top:6px;line-height:1.4}
-.back{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--ink-2);text-decoration:none;margin-left:auto;white-space:nowrap}
-.back:hover{color:var(--brand)}
-.back svg{width:16px;height:16px}
-@media(min-width:1100px){.back{margin-left:0}}
+/* Back to the Worksport press kit: a clear yellow-outlined button in the hero top bar, a compact one in the sticky nav */
+.back{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-size:14px;font-weight:600;line-height:1.1;padding:9px 16px 9px 12px;border-radius:999px;border:1.5px solid rgba(255,206,45,.55);background:rgba(0,0,0,.35);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);white-space:nowrap;transition:background .15s,border-color .15s,color .15s}
+.back svg{width:18px;height:18px;color:var(--brand);transition:transform .2s}
+.back span{display:flex;flex-direction:column}
+.back span small{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);margin-bottom:2px}
+.back:hover{background:var(--brand);border-color:var(--brand);color:#0B0B0B}
+.back:hover svg{color:#0B0B0B;transform:translateX(-3px)}
+.back:hover span small{color:#0B0B0B}
+.back.back-sm{margin-left:auto;font-size:13px;padding:7px 13px 7px 10px;background:transparent}
+.back.back-sm svg{width:15px;height:15px}
+@media(min-width:1100px){.back.back-sm{margin-left:0}}
+@media(max-width:640px){.back{font-size:13px;padding:8px 13px 8px 10px}.back svg{width:16px;height:16px}}
 .parent{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--ink-3)}
 .parent img{height:20px;width:auto;opacity:.8}

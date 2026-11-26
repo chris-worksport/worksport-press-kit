@@ -709,11 +709,41 @@ function wireCommon() {
   mobileCompact();
   const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
   const tt = document.getElementById('totop');
-  if (tt) {
-    const onScroll = () => tt.classList.toggle('show', window.scrollY > 700);
-    window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
-    tt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  }
+  const hdr = document.getElementById('site-header');
+  const onScroll = () => {
+    const y = window.scrollY;
+    if (tt) tt.classList.toggle('show', y > 700);
+    if (hdr) hdr.classList.toggle('show', y > 120);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  if (tt) tt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  trackSections();
+}
+
+// Underline the nav link for the section currently on screen (sticky header and mobile jump strip)
+function trackSections() {
+  const links = [...document.querySelectorAll('.nav a[href^="#"], .jump a[href^="#"]')].filter(a => a.getAttribute('href').length > 1 && a.getAttribute('href') !== '#top');
+  const ids = [...new Set(links.map(a => a.getAttribute('href').slice(1)))];
+  const secs = ids.map(id => document.getElementById(id)).filter(Boolean);
+  if (!secs.length) return;
+  let current = '';
+  const setActive = id => {
+    if (id === current) return; current = id;
+    links.forEach(a => {
+      const on = a.getAttribute('href') === '#' + id;
+      a.classList.toggle('active', on);
+      if (on && a.closest('.jump')) a.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+    });
+  };
+  const pick = () => {
+    const line = (document.querySelector('.site-header.show') ? 58 : 48) + 40;
+    let best = '';
+    for (const s of secs) { if (s.getBoundingClientRect().top <= line) best = s.id; }
+    if (best) setActive(best);
+  };
+  window.addEventListener('scroll', pick, { passive: true });
+  window.addEventListener('resize', pick);
+  pick();
 }
 
 async function loadManifest() { try { MANIFEST = await (await fetch('js/manifest.json')).json(); } catch (e) { MANIFEST = {}; } }
