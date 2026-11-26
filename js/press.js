@@ -717,7 +717,7 @@ function wireCommon() {
   const onScroll = () => {
     const y = window.scrollY;
     if (tt) tt.classList.toggle('show', y > 700);
-    if (hdr) hdr.classList.toggle('show', y > 120);
+    if (hdr) { if (y > 160) hdr.classList.add('show'); else if (y < 90) hdr.classList.remove('show'); }  // hysteresis so the bar never flickers at the threshold
   };
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
   if (tt) tt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));

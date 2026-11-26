@@ -2835,6 +2835,14 @@
   "bytes": 3593,
   "size": "4 KB"
  },
+ "logos/terravis/TVE-logo-mono-white.png": {
+  "bytes": 39733,
+  "size": "39 KB"
+ },
+ "logos/terravis/TVE-logo-mono-white.svg": {
+  "bytes": 4857,
+  "size": "5 KB"
+ },
  "logos/terravis/TVE-logo-white.svg": {
   "bytes": 11200,
   "size": "11 KB"
@@ -2912,8 +2920,8 @@
   "size": "15.8 MB"
  },
  "docs/Terravis-Energy-Brand-Guide-2026.pdf": {
-  "bytes": 897964,
-  "size": "877 KB"
+  "bytes": 489594,
+  "size": "478 KB"
  },
  "docs/Worksport-Brand-Guide-2026.pdf": {
   "bytes": 2118941,
@@ -3340,16 +3348,16 @@
   "size": "71.4 MB"
  },
  "downloads/Terravis-Brand-Guide.zip": {
-  "bytes": 800206,
-  "size": "781 KB"
+  "bytes": 396425,
+  "size": "387 KB"
  },
  "downloads/Terravis-Energy-Press-Kit.zip": {
-  "bytes": 92225957,
-  "size": "88.0 MB"
+  "bytes": 91862670,
+  "size": "87.6 MB"
  },
  "downloads/Terravis-Logos.zip": {
-  "bytes": 257151,
-  "size": "251 KB"
+  "bytes": 297533,
+  "size": "291 KB"
  },
  "downloads/Worksport-Brand-Guide.zip": {
   "bytes": 1979901,

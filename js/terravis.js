@@ -5,7 +5,7 @@ const TVE_BUNDLES = [
     desc: 'Terravis and AetherLux logos, full-resolution AetherLux renders and the Terravis brand guide.', all: true,
     items: () => [...TVE_IMAGES.map(i => imageItem(i)), ...logoItems(TVE_LOGOS, null), pdfItem('AetherLux Launch Brochure 2026', 'docs/AetherLux-Launch-Brochure-2026.pdf'), pdfItem('Terravis Energy Brand Guide 2026', 'docs/Terravis-Energy-Brand-Guide-2026.pdf')] },
   { file: 'downloads/Terravis-Logos.zip', name: 'Terravis & AetherLux Logos', thumb: 'logos/terravis/TVE-logo-white.svg', pad: true, dark: true,
-    desc: 'Terravis Energy wordmark (SVG, PNG) and the AetherLux logo and badge.',
+    desc: 'Terravis Energy wordmark (SVG, PNG), the white mono mark for small sizes, and the AetherLux logo and badge.',
     items: () => logoItems(TVE_LOGOS, null) },
   { file: 'downloads/Terravis-AetherLux-Renders.zip', name: 'AetherLux Renders (Full Resolution)', thumb: 'terravis/thumbs/aetherlux-winter-exterior.jpg',
     desc: 'The November 2026 outdoor-unit exterior renders (six views), indoor units, the modern winter home scenes and production photographs.',
@@ -21,6 +21,7 @@ const TVE_BUNDLES = [
 const TVE_LOGOS = [
   { name: 'Terravis Energy — on dark', bg: 'dark', src: 'logos/terravis/TVE-logo-white.svg', files: { SVG: 'logos/terravis/TVE-logo-white.svg' } },
   { name: 'Terravis Energy — on light', bg: '', src: 'logos/terravis/TVE_Logo_20250305.png', files: { PNG: 'logos/terravis/TVE_Logo_20250305.png' } },
+  { name: 'Terravis Energy — mono (white), small sizes & nav', bg: 'dark', src: 'logos/terravis/TVE-logo-mono-white.svg', files: { SVG: 'logos/terravis/TVE-logo-mono-white.svg', PNG: 'logos/terravis/TVE-logo-mono-white.png' } },
   { name: 'AetherLux — app icon', bg: 'dark', emblem: true, src: 'logos/terravis/20261119-AetherLux-AppLogo-PNG.png', files: { SVG: 'logos/terravis/20261119-AetherLux-AppLogo-SVG.svg', PNG: 'logos/terravis/20261119-AetherLux-AppLogo-PNG.png', PDF: 'logos/terravis/20261119-AetherLux-AppLogo-PDF.pdf' } },
   { name: 'AetherLux — badge', bg: '', emblem: true, src: 'logos/terravis/AetherLux-Badge.svg', files: { SVG: 'logos/terravis/AetherLux-Badge.svg' } },
 ];
