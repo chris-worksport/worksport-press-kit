@@ -87,12 +87,12 @@ button{font:inherit}
 .fact .v{font-size:18px;font-weight:700;margin-top:2px;letter-spacing:-.01em}
 .fact.extra{display:none}
 @media(min-width:900px){
-  .facts .wrap{grid-template-columns:repeat(5,1fr)}
+  .facts .wrap{grid-template-columns:repeat(6,1fr)}
   .fact,.fact:nth-child(2n){padding:24px 20px;border-right:1px solid var(--line)}
   .fact:first-child{padding-left:0}
   .fact:last-child{border-right:0}
   .fact.extra{display:block}
-  .fact .v{font-size:20px}
+  .fact .v{font-size:18px}
 }
 
 /* ---------- Sections ---------- */
