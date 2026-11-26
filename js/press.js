@@ -30,15 +30,18 @@ const BUNDLES = [
   { file: 'downloads/Worksport-Product-Brochures.zip', name: 'Product Brochures (PDF)', thumb: 'images/thumbs/all-hard-covers-lineup.jpg',
     desc: 'The 2026 tri-fold brochures for NEXUS, HD3, AL4, AL3, SC4, SC3, SOLIS and COR: specs, features and fitment in print-ready PDF.',
     items: () => brochureItems() },
-  { file: 'downloads/Worksport-Website-Images.zip', name: 'Website Product Images', thumb: 'images/thumbs/web-nexus-01.jpg',
-    desc: 'The product carousel and soft-cover images from worksport.com, 1,260 to 5,040 px wide, as individual files.',
-    items: () => IMAGES.filter(i => /^(web-|soft-)/.test(i[0])).map(imageItem) },
+  { file: 'downloads/Worksport-Website-Covers.zip', name: 'Website Images: Tonneau Covers', thumb: 'images/thumbs/web-nexus-01.jpg',
+    desc: 'Every product-page image for NEXUS, HD3, AL4, AL3, SC4 and SC3 from worksport.com, 1,260 to 4,312 px wide, as individual files.',
+    items: () => IMAGES.filter(i => /^(web-(nexus|hd3|al4|al3)|soft-)/.test(i[0])).map(imageItem) },
+  { file: 'downloads/Worksport-Website-Energy.zip', name: 'Website Images: SOLIS & COR', thumb: 'images/thumbs/web-solis-keagan-02.jpg',
+    desc: 'Every product-page image and banner for SOLIS and COR from worksport.com, up to 5,040 px wide, as individual files.',
+    items: () => IMAGES.filter(i => /^web-(solis|cor)/.test(i[0])).map(imageItem) },
   { file: 'downloads/Worksport-Studio-Infographics.zip', name: 'Studio Views & Infographics', thumb: 'images/thumbs/info-panel-cross-section.jpg', pad: true,
     desc: 'White-background studio views of SOLIS and COR and the feature infographics from worksport.com: panel cross-sections, seals, latches and installation steps.',
     items: () => IMAGES.filter(i => /^(info-|solis-studio|cor-studio|cor-battery-three)/.test(i[0])).map(imageItem) },
   { file: 'downloads/Worksport-Website-Clips.zip', name: 'Product Animation Clips (MP4)', thumb: 'video/clip-nexus-flip-up.jpg',
-    desc: 'Short product animations from the worksport.com and investor-site players: NEXUS, HD3, AL4, AL3, SOLIS and COR, 4 to 24 seconds, 1280 px web encodes for B-roll.',
-    items: () => VIDEOS.filter(v => v.src === 'mp4').map(v => ({ name: v.title, view: u(v.poster), dl: u(v.file), kind: 'img', meta: `${v.file.split('/').pop()} · video/mp4 · ${sizeOf(v.file)} · ${v.note}` })) },
+    desc: 'Every product animation from the worksport.com and investor-site players: NEXUS, HD3, AL4, AL3 and SOLIS, 3 to 24 seconds, 1280 px web encodes for B-roll.',
+    items: () => VIDEOS.filter(v => v.src === 'mp4').map(v => ({ name: v.title, view: u(v.poster), dl: u(v.file), kind: 'img', meta: `${v.file.split('/').pop()} · ${sizeOf(v.file)} · ${v.note}` })) },
   { file: 'downloads/Worksport-Brand-Guide.zip', name: 'Brand Guide (PDF)', thumb: 'logos/worksport/WKSP-Emblem-Blue-PNG.png', pad: true,
     desc: 'Logo usage, colour and typography for Worksport and its product wordmarks, 2026 edition.',
     items: () => [pdfItem('Worksport Brand Guide 2026', 'docs/Worksport-Brand-Guide-2026.pdf')] },
@@ -198,36 +201,118 @@ const IMAGES = [
   ['info-al4-epdm-seal.png', 'AL4 EPDM seal along the rail', 'info', 'fit'],
   ['info-al3-folded.png', 'AL3 folded toward the cab', 'info'],
   ['info-al3-cases.png', 'Cases on closed AL3 panels', 'info'],
+  /* Remaining product-page images so every product page is covered */
+  ['web-nexus-03.jpg', 'NEXUS release, worksport.com', 'nexus'],
+  ['web-nexus-06.jpg', 'NEXUS panel detail, worksport.com', 'nexus'],
+  ['web-nexus-08.jpg', 'NEXUS close-up, worksport.com', 'nexus'],
+  ['web-nexus-10.jpg', 'NEXUS on a grey truck, worksport.com', 'nexus'],
+  ['web-nexus-11.jpg', 'NEXUS latch detail, worksport.com', 'nexus'],
+  ['web-hd3-05.jpg', 'HD3 on a black truck, rear, worksport.com', 'hd3'],
+  ['web-al4-02.png', 'AL4 with the crew, worksport.com', 'hd3'],
+  ['web-al4-03.png', 'AL4 open with gear, worksport.com', 'hd3'],
+  ['web-al4-05.png', 'AL4 at the tailgate, worksport.com', 'hd3'],
+  ['web-al4-07.png', 'Loading under an AL4, worksport.com', 'hd3'],
+  ['web-al4-09.png', 'AL4, three-quarter view, worksport.com', 'hd3'],
+  ['web-al3-01.png', 'AL3 on the job, worksport.com', 'hd3'],
+  ['web-al3-03.png', 'AL3 with gear, worksport.com', 'hd3'],
+  ['soft-sc3-01.png', 'SC3, worksport.com 1', 'soft'],
+  ['soft-sc3-02.png', 'SC3, worksport.com 2', 'soft'],
+  ['soft-sc3-03.png', 'SC3, worksport.com 3', 'soft'],
+  ['soft-sc3-04.png', 'SC3, worksport.com 4', 'soft'],
+  ['soft-sc3-05.png', 'SC3, worksport.com 5', 'soft'],
+  ['soft-sc3-06.png', 'SC3, worksport.com 6', 'soft'],
+  ['soft-sc3-07.png', 'SC3, worksport.com 7', 'soft'],
+  ['soft-sc3-latch.png', 'SC3 latch', 'soft'],
+  ['soft-sc3-vinyl.png', 'SC3 premium vinyl tarp', 'soft'],
+  ['soft-sc4-01.png', 'SC4, worksport.com 1', 'soft'],
+  ['soft-sc4-02.png', 'SC4, worksport.com 2', 'soft'],
+  ['soft-sc4-03.png', 'SC4, worksport.com 3', 'soft'],
+  ['soft-sc4-04.png', 'SC4, worksport.com 4', 'soft'],
+  ['soft-sc4-05.png', 'SC4, worksport.com 5', 'soft'],
+  ['soft-sc4-07.png', 'SC4, worksport.com 6', 'soft'],
+  ['soft-sc4-q-seals.png', 'SC4 weather-resistant Q-seals', 'soft'],
+  ['soft-sc4-vinyl.png', 'SC4 premium vinyl tarp', 'soft'],
+  ['web-solis-02.png', 'SOLIS on a dark truck, worksport.com', 'solis'],
+  ['web-solis-04.png', 'SOLIS, red truck, worksport.com', 'solis'],
+  ['web-solis-05.png', 'SOLIS with owner, worksport.com', 'solis'],
+  ['web-solis-06.png', 'SOLIS close-up, worksport.com', 'solis'],
+  ['web-solis-08.jpg', 'SOLIS in snow 2, worksport.com', 'solis'],
+  ['web-solis-tbs-05.jpg', 'SOLIS at work, worksport.com', 'solis'],
+  ['web-solis-keagan-03.jpg', 'SOLIS on a dark truck 2, worksport.com', 'solis'],
+  ['solis-studio-03.png', 'SOLIS, studio view 3', 'solis', 'fit'],
+  ['solis-studio-04.png', 'SOLIS, studio view 4', 'solis', 'fit'],
+  ['solis-studio-07.png', 'SOLIS, studio view 7', 'solis', 'fit'],
+  ['solis-studio-08.png', 'SOLIS, studio view 8', 'solis', 'fit'],
+  ['info-solis-feature-01.png', 'SOLIS feature graphic 1', 'info', 'fit', '#0b0d10'],
+  ['info-solis-feature-03.png', 'SOLIS feature graphic 3', 'info', 'fit', '#0b0d10'],
+  ['info-solis-feature-04.png', 'SOLIS feature graphic 4', 'info', 'fit', '#0b0d10'],
+  ['web-solis-compatibility.jpg', 'SOLIS compatibility, worksport.com banner', 'solis', 'fit', '#0b0d10'],
+  ['web-solis-durability.jpg', 'SOLIS durability, worksport.com banner', 'solis', 'fit', '#0b0d10'],
+  ['web-solis-wire-management.jpg', 'SOLIS wire management, worksport.com banner', 'solis', 'fit', '#0b0d10'],
+  ['web-cor-tbs-02.jpg', 'COR in the bed, worksport.com', 'solis'],
+  ['web-cor-tbs-04.jpg', 'COR on the truck, worksport.com', 'solis'],
+  ['web-cor-tbs-05.jpg', 'COR at the tailgate 2, worksport.com', 'solis'],
+  ['web-cor-02.png', 'COR in the kitchen, worksport.com', 'solis'],
+  ['web-cor-05.png', 'COR with a user, worksport.com', 'solis'],
+  ['web-cor-09.jpg', 'COR display panel, worksport.com', 'solis'],
+  ['web-cor-10.jpg', 'COR at home 2, worksport.com', 'solis'],
+  ['cor-studio-04.png', 'COR, studio view 4', 'solis', 'fit'],
+  ['cor-studio-05.png', 'COR, studio view 5', 'solis', 'fit'],
+  ['info-cor-feature-01.png', 'COR feature graphic 1', 'info', 'fit', '#0b0d10'],
+  ['info-cor-feature-02.png', 'COR feature graphic 2', 'info', 'fit', '#0b0d10'],
+  ['info-cor-feature-03.png', 'COR feature graphic 3', 'info', 'fit', '#0b0d10'],
+  ['info-cor-feature-04.png', 'COR feature graphic 4', 'info', 'fit', '#0b0d10'],
+  ['web-cor-stable-power.png', 'COR stable power, worksport.com banner', 'solis', 'fit', '#0b0d10'],
+  ['web-cor-controls-lights.png', 'COR controls and lights, worksport.com banner', 'solis', 'fit', '#0b0d10'],
+  ['web-cor-bms-lfp.png', 'COR BMS and LFP cells, worksport.com banner', 'solis', 'fit', '#0b0d10'],
 ];
 
 /* ---------- Video (click a poster to play; posters are in assets/video/).
    src 'yt' or 'vimeo' with id, or src 'mp4' with file (path under assets/) and poster. ---------- */
-const VIDEOS_INITIAL = 6;
+const VIDEOS_INITIAL = 6;   /* animation clips shown per group before "Show all videos" */
+const VIDEO_GROUPS = [['corporate', 'Corporate', 'Brand film, broadcast and the campus'], ['film', 'Product films', 'From the Worksport YouTube channel'], ['clip', 'Product animations (B-roll)', 'Short clips from the worksport.com and investor-site players, 1280 px MP4']];
 const VIDEOS = [
-  { src: 'vimeo', id: '1021123467', title: 'Worksport campaign video', note: 'Brand film, 4 min · investors.worksport.com', mp4: 'https://cdn.prod.website-files.com/675add148ab8737131a0a937/675add148ab8737131a0aa5b_Worksport%20Campaign%20Video_1-transcode.mp4' },
-  { src: 'vimeo', id: '1035606502', title: 'Live interview at the Nasdaq MarketSite with CEO Steven Rossi', note: '6 min · investors.worksport.com' },
-  { src: 'vimeo', id: '1037805972', title: 'Creating 280 new jobs: expanding production at the West Seneca campus', note: '3 min · investors.worksport.com' },
-  { src: 'yt', id: '_Jp9CY-74DM', title: 'Tonneau cover tech hasn’t changed in 20 years: why NEXUS exists', note: 'YouTube · Worksport' },
-  { src: 'yt', id: '5Tk5nwn2XKo', title: 'Inside the Worksport factory: how it runs every day', note: 'YouTube · Worksport' },
-  { src: 'yt', id: 'hQtDqjoLtlE', title: 'Solar tonneau cover: why you can throw weight on it', note: 'YouTube · SOLIS' },
-  { src: 'yt', id: '4AfKYQJ7YXE', title: 'Flip-up tonneau cover: why open both sides ever again?', note: 'YouTube · NEXUS' },
-  { src: 'yt', id: 'bsGoVrZO45E', title: 'Portable power station with a battery that pops out and goes', note: 'YouTube · COR' },
-  { src: 'yt', id: 'hU8BqjyHUjo', title: 'Portable power station uses you never thought of', note: 'YouTube · COR' },
-  { src: 'yt', id: 'WsfkLT8sYeA', title: 'Hard tonneau cover vs 396 lbs of limestone', note: 'YouTube · HD3' },
-  { src: 'yt', id: 'oQ3LwJ6lqSY', title: 'Auto-latching tonneau cover: once you try it, no going back', note: 'YouTube · NEXUS' },
-  { src: 'yt', id: '93aZHa1tI70', title: 'Behind the build: the people and engineering behind Worksport', note: 'YouTube · short' },
-  /* Product animation clips from the worksport.com and investors.worksport.com players (re-encoded at 1280 px) */
-  { src: 'mp4', file: 'video/clip-nexus-flip-up.mp4', poster: 'video/clip-nexus-flip-up.jpg', title: 'NEXUS flip-up animation', note: '14 s · worksport.com' },
-  { src: 'mp4', file: 'video/clip-nexus-vertical.mp4', poster: 'video/clip-nexus-vertical.jpg', title: 'NEXUS animation, vertical (for social)', note: '14 s · worksport.com' },
-  { src: 'mp4', file: 'video/clip-hd3-cargo.mp4', poster: 'video/clip-hd3-cargo.jpg', title: 'HD3 with cargo, animation', note: '13 s · worksport.com' },
-  { src: 'mp4', file: 'video/clip-hd3-fold.mp4', poster: 'video/clip-hd3-fold.jpg', title: 'HD3 folding animation', note: '10 s · worksport.com' },
-  { src: 'mp4', file: 'video/clip-al4-flip.mp4', poster: 'video/clip-al4-flip.jpg', title: 'AL4 animation', note: '18 s · worksport.com' },
-  { src: 'mp4', file: 'video/clip-al3.mp4', poster: 'video/clip-al3.jpg', title: 'AL3 animation', note: '4 s · worksport.com' },
-  { src: 'mp4', file: 'video/clip-solis-cor-bed.mp4', poster: 'video/clip-solis-cor-bed.jpg', title: 'SOLIS and COR in the bed, animation', note: '16 s · worksport.com' },
-  { src: 'mp4', file: 'video/clip-solis-closed.mp4', poster: 'video/clip-solis-closed.jpg', title: 'SOLIS closed, animation', note: '16 s · worksport.com' },
-  { src: 'mp4', file: 'video/clip-solis-600w.mp4', poster: 'video/clip-solis-600w.jpg', title: 'SOLIS 600 W callout', note: '7 s · worksport.com' },
-  { src: 'mp4', file: 'video/clip-solis-night-scene.mp4', poster: 'video/clip-solis-night-scene.jpg', title: 'SOLIS night scene', note: '24 s · investors.worksport.com' },
-  { src: 'mp4', file: 'video/clip-ir-hero-loop.mp4', poster: 'video/clip-ir-hero-loop.jpg', title: 'Investor site hero loop', note: '11 s · investors.worksport.com' },
+  /* Corporate */
+  { group: 'corporate', src: 'vimeo', id: '1021123467', title: 'Worksport campaign video', note: 'Brand film, 4 min · investors.worksport.com', mp4: 'https://cdn.prod.website-files.com/675add148ab8737131a0a937/675add148ab8737131a0aa5b_Worksport%20Campaign%20Video_1-transcode.mp4' },
+  { group: 'corporate', src: 'vimeo', id: '1035606502', title: 'Live interview at the Nasdaq MarketSite with CEO Steven Rossi', note: '6 min · investors.worksport.com' },
+  { group: 'corporate', src: 'vimeo', id: '1037805972', title: 'Creating 280 new jobs: expanding production at the West Seneca campus', note: '3 min · investors.worksport.com' },
+  { group: 'corporate', src: 'yt', id: '5Tk5nwn2XKo', title: 'Inside the Worksport factory: how it runs every day', note: 'YouTube short' },
+  { group: 'corporate', src: 'yt', id: '93aZHa1tI70', title: 'Behind the build: the people and engineering behind Worksport', note: 'YouTube short' },
+  { group: 'corporate', src: 'mp4', file: 'video/clip-ir-hero-loop.mp4', poster: 'video/clip-ir-hero-loop.jpg', title: 'Investor site hero loop', note: '11 s · investors.worksport.com' },
+  /* Product films (YouTube) */
+  { group: 'film', src: 'yt', id: '_Jp9CY-74DM', title: 'Tonneau cover tech hasn’t changed in 20 years: why NEXUS exists', note: 'NEXUS' },
+  { group: 'film', src: 'yt', id: '4AfKYQJ7YXE', title: 'Flip-up tonneau cover: why open both sides ever again?', note: 'NEXUS' },
+  { group: 'film', src: 'yt', id: 'oQ3LwJ6lqSY', title: 'Auto-latching tonneau cover: once you try it, no going back', note: 'NEXUS' },
+  { group: 'film', src: 'yt', id: 'WsfkLT8sYeA', title: 'Hard tonneau cover vs 396 lbs of limestone', note: 'HD3' },
+  { group: 'film', src: 'yt', id: 'hQtDqjoLtlE', title: 'Solar tonneau cover: why you can throw weight on it', note: 'SOLIS' },
+  { group: 'film', src: 'yt', id: 'bsGoVrZO45E', title: 'Portable power station with a battery that pops out and goes', note: 'COR' },
+  { group: 'film', src: 'yt', id: 'hU8BqjyHUjo', title: 'Portable power station uses you never thought of', note: 'COR' },
+  /* Product animation clips from the worksport.com and investors.worksport.com players (re-encoded at 1280 px); every product page's clips are here */
+  { group: 'clip', src: 'mp4', file: 'video/clip-nexus-flip-up.mp4', poster: 'video/clip-nexus-flip-up.jpg', title: 'NEXUS flip-up animation', note: 'NEXUS · 14 s' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-nexus-vertical.mp4', poster: 'video/clip-nexus-vertical.jpg', title: 'NEXUS animation, vertical (for social)', note: 'NEXUS · 14 s' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-hd3-cargo.mp4', poster: 'video/clip-hd3-cargo.jpg', title: 'HD3 with cargo', note: 'HD3 · 13 s' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-hd3-fold.mp4', poster: 'video/clip-hd3-fold.jpg', title: 'HD3 folding', note: 'HD3 · 10 s' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-hd3-03.mp4', poster: 'video/clip-hd3-03.jpg', title: 'HD3 open bed', note: 'HD3 · 10 s' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-hd3-04.mp4', poster: 'video/clip-hd3-04.jpg', title: 'HD3 closed, rear', note: 'HD3 · 4 s' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-hd3-05.mp4', poster: 'video/clip-hd3-05.jpg', title: 'HD3 closed, three-quarter', note: 'HD3 · 9 s' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-hd3-06.mp4', poster: 'video/clip-hd3-06.jpg', title: 'HD3 title card', note: 'HD3 · 7 s' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-al4-flip.mp4', poster: 'video/clip-al4-flip.jpg', title: 'AL4 animation', note: 'AL4 · 18 s' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-al4-02.mp4', poster: 'video/clip-al4-02.jpg', title: 'AL4 rear view', note: 'AL4 · 5 s' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-al4-03.mp4', poster: 'video/clip-al4-03.jpg', title: 'AL4 rear view 2', note: 'AL4 · 3 s' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-al4-04.mp4', poster: 'video/clip-al4-04.jpg', title: 'AL4 low rear view', note: 'AL4 · 4 s' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-al4-05.mp4', poster: 'video/clip-al4-05.jpg', title: 'AL4 side view', note: 'AL4 · 9 s' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-al3.mp4', poster: 'video/clip-al3.jpg', title: 'AL3 animation', note: 'AL3 · 4 s' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-al3-02.mp4', poster: 'video/clip-al3-02.jpg', title: 'AL3 animation 2', note: 'AL3 · 4 s' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-al3-03.webm', poster: 'video/clip-al3-03.jpg', title: 'AL3 animation 3', note: 'AL3 · WebM' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-al3-04.webm', poster: 'video/clip-al3-04.jpg', title: 'AL3 animation 4', note: 'AL3 · WebM' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-al3-05.webm', poster: 'video/clip-al3-05.jpg', title: 'AL3 animation 5', note: 'AL3 · WebM' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-solis-cor-bed.mp4', poster: 'video/clip-solis-cor-bed.jpg', title: 'SOLIS and COR in the bed', note: 'SOLIS · 16 s' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-solis-closed.mp4', poster: 'video/clip-solis-closed.jpg', title: 'SOLIS closed', note: 'SOLIS · 16 s' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-solis-600w.mp4', poster: 'video/clip-solis-600w.jpg', title: 'SOLIS 600 W callout', note: 'SOLIS · 7 s' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-solis-04.mp4', poster: 'video/clip-solis-04.jpg', title: 'SOLIS panels under the cover', note: 'SOLIS · 9 s' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-solis-05.mp4', poster: 'video/clip-solis-05.jpg', title: 'SOLIS side view', note: 'SOLIS · 10 s' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-solis-06.mp4', poster: 'video/clip-solis-06.jpg', title: 'SOLIS bed glow', note: 'SOLIS · 14 s' },
+  { group: 'clip', src: 'mp4', file: 'video/clip-solis-night-scene.mp4', poster: 'video/clip-solis-night-scene.jpg', title: 'SOLIS night scene', note: 'SOLIS · 24 s · investors.worksport.com' },
 ];
 
 /* ---------- Team (photo = file in leadership/) ---------- */
@@ -513,7 +598,7 @@ function renderNews(list, initial) {
 
 function renderVideos(list, initial) {
   const el = document.getElementById('video-grid'); if (!el) return;
-  el.innerHTML = list.map((v, i) => `
+  const card = (v, i) => `
     <figure class="vid ${i >= initial ? 'collapsed' : ''}" data-src="${v.src}" data-id="${v.id || ''}" data-file="${v.file ? u(v.file) : ''}">
       <button class="poster" type="button" aria-label="Play: ${esc(v.title)}">
         <img src="${u(v.poster || ('video/' + (v.src === 'yt' ? 'yt-' : 'vimeo-') + v.id + '.jpg'))}" alt="" loading="lazy">
@@ -521,9 +606,15 @@ function renderVideos(list, initial) {
       </button>
       <figcaption>
         <div class="vt">${esc(v.title)}</div>
-        <div class="vn">${esc(v.note)}${v.mp4 ? ` · <a href="${v.mp4}" download>Download MP4</a>` : ''}${v.file ? ` · <a href="${u(v.file)}" download>Download MP4 ${sizeOf(v.file)}</a>` : ''}${v.src === 'mp4' ? '' : ` · <a href="${v.src === 'yt' ? 'https://www.youtube.com/watch?v=' + v.id : 'https://vimeo.com/' + v.id}" target="_blank" rel="noopener">Open ↗</a>`}</div>
+        <div class="vn">${esc(v.note)}${v.mp4 ? ` · <a href="${v.mp4}" download>Download MP4</a>` : ''}${v.file ? ` · <a href="${u(v.file)}" download>Download ${v.file.endsWith('.webm') ? 'WebM' : 'MP4'} ${sizeOf(v.file)}</a>` : ''}${v.src === 'mp4' ? '' : ` · <a href="${v.src === 'yt' ? 'https://www.youtube.com/watch?v=' + v.id : 'https://vimeo.com/' + v.id}" target="_blank" rel="noopener">Open ↗</a>`}</div>
       </figcaption>
-    </figure>`).join('');
+    </figure>`;
+  const groups = (typeof VIDEO_GROUPS !== 'undefined' && list.some(v => v.group)) ? VIDEO_GROUPS : [[null, null, null]];
+  el.innerHTML = groups.map(([g, label, sub]) => {
+    const items = g ? list.filter(v => v.group === g) : list; if (!items.length) return '';
+    const lim = g === 'clip' ? initial : 99;
+    return `<div class="vid-group">${label ? `<div class="vid-head"><div><div class="kicker">${label}</div><div class="vs">${sub}</div></div><span class="vc">${items.length} video${items.length === 1 ? '' : 's'}</span></div>` : ''}<div class="vid-grid">${items.map((v, i) => card(v, i < lim ? 0 : 99)).join('')}</div></div>`;
+  }).join('');
   el.addEventListener('click', e => {
     const b = e.target.closest('.poster'); if (!b) return;
     const f = b.closest('.vid'); const { src, id, file } = f.dataset;
@@ -532,7 +623,7 @@ function renderVideos(list, initial) {
     b.outerHTML = `<div class="frame"><iframe src="${url}" title="Video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`;
   });
   const moreRow = document.getElementById('video-more'); const moreBtn = document.getElementById('video-more-btn');
-  if (moreRow) { if (list.length <= initial) moreRow.classList.add('hidden'); moreBtn.addEventListener('click', () => { el.querySelectorAll('.collapsed').forEach(x => x.classList.remove('collapsed')); moreRow.classList.add('hidden'); }); }
+  if (moreRow) { if (!el.querySelector('.vid.collapsed')) moreRow.classList.add('hidden'); moreBtn.addEventListener('click', () => { el.querySelectorAll('.vid.collapsed').forEach(x => x.classList.remove('collapsed')); moreRow.classList.add('hidden'); }); }
 }
 
 function renderTimeline(list, initial) {

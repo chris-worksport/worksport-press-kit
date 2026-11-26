@@ -420,3 +420,9 @@ button{font:inherit}
 .totop svg{width:22px;height:22px}
 @media(min-width:1024px){.totop{bottom:48px}}
 @media print{.totop{display:none}}
+.vid-groups{display:flex;flex-direction:column;gap:36px}
+.vid-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:14px;border-top:1px solid var(--line);padding-top:18px}
+.vid-head .kicker{margin-bottom:2px}
+.vid-head .vs{font-size:13px;color:var(--ink-3)}
+.vid-head .vc{font-size:12px;color:var(--ink-3);font-weight:600;white-space:nowrap}
+.vid-group:first-child .vid-head{border-top:0;padding-top:0}

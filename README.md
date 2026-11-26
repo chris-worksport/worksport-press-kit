@@ -45,8 +45,8 @@ then visit http://localhost:8000/.
 
 GitHub rejects single files over 100 MB, so two bundles are not in this repository and must be uploaded to the host (Shopify Files, S3, etc.) alongside the page, or regenerated:
 
-- `assets/downloads/Worksport-Press-Kit-All.zip` (about 220 MB)
-- `assets/downloads/Worksport-Product-Images.zip` (about 160 MB)
+- `assets/downloads/Worksport-Press-Kit-All.zip` (about 390 MB)
+- `assets/downloads/Worksport-Product-Images.zip` (about 325 MB)
 
 Both are kept in OneDrive: `1. Chris Bernaudo/_Claude/Website Builds/Worksport Press Kit - Large Downloads`. The "Download shown" buttons in the Images section do not depend on these: they zip the selected images in the browser (JSZip from cdnjs).
 
