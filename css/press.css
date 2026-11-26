@@ -428,3 +428,53 @@ button{font:inherit}
 .vid-group:first-child .vid-head{border-top:0;padding-top:0}
 .plogo-tile .fmts{display:flex;gap:6px;flex-wrap:wrap}
 .plogo-tile .fmts .chip{font-size:11px;padding:4px 8px}
+
+/* ---------- Mobile compaction ---------- */
+.m-hide{display:none!important}
+.m-more{margin-top:14px}
+.jump{display:none;position:sticky;top:var(--header-h);z-index:40;background:rgba(15,18,22,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.jump .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:8px;padding-bottom:8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.jump .wrap::-webkit-scrollbar{display:none}
+.jump a{flex:none;font-size:12px;font-weight:600;color:var(--ink-2);text-decoration:none;padding:6px 11px;border-radius:999px;border:1px solid var(--line-2);white-space:nowrap}
+.jump a:hover{color:var(--ink);border-color:var(--ink)}
+@media(max-width:1099px){.jump{display:block}}
+@media(max-width:640px){
+  .hero{min-height:0}
+  .hero .wrap{padding-top:40px;padding-bottom:28px}
+  .hero h1{font-size:34px}
+  .hero .lede{font-size:14px}
+  .section{padding:32px 0}
+  .section-head{margin-bottom:16px}
+  .section-head .sub{font-size:13px}
+  .about .lead{font-size:16px}
+  .boiler{padding:16px}
+  .lead-grid{gap:14px}
+  .contact-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .ccard{padding:14px}
+  .ccard .big{font-size:13px}
+  .ccard p,.ccard .links{font-size:12px}
+  .guide{gap:12px}
+  .rules{padding:14px 16px}
+  .rules li{font-size:13px}
+  .subsidiary .pic{min-height:160px}
+  .subsidiary .txt{padding:22px 18px}
+  .news li a{padding:11px 0}
+  .news .t{font-size:14px}
+  .vid-groups{gap:22px}
+  .site-footer{padding:24px 0 36px}
+}
+@media(max-width:640px){
+  .dl-grid{gap:10px}
+  .dl-card{flex-direction:row;align-items:stretch}
+  .dl-card .thumb{width:118px;flex:none;aspect-ratio:auto;min-height:118px}
+  .dl-card .thumb .browse{display:none}
+  .dl-card .body{padding:12px;align-items:center;flex:1}
+  .dl-card .name{font-size:14px}
+  .dl-card .meta{margin-top:4px}
+  .dl-card .icon{width:32px;height:32px}
+  .subsidiary-row .note{display:none}
+  .logo-tile .art{height:90px;padding:14px}
+  .tl-card h3{font-size:15px}
+  .more-row{margin-top:12px}
+  .prod .body{gap:6px}
+}

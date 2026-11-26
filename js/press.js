@@ -4,6 +4,7 @@
    The Terravis media room (terravis.html) reuses the render functions below with its own data: see js/terravis.js. */
 
 const ASSET_BASE = 'assets/';
+const MOBILE = window.matchMedia('(max-width: 640px)').matches;   /* shorter previews on phones */
 
 /* ---------- Download bundles ----------
    Each bundle has a zip (file) and items(): the files inside it, so a click on the card opens them in the lightbox
@@ -269,7 +270,7 @@ const IMAGES = [
 
 /* ---------- Video (click a poster to play; posters are in assets/video/).
    src 'yt' or 'vimeo' with id, or src 'mp4' with file (path under assets/) and poster. ---------- */
-const VIDEOS_INITIAL = 6;   /* animation clips shown per group before "Show all videos" */
+const VIDEOS_INITIAL = MOBILE ? 2 : 6;   /* videos shown per group before "Show all" (desktop: clips group only) */
 const VIDEO_GROUPS = [['corporate', 'Corporate', 'Brand film, broadcast and the campus'], ['film', 'Product films', 'From the Worksport YouTube channel'], ['clip', 'Product animations (B-roll)', 'Short clips from the worksport.com and investor-site players, 1280 px MP4']];
 const VIDEOS = [
   /* Corporate */
@@ -278,6 +279,15 @@ const VIDEOS = [
   { group: 'corporate', src: 'vimeo', id: '1037805972', title: 'Creating 280 new jobs: expanding production at the West Seneca campus', note: '3 min · investors.worksport.com' },
   { group: 'corporate', src: 'yt', id: '5Tk5nwn2XKo', title: 'Inside the Worksport factory: how it runs every day', note: 'YouTube short' },
   { group: 'corporate', src: 'yt', id: '93aZHa1tI70', title: 'Behind the build: the people and engineering behind Worksport', note: 'YouTube short' },
+  { group: 'corporate', src: 'mp4', file: 'video/box-factory-journey.mp4', poster: 'video/box-factory-journey.jpg', title: 'The Worksport factory journey', note: '1:11 · Oct 2025 · Box' },
+  { group: 'corporate', src: 'mp4', file: 'video/box-going-places-30s.mp4', poster: 'video/box-going-places-30s.jpg', title: 'Going Places: brand commercial (30 s)', note: '30 s · Jan 2026 · Box' },
+  { group: 'corporate', src: 'mp4', file: 'video/box-sema-2025.mp4', poster: 'video/box-sema-2025.jpg', title: 'Worksport at SEMA 2025', note: '57 s · Nov 2025 · Box' },
+  { group: 'corporate', src: 'mp4', file: 'video/box-factory-edit.mp4', poster: 'video/box-factory-edit.jpg', title: 'Inside the Worksport Campus', note: '56 s · 2025 · Box' },
+  { group: 'corporate', src: 'mp4', file: 'video/box-behind-the-brand-ep1.mp4', poster: 'video/box-behind-the-brand-ep1.jpg', title: 'Behind the Brand, episode 1: The Pitch Meeting', note: '2:49 · Mar 2026 · Box' },
+  { group: 'corporate', src: 'mp4', file: 'video/box-behind-the-brand-ep2.mp4', poster: 'video/box-behind-the-brand-ep2.jpg', title: 'Behind the Brand, episode 2: We Blew the Power', note: '3:20 · May 2026 · Box' },
+  { group: 'corporate', src: 'mp4', file: 'video/box-behind-the-brand-ep3.mp4', poster: 'video/box-behind-the-brand-ep3.jpg', title: 'Behind the Brand, episode 3: I Can Already Hear the Comments', note: '6:34 · Aug 2026 · Box' },
+  { group: 'corporate', src: 'mp4', file: 'video/box-truck-talk-family-30s.mp4', poster: 'video/box-truck-talk-family-30s.jpg', title: 'Truck Talk: Family Lesson (30 s, clean)', note: '30 s · Oct 2025 · Box' },
+  { group: 'corporate', src: 'mp4', file: 'video/box-truck-talk-baseball-30s.mp4', poster: 'video/box-truck-talk-baseball-30s.jpg', title: 'Truck Talk: Baseball (30 s, clean)', note: '30 s · Oct 2025 · Box' },
   { group: 'corporate', src: 'mp4', file: 'video/clip-ir-hero-loop.mp4', poster: 'video/clip-ir-hero-loop.jpg', title: 'Investor site hero loop', note: '11 s · investors.worksport.com' },
   /* Product films (YouTube) */
   { group: 'film', src: 'yt', id: '_Jp9CY-74DM', title: 'Tonneau cover tech hasn’t changed in 20 years: why NEXUS exists', note: 'NEXUS' },
@@ -287,6 +297,19 @@ const VIDEOS = [
   { group: 'film', src: 'yt', id: 'hQtDqjoLtlE', title: 'Solar tonneau cover: why you can throw weight on it', note: 'SOLIS' },
   { group: 'film', src: 'yt', id: 'bsGoVrZO45E', title: 'Portable power station with a battery that pops out and goes', note: 'COR' },
   { group: 'film', src: 'yt', id: 'hU8BqjyHUjo', title: 'Portable power station uses you never thought of', note: 'COR' },
+  /* Product films from Box (Marketing › 3. Media Repository › 2. Videos) */
+  { group: 'film', src: 'mp4', file: 'video/box-nexus-with-jonny.mp4', poster: 'video/box-nexus-with-jonny.jpg', title: 'NEXUS with Jonny', note: '6:24 · NEXUS · Jun 2026 · Box' },
+  { group: 'film', src: 'mp4', file: 'video/box-nexus-active-lock-highlight.mp4', poster: 'video/box-nexus-active-lock-highlight.jpg', title: 'NEXUS Active Lock highlight', note: '14 s · NEXUS · May 2026 · Box' },
+  { group: 'film', src: 'mp4', file: 'video/box-hd3-features.mp4', poster: 'video/box-hd3-features.jpg', title: 'HD3 features and benefits', note: '2:27 · HD3 · Oct 2025 · Box' },
+  { group: 'film', src: 'mp4', file: 'video/box-al4-going-places-30s.mp4', poster: 'video/box-al4-going-places-30s.jpg', title: 'AL4 Going Places commercial (30 s)', note: '30 s · AL4 · Dec 2025 · Box' },
+  { group: 'film', src: 'mp4', file: 'video/box-al4-drip-to-dry.mp4', poster: 'video/box-al4-drip-to-dry.jpg', title: 'AL4 drip to dry', note: '2:15 · AL4 · May 2025 · Box' },
+  { group: 'film', src: 'mp4', file: 'video/box-al3-features.mp4', poster: 'video/box-al3-features.jpg', title: 'AL3 features and benefits', note: '1:50 · AL3 · Apr 2026 · Box' },
+  { group: 'film', src: 'mp4', file: 'video/box-sc4-features.mp4', poster: 'video/box-sc4-features.jpg', title: 'SC4 features and benefits', note: '2:02 · SC4 · Oct 2025 · Box' },
+  { group: 'film', src: 'mp4', file: 'video/box-solis-cor-commercial-30s.mp4', poster: 'video/box-solis-cor-commercial-30s.jpg', title: 'SOLIS and COR commercial (30 s)', note: '30 s · SOLIS · Nov 2025 · Box' },
+  { group: 'film', src: 'mp4', file: 'video/box-solis-timelapse.mp4', poster: 'video/box-solis-timelapse.jpg', title: 'SOLIS in the wild: journey time-lapse', note: '20 s · SOLIS · 2025 · Box' },
+  { group: 'film', src: 'mp4', file: 'video/box-cor-with-jonny.mp4', poster: 'video/box-cor-with-jonny.jpg', title: 'COR with Jonny: one-year testimonial', note: '5:13 · COR · Aug 2026 · Box' },
+  { group: 'film', src: 'mp4', file: 'video/box-cor-stop-motion.mp4', poster: 'video/box-cor-stop-motion.jpg', title: 'COR stop motion', note: '23 s · COR · 2025 · Box' },
+  { group: 'film', src: 'mp4', file: 'video/box-tonneau-construction.mp4', poster: 'video/box-tonneau-construction.jpg', title: 'Tonneau construction clip', note: '50 s · Hard covers · Box' },
   /* Product animation clips from the worksport.com and investors.worksport.com players (re-encoded at 1280 px); every product page's clips are here */
   { group: 'clip', src: 'mp4', file: 'video/clip-nexus-flip-up.mp4', poster: 'video/clip-nexus-flip-up.jpg', title: 'NEXUS flip-up animation', note: 'NEXUS · 14 s' },
   { group: 'clip', src: 'mp4', file: 'video/clip-nexus-vertical.mp4', poster: 'video/clip-nexus-vertical.jpg', title: 'NEXUS animation, vertical (for social)', note: 'NEXUS · 14 s' },
@@ -333,8 +356,8 @@ const TEAM_BOARD = [
   ['Craig Loverock', 'Independent Director', 'Craig-Loverock.jpg'],
 ];
 
-const GALLERY_INITIAL = 8;   /* images shown before "Show all" */
-const NEWS_INITIAL = 6;      /* releases shown before "Show more" */
+const GALLERY_INITIAL = MOBILE ? 4 : 8;   /* images shown before "Show all" */
+const NEWS_INITIAL = MOBILE ? 3 : 6;      /* releases shown before "Show more" */
 
 /* ---------- Press releases (newest first) ---------- */
 const NEWS = [
@@ -363,7 +386,7 @@ const SOCIALS = [
 
 /* ---------- Timeline (oldest first). Categories: company, capital, product, terravis.
    When a new release lands on investors.worksport.com, tools/update-news.py adds it to NEWS; add a line here if it is a milestone. */
-const TIMELINE_INITIAL = 7;  /* items shown on mobile before "Show full timeline" */
+const TIMELINE_INITIAL = 3;  /* items shown on mobile before "Show full timeline" */
 const TIMELINE = [
   ['2011', 'Founded', 'Steven Rossi founds Worksport as a maker of pickup truck bed covers.', 'company'],
   ['Aug 2021', 'Nasdaq listing', 'Worksport uplists to the Nasdaq Capital Market as WKSP with an upsized $18 million public offering.', 'capital'],
@@ -613,7 +636,7 @@ function renderVideos(list, initial) {
   const groups = (typeof VIDEO_GROUPS !== 'undefined' && list.some(v => v.group)) ? VIDEO_GROUPS : [[null, null, null]];
   el.innerHTML = groups.map(([g, label, sub]) => {
     const items = g ? list.filter(v => v.group === g) : list; if (!items.length) return '';
-    const lim = g === 'clip' ? initial : 99;
+    const lim = (g === 'clip' || MOBILE || !g) ? initial : 99;
     return `<div class="vid-group">${label ? `<div class="vid-head"><div><div class="kicker">${label}</div><div class="vs">${sub}</div></div><span class="vc">${items.length} video${items.length === 1 ? '' : 's'}</span></div>` : ''}<div class="vid-grid">${items.map((v, i) => card(v, i < lim ? 0 : 99)).join('')}</div></div>`;
   }).join('');
   el.addEventListener('click', e => {
@@ -644,6 +667,29 @@ function renderSocials() {
   });
 }
 
+/* Mobile: collapse long grids to a short preview with a "Show all" button (desktop shows everything) */
+function collapseGrid(sel, n, label) {
+  const el = document.querySelector(sel); if (!el) return;
+  const items = [...el.children]; if (items.length <= n) return;
+  items.slice(n).forEach(x => x.classList.add('m-hide'));
+  const row = document.createElement('div'); row.className = 'more-row m-more';
+  row.innerHTML = `<button class="btn btn-ghost btn-sm" type="button">${label} (${items.length})</button>`;
+  row.querySelector('button').addEventListener('click', () => { items.forEach(x => x.classList.remove('m-hide')); row.remove(); });
+  el.after(row);
+}
+function mobileCompact() {
+  if (!MOBILE) return;
+  collapseGrid('#bundles', 4, 'Show all bundles');
+  collapseGrid('#products-grid', 4, 'Show all products');
+  collapseGrid('#brand-logos', 2, 'Show all logos');
+  collapseGrid('#product-logos', 2, 'Show all wordmarks');
+  collapseGrid('#team-exec', 4, 'Show the whole team');
+  collapseGrid('#team-board', 2, 'Show the whole board');
+  collapseGrid('.about-grid > div:nth-child(2)', 0, 'Show boilerplate and fast facts');
+  collapseGrid('.bio', 0, 'Read the CEO bio');
+  collapseGrid('.rules ul', 2, 'Show all guidelines');
+}
+
 function copyText(id) {
   const t = document.getElementById(id).innerText;
   navigator.clipboard.writeText(t).then(() => toast('Copied to clipboard'), () => toast('Copy failed'));
@@ -660,6 +706,7 @@ function wireCommon() {
   document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', () => copyText(b.dataset.copy)));
   document.querySelectorAll('[data-dl-set]').forEach(b => b.addEventListener('click', () => downloadSet(b.dataset.dlSet)));
   renderSocials();
+  mobileCompact();
   const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
   const tt = document.getElementById('totop');
   if (tt) {

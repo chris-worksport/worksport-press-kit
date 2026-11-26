@@ -63,8 +63,8 @@ const TVE_IMAGES = [
 const TVE_VIDEOS = [
   { src: 'mp4', file: 'video/AetherLux-Commercial-720p.mp4', poster: 'terravis/web/aetherlux-winter-exterior.jpg', title: 'AetherLux™ commercial', note: '3 min · 720p web copy; 4K master on request' },
   { src: 'mp4', file: 'video/aetherlux-pro-in-action.mp4', poster: 'terravis/web/aetherlux-outdoor-front-right.jpg', title: 'AetherLux Pro in action', note: 'Short clip from aetherlux.terravisenergy.com' },
-  { src: 'mp4', file: 'video/box-tve-the-proof.mp4', poster: 'video/box-tve-the-proof.jpg', title: 'The Proof', note: '2025 · Box' },
-  { src: 'mp4', file: 'video/box-tve-investor-video.mp4', poster: 'video/box-tve-investor-video.jpg', title: 'Terravis Energy investor video', note: '2025 · Box' },
+  { src: 'mp4', file: 'video/box-tve-the-proof.mp4', poster: 'video/box-tve-the-proof.jpg', title: 'The Proof', note: '1:20 · 2025 · Box' },
+  { src: 'mp4', file: 'video/box-tve-investor-video.mp4', poster: 'video/box-tve-investor-video.jpg', title: 'Terravis Energy investor video', note: '1:44 · 2025 · Box' },
   /* Motion graphics from the TVE Library (AetherLux_ESD_v11_Package/motion) */
   { src: 'mp4', file: 'video/tve-motion-snow-backdrop.mp4', poster: 'video/tve-motion-snow-backdrop.jpg', title: 'AetherLux in falling snow (loop)', note: 'Motion graphic · TVE Library' },
   { src: 'mp4', file: 'video/tve-motion-snowing.mp4', poster: 'video/tve-motion-snowing.jpg', title: 'AetherLux, snowy evening (loop)', note: 'Motion graphic · TVE Library' },
@@ -85,6 +85,6 @@ const TVE_NEWS = [
 
 document.addEventListener('DOMContentLoaded', async () => {
   await loadManifest();
-  renderBundles(TVE_BUNDLES); renderLogos(TVE_LOGOS, null); renderGallery(TVE_IMAGES, 99); renderVideos(TVE_VIDEOS, 99); renderNews(TVE_NEWS, 99);
+  renderBundles(TVE_BUNDLES); renderLogos(TVE_LOGOS, null); renderGallery(TVE_IMAGES, MOBILE ? 4 : 99); renderVideos(TVE_VIDEOS, 99); renderNews(TVE_NEWS, 99);
   wireCommon();
 });
