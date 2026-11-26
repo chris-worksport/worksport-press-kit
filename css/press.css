@@ -426,3 +426,5 @@ button{font:inherit}
 .vid-head .vs{font-size:13px;color:var(--ink-3)}
 .vid-head .vc{font-size:12px;color:var(--ink-3);font-weight:600;white-space:nowrap}
 .vid-group:first-child .vid-head{border-top:0;padding-top:0}
+.plogo-tile .fmts{display:flex;gap:6px;flex-wrap:wrap}
+.plogo-tile .fmts .chip{font-size:11px;padding:4px 8px}

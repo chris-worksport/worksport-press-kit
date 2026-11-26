@@ -61,10 +61,10 @@ const PRODUCTS = [
   { id: 'solis', tag: 'Solar tonneau cover', name: 'SOLIS', logo: 'logos/products/SOLIS/SOLIS_FullFormat-White.png', img: 'images/thumbs/solis-open-panels-tundra.jpg',
     desc: 'A folding solar tonneau cover that turns the truck bed into a power source, generating up to 650 watts. Sold on its own, and the subject of Worksport’s active partnership with Hyundai.',
     links: [['Product page', 'https://www.worksport.com/products/solis'], ['Brochure (PDF)', 'assets/docs/brochures/Worksport-SOLIS-Brochure-2026.pdf'], ['Logo files', '#logos']] },
-  { id: 'cor', tag: 'Portable energy system', name: 'COR', logo: 'logos/products/COR/COR-FullLogo-Rev-White-PNG.png', img: 'images/thumbs/cor-battery-studio.jpg', fit: true,
+  { id: 'cor', tag: 'Portable energy system', name: 'COR', logo: 'logos/products/COR/COR-FullLogo-Rev-White-PNG.png', img: 'images/thumbs/web-cor-tbs-01.jpg',
     desc: 'Portable battery generator and mobile energy storage system, sold on its own. UL and CSA certified and available through worksport.com and Amazon; charges from SOLIS, the wall or the vehicle.',
     links: [['Product page', 'https://www.worksport.com/products/cor'], ['Brochure (PDF)', 'assets/docs/brochures/Worksport-COR-Brochure-2026.pdf'], ['Logo files', '#logos']] },
-  { id: 'accessories', tag: 'Accessories', name: 'SOLIS & COR accessories', logo: null, img: 'images/thumbs/cor-battery-three-pack.jpg', fit: true,
+  { id: 'accessories', tag: 'Accessories', name: 'SOLIS & COR accessories', logo: null, img: 'images/thumbs/web-cor-swap-batteries.jpg',
     desc: 'Add-on COR battery packs (1 kWh each), the COR battery charger and the accessories that let SOLIS and COR work together as one mobile power system.',
     links: [['Shop accessories', 'https://www.worksport.com/products/cor']] },
 ];
@@ -90,6 +90,7 @@ const PRODUCT_LOGOS = [
   { name: 'SC3', light: 'logos/products/SC3/SC3_FullFormat-Black.png', dark: 'logos/products/SC3/SC3_FullFormat-White.png', svg: 'logos/products/SC3/SC3_FullFormat-Black.svg' },
   { name: 'SOLIS', light: 'logos/products/SOLIS/SOLIS_FullFormat-Black.png', dark: 'logos/products/SOLIS/SOLIS_FullFormat-White.png', svg: 'logos/products/SOLIS/SOLIS_FullFormat-Black.svg' },
   { name: 'COR', light: 'logos/products/COR/COR-FullLogo-Rev-Black-PNG.png', dark: 'logos/products/COR/COR-FullLogo-Rev-White-PNG.png', svg: 'logos/products/COR/COR-FullLogo-Rev-Black-EPS.eps', svgLabel: 'EPS' },
+  { name: 'Active Lock Technology', light: 'logos/products/NEXUS/ActiveLock/ActiveLock_Colored-Metallic.png', dark: 'logos/products/NEXUS/ActiveLock/ActiveLock_White-Flat.png', svg: 'logos/products/NEXUS/ActiveLock/ActiveLock_Colored-Metallic.svg', extra: { 'Black': 'logos/products/NEXUS/ActiveLock/ActiveLock_Black-Flat.svg', 'Gradient': 'logos/products/NEXUS/ActiveLock/ActiveLock_Colored-Gradient.svg', 'Flat colour': 'logos/products/NEXUS/ActiveLock/ActiveLock_Colored-Flat.svg', 'All variants (PDF)': 'logos/products/NEXUS/ActiveLock/ActiveLock-Symbol-AllVariants.pdf' } },
 ];
 
 /* ---------- Image gallery (file = name in images/originals; thumb/web share the name as .jpg)
@@ -188,7 +189,6 @@ const IMAGES = [
   ['info-panel-profile.png', 'Worksport folded aluminum profile', 'info', 'fit'],
   ['info-hard-covers-lineup.png', 'Hard cover line-up graphic', 'info', 'fit'],
   ['info-soft-covers-lineup.png', 'Soft cover line-up graphic', 'info', 'fit'],
-  ['info-active-lock-mark.png', 'Active Lock Technology mark', 'info', 'fit'],
   ['info-nexus-dual-lock-seal.jpg', 'NEXUS Dual-Lock perimeter and rail seal', 'info'],
   ['info-nexus-active-lock-latch.jpg', 'NEXUS Active Lock latch holds the cover open', 'info', 'fit'],
   ['info-nexus-reinforced-panels.jpg', 'NEXUS reinforced low-profile panels', 'info'],
@@ -419,7 +419,7 @@ const TILE_BG = { '': '#FFFFFF', dark: '#0B0D10', blue: '#0072CE', yellow: '#FFC
 function logoItems(brand, product) {
   const out = [];
   (brand || []).forEach(l => Object.entries(l.files).forEach(([k, f]) => out.push(fileItem(`${l.name} (${k})`, f, TILE_BG[l.bg] || '#fff'))));
-  (product || []).forEach(l => { out.push(fileItem(`${l.name} wordmark, black (PNG)`, l.light, '#fff')); out.push(fileItem(`${l.name} wordmark, white (PNG)`, l.dark, '#0B0D10')); out.push(fileItem(`${l.name} wordmark (${l.svgLabel || 'SVG'})`, l.svg, '#fff')); });
+  (product || []).forEach(l => { out.push(fileItem(`${l.name} wordmark, black (PNG)`, l.light, '#fff')); out.push(fileItem(`${l.name} wordmark, white (PNG)`, l.dark, '#0B0D10')); out.push(fileItem(`${l.name} wordmark (${l.svgLabel || 'SVG'})`, l.svg, '#fff')); Object.entries(l.extra || {}).forEach(([k, f]) => out.push(fileItem(`${l.name}, ${k}`, f, '#fff'))); });
   return out;
 }
 function teamItems() {
@@ -493,6 +493,7 @@ function renderLogos(brand, product) {
       <div class="art"><img src="${u(l.light)}" alt="${esc(l.name)} logo, black"></div>
       <div class="art dark"><img src="${u(l.dark)}" alt="${esc(l.name)} logo, white"></div>
       <div class="nm"><span>${esc(l.name)}</span><a href="${u(l.svg)}" download>${l.svgLabel || 'SVG'} ↓</a></div>
+      ${l.extra ? `<div class="fmts">${Object.entries(l.extra).map(([k, f]) => `<a class="chip" href="${u(f)}" download>${ICON_DL}${k}</a>`).join('')}</div>` : ''}
     </div>`).join('');
 }
 

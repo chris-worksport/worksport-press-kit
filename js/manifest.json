@@ -471,10 +471,6 @@
   "bytes": 98380,
   "size": "96 KB"
  },
- "images/thumbs/info-active-lock-mark.jpg": {
-  "bytes": 24520,
-  "size": "24 KB"
- },
  "images/thumbs/info-al3-cases.jpg": {
   "bytes": 33338,
   "size": "33 KB"
@@ -1139,10 +1135,6 @@
   "bytes": 826381,
   "size": "807 KB"
  },
- "images/web/info-active-lock-mark.jpg": {
-  "bytes": 42654,
-  "size": "42 KB"
- },
  "images/web/info-al3-cases.jpg": {
   "bytes": 125553,
   "size": "123 KB"
@@ -1798,10 +1790,6 @@
  "images/originals/hd3-silver-truck-mountains.jpg": {
   "bytes": 2773924,
   "size": "2.6 MB"
- },
- "images/originals/info-active-lock-mark.png": {
-  "bytes": 55455,
-  "size": "54 KB"
  },
  "images/originals/info-al3-cases.png": {
   "bytes": 452221,
@@ -2507,6 +2495,50 @@
   "bytes": 1347,
   "size": "1 KB"
  },
+ "logos/products/NEXUS/ActiveLock/ActiveLock-Symbol-AllVariants.pdf": {
+  "bytes": 1064189,
+  "size": "1.0 MB"
+ },
+ "logos/products/NEXUS/ActiveLock/ActiveLock_Black-Flat.png": {
+  "bytes": 16943,
+  "size": "17 KB"
+ },
+ "logos/products/NEXUS/ActiveLock/ActiveLock_Black-Flat.svg": {
+  "bytes": 4386,
+  "size": "4 KB"
+ },
+ "logos/products/NEXUS/ActiveLock/ActiveLock_Colored-Flat.png": {
+  "bytes": 16013,
+  "size": "16 KB"
+ },
+ "logos/products/NEXUS/ActiveLock/ActiveLock_Colored-Flat.svg": {
+  "bytes": 4487,
+  "size": "4 KB"
+ },
+ "logos/products/NEXUS/ActiveLock/ActiveLock_Colored-Gradient.png": {
+  "bytes": 39727,
+  "size": "39 KB"
+ },
+ "logos/products/NEXUS/ActiveLock/ActiveLock_Colored-Gradient.svg": {
+  "bytes": 6042,
+  "size": "6 KB"
+ },
+ "logos/products/NEXUS/ActiveLock/ActiveLock_Colored-Metallic.png": {
+  "bytes": 62381,
+  "size": "61 KB"
+ },
+ "logos/products/NEXUS/ActiveLock/ActiveLock_Colored-Metallic.svg": {
+  "bytes": 19600,
+  "size": "19 KB"
+ },
+ "logos/products/NEXUS/ActiveLock/ActiveLock_White-Flat.png": {
+  "bytes": 16325,
+  "size": "16 KB"
+ },
+ "logos/products/NEXUS/ActiveLock/ActiveLock_White-Flat.svg": {
+  "bytes": 4386,
+  "size": "4 KB"
+ },
  "logos/products/SC3/SC3_FullFormat-Black.png": {
   "bytes": 29375,
   "size": "29 KB"
@@ -3168,8 +3200,8 @@
   "size": "3.9 MB"
  },
  "downloads/Worksport-Logos.zip": {
-  "bytes": 4706037,
-  "size": "4.5 MB"
+  "bytes": 5876716,
+  "size": "5.6 MB"
  },
  "downloads/Worksport-Manufacturing-Images.zip": {
   "bytes": 39126896,
