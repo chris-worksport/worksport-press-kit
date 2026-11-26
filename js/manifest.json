@@ -1859,14 +1859,6 @@
   "bytes": 1925289,
   "size": "1.8 MB"
  },
- "terravis/thumbs/aetherlux-home-summer.jpg": {
-  "bytes": 114383,
-  "size": "112 KB"
- },
- "terravis/thumbs/aetherlux-home-winter.jpg": {
-  "bytes": 89265,
-  "size": "87 KB"
- },
  "terravis/thumbs/aetherlux-indoor-unit-angle.jpg": {
   "bytes": 20154,
   "size": "20 KB"
@@ -1911,13 +1903,21 @@
   "bytes": 33996,
   "size": "33 KB"
  },
- "terravis/web/aetherlux-home-summer.jpg": {
-  "bytes": 628133,
-  "size": "613 KB"
+ "terravis/thumbs/aetherlux-winter-approach.jpg": {
+  "bytes": 35371,
+  "size": "35 KB"
  },
- "terravis/web/aetherlux-home-winter.jpg": {
-  "bytes": 379078,
-  "size": "370 KB"
+ "terravis/thumbs/aetherlux-winter-exterior.jpg": {
+  "bytes": 80046,
+  "size": "78 KB"
+ },
+ "terravis/thumbs/aetherlux-winter-installation.jpg": {
+  "bytes": 50449,
+  "size": "49 KB"
+ },
+ "terravis/thumbs/aetherlux-winter-rear.jpg": {
+  "bytes": 61954,
+  "size": "61 KB"
  },
  "terravis/web/aetherlux-indoor-unit-angle.jpg": {
   "bytes": 77767,
@@ -1963,13 +1963,21 @@
   "bytes": 243413,
   "size": "238 KB"
  },
- "terravis/originals/aetherlux-home-summer.jpg": {
-  "bytes": 8462208,
-  "size": "8.1 MB"
+ "terravis/web/aetherlux-winter-approach.jpg": {
+  "bytes": 189019,
+  "size": "185 KB"
  },
- "terravis/originals/aetherlux-home-winter.jpg": {
-  "bytes": 3272814,
-  "size": "3.1 MB"
+ "terravis/web/aetherlux-winter-exterior.jpg": {
+  "bytes": 344961,
+  "size": "337 KB"
+ },
+ "terravis/web/aetherlux-winter-installation.jpg": {
+  "bytes": 277647,
+  "size": "271 KB"
+ },
+ "terravis/web/aetherlux-winter-rear.jpg": {
+  "bytes": 243372,
+  "size": "238 KB"
  },
  "terravis/originals/aetherlux-indoor-unit-angle.png": {
   "bytes": 697387,
@@ -2014,6 +2022,22 @@
  "terravis/originals/aetherlux-outdoor-service-side.png": {
   "bytes": 5009935,
   "size": "4.8 MB"
+ },
+ "terravis/originals/aetherlux-winter-approach.png": {
+  "bytes": 1994164,
+  "size": "1.9 MB"
+ },
+ "terravis/originals/aetherlux-winter-exterior.png": {
+  "bytes": 2212949,
+  "size": "2.1 MB"
+ },
+ "terravis/originals/aetherlux-winter-installation.png": {
+  "bytes": 1991644,
+  "size": "1.9 MB"
+ },
+ "terravis/originals/aetherlux-winter-rear.png": {
+  "bytes": 968986,
+  "size": "946 KB"
  },
  "leadership/Bill-Caragol.jpg": {
   "bytes": 316628,
@@ -2064,16 +2088,16 @@
   "size": "396 KB"
  },
  "downloads/Terravis-AetherLux-Renders.zip": {
-  "bytes": 65191214,
-  "size": "62.2 MB"
+  "bytes": 60768948,
+  "size": "58.0 MB"
  },
  "downloads/Terravis-Brand-Guide.zip": {
   "bytes": 800206,
   "size": "781 KB"
  },
  "downloads/Terravis-Energy-Press-Kit.zip": {
-  "bytes": 82573715,
-  "size": "78.7 MB"
+  "bytes": 78151525,
+  "size": "74.5 MB"
  },
  "downloads/Terravis-Logos.zip": {
   "bytes": 257151,

@@ -7,8 +7,8 @@ const TVE_BUNDLES = [
   { file: 'downloads/Terravis-Logos.zip', name: 'Terravis & AetherLux Logos', thumb: 'logos/terravis/TVE-logo-white.svg', pad: true, dark: true,
     desc: 'Terravis Energy wordmark (SVG, PNG) and the AetherLux logo and badge.',
     items: () => logoItems(TVE_LOGOS, null) },
-  { file: 'downloads/Terravis-AetherLux-Renders.zip', name: 'AetherLux Renders (Full Resolution)', thumb: 'terravis/thumbs/aetherlux-home-winter.jpg',
-    desc: 'The November 2026 outdoor-unit render package (nine views), indoor units and two in-situ scenes.',
+  { file: 'downloads/Terravis-AetherLux-Renders.zip', name: 'AetherLux Renders (Full Resolution)', thumb: 'terravis/thumbs/aetherlux-winter-exterior.jpg',
+    desc: 'The November 2026 outdoor-unit render package (nine views), indoor units and the modern winter home scenes (True3D environment).',
     items: () => TVE_IMAGES.map(i => imageItem(i)) },
   { file: 'docs/AetherLux-Launch-Brochure-2026.pdf', name: 'AetherLux Launch Brochure (PDF)', thumb: 'terravis/thumbs/aetherlux-outdoor-front.jpg',
     desc: 'The AetherLux™ launch brochure (v5.6, November 2026): product story, ZeroFrost™ technology, specifications and lab results.',
@@ -26,16 +26,18 @@ const TVE_LOGOS = [
 ];
 
 /* Newest first: the November 2026 outdoor-unit render package from the TVE Library (Image Assets/AetherLux_Outdoor_Colour_Package),
-   then the indoor units and the two in-situ scenes. 4th value 'fit' shows the whole render in the tile instead of cropping it. */
+   the indoor units, and the modern winter home scenes from AetherLux_True3D_Winter.zip (replaces the older traditional-house concept). 4th value 'fit' shows the whole render in the tile instead of cropping it. */
 const TVE_IMAGES = [
   ['aetherlux-outdoor-front-right.png', 'AetherLux outdoor unit, front right', 'render', 'fit', '#b9c1c9'],
   ['aetherlux-outdoor-front.png', 'AetherLux outdoor unit, front', 'render', 'fit', '#b9c1c9'],
   ['aetherlux-outdoor-front-left.png', 'AetherLux outdoor unit, front left', 'render', 'fit', '#b9c1c9'],
-  ['aetherlux-home-winter.jpg', 'AetherLux at home, winter', 'home'],
+  ['aetherlux-winter-exterior.png', 'AetherLux on a modern home, winter', 'home'],
   ['aetherlux-outdoor-service-side.png', 'AetherLux outdoor unit, service side', 'render', 'fit', '#b9c1c9'],
   ['aetherlux-outdoor-rear-right.png', 'AetherLux outdoor unit, rear right', 'render', 'fit', '#b9c1c9'],
   ['aetherlux-outdoor-rear-left.png', 'AetherLux outdoor unit, rear left', 'render', 'fit', '#b9c1c9'],
-  ['aetherlux-home-summer.jpg', 'AetherLux at home, summer', 'home'],
+  ['aetherlux-winter-installation.png', 'AetherLux wall installation with line-set cover and disconnect', 'home'],
+  ['aetherlux-winter-approach.png', 'AetherLux installation, approach view', 'home'],
+  ['aetherlux-winter-rear.png', 'Modern home, rear elevation', 'home'],
   ['aetherlux-indoor-unit.png', 'AetherLux indoor unit', 'render', 'fit'],
   ['aetherlux-indoor-unit-angle.png', 'AetherLux indoor unit, angle', 'render', 'fit'],
   ['aetherlux-outdoor-exploded.png', 'Exploded view (conceptual)', 'render', 'fit', '#b9c1c9'],
@@ -45,7 +47,7 @@ const TVE_IMAGES = [
 
 /* Video: finished pieces only. Raw demo footage (Oct 2026 "Unstoppable", "Death Valley", IDU mass production) stays in the TVE Library. */
 const TVE_VIDEOS = [
-  { src: 'mp4', file: 'video/AetherLux-Commercial-720p.mp4', poster: 'terravis/web/aetherlux-home-winter.jpg', title: 'AetherLux™ commercial', note: '3 min · 720p web copy; 4K master on request' },
+  { src: 'mp4', file: 'video/AetherLux-Commercial-720p.mp4', poster: 'terravis/web/aetherlux-winter-exterior.jpg', title: 'AetherLux™ commercial', note: '3 min · 720p web copy; 4K master on request' },
   { src: 'mp4', file: 'video/aetherlux-pro-in-action.mp4', poster: 'terravis/web/aetherlux-outdoor-front-right.jpg', title: 'AetherLux Pro in action', note: 'Short clip from aetherlux.terravisenergy.com' },
 ];
 

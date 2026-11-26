@@ -34,7 +34,7 @@ then visit http://localhost:8000/.
 | `assets/images/originals/` | Full-resolution photography (1,920 to 5,472 px). |
 | `assets/images/web/` | Same images at 1,600 px JPEG, used by the lightbox. |
 | `assets/images/thumbs/` | 720 px thumbnails used by the cards and gallery grid. |
-| `assets/terravis/` | AetherLux renders (originals, 1,600 px web, 720 px thumbs). Outdoor-unit views are the November 2026 render package from the TVE Library (`Image Assets/AetherLux_Outdoor_Colour_Package`); interior and exploded views are conceptual. |
+| `assets/terravis/` | AetherLux renders (originals, 1,600 px web, 720 px thumbs). Outdoor-unit views are the November 2026 render package from the TVE Library (`Image Assets/AetherLux_Outdoor_Colour_Package`); interior and exploded views are conceptual. Home scenes are from `AetherLux_True3D_Winter.zip` in the same folder (modern winter environment; the earlier traditional-house renders were retired on 2026-11-25). |
 | `assets/video/` | Poster images for the Video sections (YouTube and Vimeo thumbnails), the AetherLux commercial (720p web copy, 64 MB; the 4K master is in Box › Marketing › 3. Media Repository › 2. Videos › Video-Other › Non-Product Specific › 2025 › TVE) and the short AetherLux Pro clip from aetherlux.terravisenergy.com. |
 | `tools/transcode.swift` | AVFoundation re-encoder for making web copies of large videos: `swift tools/transcode.swift in.mp4 out.mp4 1280 2600`. |
 | `assets/leadership/` | CEO headshot. |
