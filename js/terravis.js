@@ -1,12 +1,14 @@
 /* Terravis Energy media room — data. Rendering comes from js/press.js (loaded first). */
 
 const TVE_BUNDLES = [
-  { file: 'downloads/Terravis-Energy-Press-Kit.zip', name: 'Terravis Energy Press Kit — Everything', thumb: 'terravis/thumbs/aetherlux-outdoor-unit-angle.jpg',
+  { file: 'downloads/Terravis-Energy-Press-Kit.zip', name: 'Terravis Energy Press Kit — Everything', thumb: 'terravis/thumbs/aetherlux-outdoor-front-right.jpg',
     desc: 'Terravis and AetherLux logos, full-resolution AetherLux renders and the Terravis brand guide.', all: true },
   { file: 'downloads/Terravis-Logos.zip', name: 'Terravis & AetherLux Logos', thumb: 'logos/terravis/TVE-logo-white.svg', pad: true, dark: true,
     desc: 'Terravis Energy wordmark (SVG, PNG) and the AetherLux logo and badge.' },
   { file: 'downloads/Terravis-AetherLux-Renders.zip', name: 'AetherLux Renders (Full Resolution)', thumb: 'terravis/thumbs/aetherlux-home-winter.jpg',
-    desc: 'Outdoor and indoor units, studio and in-situ renders.' },
+    desc: 'The November 2026 outdoor-unit render package (nine views), indoor units and two in-situ scenes.' },
+  { file: 'docs/AetherLux-Launch-Brochure-2026.pdf', name: 'AetherLux Launch Brochure (PDF)', thumb: 'terravis/thumbs/aetherlux-outdoor-front.jpg',
+    desc: 'The AetherLux™ launch brochure (v5.6, November 2026): product story, ZeroFrost™ technology, specifications and lab results.' },
   { file: 'downloads/Terravis-Brand-Guide.zip', name: 'Terravis Brand Guide (PDF)', thumb: 'logos/terravis/20261119-AetherLux-AppLogo-PNG.png', pad: true, dark: true,
     desc: 'Logo usage, colour and typography for Terravis Energy, AetherLux and ZeroFrost.' },
 ];
@@ -18,17 +20,22 @@ const TVE_LOGOS = [
   { name: 'AetherLux — badge', bg: '', emblem: true, src: 'logos/terravis/AetherLux-Badge.svg', files: { SVG: 'logos/terravis/AetherLux-Badge.svg' } },
 ];
 
+/* Newest first: the November 2026 outdoor-unit render package from the TVE Library (Image Assets/AetherLux_Outdoor_Colour_Package),
+   then the indoor units and the two in-situ scenes. 4th value 'fit' shows the whole render in the tile instead of cropping it. */
 const TVE_IMAGES = [
-  ['aetherlux-outdoor-unit-angle.jpg', 'AetherLux outdoor unit', 'render'],
+  ['aetherlux-outdoor-front-right.png', 'AetherLux outdoor unit, front right', 'render', 'fit', '#b9c1c9'],
+  ['aetherlux-outdoor-front.png', 'AetherLux outdoor unit, front', 'render', 'fit', '#b9c1c9'],
+  ['aetherlux-outdoor-front-left.png', 'AetherLux outdoor unit, front left', 'render', 'fit', '#b9c1c9'],
   ['aetherlux-home-winter.jpg', 'AetherLux at home, winter', 'home'],
-  ['aetherlux-outdoor-unit-front.jpg', 'AetherLux outdoor unit, front', 'render'],
+  ['aetherlux-outdoor-service-side.png', 'AetherLux outdoor unit, service side', 'render', 'fit', '#b9c1c9'],
+  ['aetherlux-outdoor-rear-right.png', 'AetherLux outdoor unit, rear right', 'render', 'fit', '#b9c1c9'],
+  ['aetherlux-outdoor-rear-left.png', 'AetherLux outdoor unit, rear left', 'render', 'fit', '#b9c1c9'],
   ['aetherlux-home-summer.jpg', 'AetherLux at home, summer', 'home'],
-  ['aetherlux-outdoor-unit-dark.jpg', 'AetherLux outdoor unit on dark', 'render'],
-  ['aetherlux-outdoor-unit-detail.jpg', 'Fan and grille detail', 'render'],
-  ['aetherlux-outdoor-unit-badge.jpg', 'AetherLux badge detail', 'render'],
-  ['aetherlux-outdoor-unit-rear.jpg', 'Coil side', 'render'],
-  ['aetherlux-indoor-unit.png', 'AetherLux indoor unit', 'render'],
-  ['aetherlux-indoor-unit-angle.png', 'AetherLux indoor unit, angle', 'render'],
+  ['aetherlux-indoor-unit.png', 'AetherLux indoor unit', 'render', 'fit'],
+  ['aetherlux-indoor-unit-angle.png', 'AetherLux indoor unit, angle', 'render', 'fit'],
+  ['aetherlux-outdoor-exploded.png', 'Exploded view (conceptual)', 'render', 'fit', '#b9c1c9'],
+  ['aetherlux-outdoor-interior.png', 'Exposed interior (illustrative finishes)', 'render', 'fit', '#b9c1c9'],
+  ['aetherlux-outdoor-interior-detail.png', 'Interior detail (illustrative finishes)', 'render', 'fit', '#b9c1c9'],
 ];
 
 const TVE_NEWS = [

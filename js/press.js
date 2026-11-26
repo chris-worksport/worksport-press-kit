@@ -8,43 +8,45 @@ const ASSET_BASE = 'assets/';
 /* ---------- Download bundles ---------- */
 const BUNDLES = [
   { file: 'downloads/Worksport-Press-Kit-All.zip', name: 'Worksport Press Kit — Everything', thumb: 'images/thumbs/nexus-lifestyle-red-f150.jpg',
-    desc: 'Logos, full-resolution product and manufacturing photography, leadership headshots and the brand guide in one archive.', all: true },
+    desc: 'Logos, full-resolution product and campus photography, leadership headshots and the brand guide in one archive. Terravis Energy assets are in the Terravis media room.', all: true },
   { file: 'downloads/Worksport-Logos.zip', name: 'Worksport Logos', thumb: 'logos/worksport/WKSP-FullLogo-ColoredBlack-PNG.png', pad: true,
     desc: 'Full logo, emblem and Nasdaq: WKSP lockup in SVG, PNG and PDF. Product wordmarks for NEXUS, HD3, AL4, AL3, SC4, SC3, SOLIS and COR.' },
   { file: 'downloads/Worksport-Product-Images.zip', name: 'Product Photography (Full Resolution)', thumb: 'images/thumbs/solis-cor-jeep-canyon.jpg',
     desc: 'NEXUS, HD3, AL4, SOLIS and COR lifestyle and studio imagery, up to 5,000 px wide.' },
   { file: 'downloads/Worksport-Manufacturing-Images.zip', name: 'Worksport Campus & Manufacturing', thumb: 'images/thumbs/factory-assembly-line.jpg',
-    desc: 'The 152,000 sq. ft. West Seneca, New York factory: production floor, assembly and campus exterior.' },
+    desc: 'The 152,000 sq. ft. Worksport Campus in West Seneca, New York: production floor, assembly and campus exterior.' },
   { file: 'downloads/Worksport-Web-Ready-Images.zip', name: 'Web-Ready Images', thumb: 'images/thumbs/hd3-silver-truck-mountains.jpg',
     desc: 'Every photo in this kit resized to 1,600 px JPEG for web and social use.' },
   { file: 'downloads/Worksport-Leadership-Headshots.zip', name: 'Leadership Headshots', thumb: 'images/thumbs/steven-rossi.jpg',
     desc: 'Steven Rossi, the executive team and the board of directors, as shown on investors.worksport.com.' },
+  { file: 'downloads/Worksport-Product-Brochures.zip', name: 'Product Brochures (PDF)', thumb: 'images/thumbs/all-hard-covers-lineup.jpg',
+    desc: 'The 2026 tri-fold brochures for NEXUS, HD3, AL4, AL3, SC4, SC3, SOLIS and COR: specs, features and fitment in print-ready PDF.' },
+  { file: 'downloads/Worksport-Website-Images.zip', name: 'Website Product Images', thumb: 'images/thumbs/web-nexus-02.jpg',
+    desc: 'The product carousel images from worksport.com, 1,260 to 5,040 px wide, as individual files.' },
   { file: 'downloads/Worksport-Brand-Guide.zip', name: 'Brand Guide (PDF)', thumb: 'logos/worksport/WKSP-Emblem-Blue-PNG.png', pad: true,
     desc: 'Logo usage, colour and typography for Worksport and its product wordmarks, 2026 edition.' },
-  { file: 'downloads/Terravis-Energy-Press-Kit.zip', name: 'Terravis Energy Press Kit', thumb: 'terravis/thumbs/aetherlux-outdoor-unit-angle.jpg',
-    desc: 'Logos, AetherLux renders and the Terravis brand guide. See the Terravis media room for the full set.' },
 ];
 
 /* ---------- Products ---------- */
 const PRODUCTS = [
   { id: 'nexus', tag: 'Hard tonneau cover', name: 'NEXUS', logo: 'logos/products/NEXUS/Nexus_FullFormat-H-White-REV-A.png', img: 'images/thumbs/nexus-lifestyle-red-f150.jpg',
     desc: 'Worksport’s flagship flip-up hard tonneau cover with proprietary single-side operation. Launched into commercial production in April 2026 and made at the Worksport Campus in West Seneca, New York.',
-    links: [['Product page', 'https://www.worksport.com/products/nexus'], ['Logo files', '#logos']] },
+    links: [['Product page', 'https://www.worksport.com/products/nexus'], ['Brochure (PDF)', 'assets/docs/brochures/Worksport-NEXUS-Brochure-2026.pdf'], ['Logo files', '#logos']] },
   { id: 'hd3', tag: 'Heavy-duty tonneau cover', name: 'HD3', logo: 'logos/products/HD3/HD3_FullFormat-White.png', img: 'images/thumbs/hd3-silver-truck-mountains.jpg',
     desc: 'Heavy-duty tri-fold hard cover built for work and fleet use. In production since October 2025 and sold through dealers and distributors across North America.',
-    links: [['Product page', 'https://www.worksport.com/products/hd3'], ['Logo files', '#logos']] },
+    links: [['Product page', 'https://www.worksport.com/products/hd3'], ['Brochure (PDF)', 'assets/docs/brochures/Worksport-HD3-Brochure-2026.pdf'], ['Logo files', '#logos']] },
   { id: 'al4', tag: 'Premium tonneau cover', name: 'AL4', logo: 'logos/products/AL4/AL4_FullFormat-White.png', img: 'images/thumbs/al4-gmc-sierra-lumber.jpg',
     desc: 'Premium hard-folding tonneau cover, designed and manufactured in-house. The AL4 was Worksport’s first U.S.-made cover and anchored the company’s 2025 growth.',
-    links: [['Product page', 'https://www.worksport.com/products/al4'], ['Logo files', '#logos']] },
-  { id: 'solis', tag: 'Solar tonneau cover', name: 'SOLIS', logo: 'logos/products/SOLIS/SOLIS_FullFormat-White.png', img: 'images/thumbs/solis-ford-f150.jpg',
-    desc: 'A folding solar tonneau cover that turns the truck bed into a power source. Pairs with COR to form a portable energy system for work, recreation, travel and backup power.',
-    links: [['Product page', 'https://www.worksport.com/products/solis'], ['Logo files', '#logos']] },
-  { id: 'cor', tag: 'Portable battery generator', name: 'COR', logo: 'logos/products/COR/COR-FullLogo-Rev-White-PNG.png', img: 'images/thumbs/cor-portable-battery-render.jpg',
-    desc: 'Portable battery generator and mobile energy storage system. UL and CSA certified, available through worksport.com and Amazon, and designed to charge from SOLIS on the move.',
-    links: [['Product page', 'https://www.worksport.com/products/cor'], ['Logo files', '#logos']] },
-  { id: 'family', tag: 'The system', name: 'SOLIS + COR', logo: null, img: 'images/thumbs/solis-cor-hero-closeup.jpg',
-    desc: 'Together SOLIS and COR form a mobile power platform: solar generation on the bed, swappable battery storage in the truck, and power for tools, camp, travel or emergency backup.',
-    links: [['SOLIS + COR', 'https://www.worksport.com/products/solis']] },
+    links: [['Product page', 'https://www.worksport.com/products/al4'], ['Brochure (PDF)', 'assets/docs/brochures/Worksport-AL4-Brochure-2026.pdf'], ['Logo files', '#logos']] },
+  { id: 'solis', tag: 'Solar tonneau cover', name: 'SOLIS', logo: 'logos/products/SOLIS/SOLIS_FullFormat-White.png', img: 'images/thumbs/solis-open-panels-tundra.jpg',
+    desc: 'A folding solar tonneau cover that turns the truck bed into a power source, generating up to 650 watts. Sold on its own, and the subject of Worksport’s active partnership with Hyundai.',
+    links: [['Product page', 'https://www.worksport.com/products/solis'], ['Brochure (PDF)', 'assets/docs/brochures/Worksport-SOLIS-Brochure-2026.pdf'], ['Logo files', '#logos']] },
+  { id: 'cor', tag: 'Portable energy system', name: 'COR', logo: 'logos/products/COR/COR-FullLogo-Rev-White-PNG.png', img: 'images/thumbs/cor-battery-studio.jpg', fit: true,
+    desc: 'Portable battery generator and mobile energy storage system, sold on its own. UL and CSA certified and available through worksport.com and Amazon; charges from SOLIS, the wall or the vehicle.',
+    links: [['Product page', 'https://www.worksport.com/products/cor'], ['Brochure (PDF)', 'assets/docs/brochures/Worksport-COR-Brochure-2026.pdf'], ['Logo files', '#logos']] },
+  { id: 'accessories', tag: 'Accessories', name: 'SOLIS & COR accessories', logo: null, img: 'images/thumbs/cor-home-use.jpg',
+    desc: 'Add-on COR battery packs (1 kWh each), the COR battery charger and the accessories that let SOLIS and COR work together as one mobile power system.',
+    links: [['Shop accessories', 'https://www.worksport.com/products/cor']] },
 ];
 
 /* ---------- Brand logos ---------- */
@@ -70,10 +72,11 @@ const PRODUCT_LOGOS = [
   { name: 'COR', light: 'logos/products/COR/COR-FullLogo-Rev-Black-PNG.png', dark: 'logos/products/COR/COR-FullLogo-Rev-White-PNG.png', svg: 'logos/products/COR/COR-FullLogo-Rev-Black-EPS.eps', svgLabel: 'EPS' },
 ];
 
-/* ---------- Image gallery (file = name in images/originals; thumb/web share the name as .jpg) ---------- */
+/* ---------- Image gallery (file = name in images/originals; thumb/web share the name as .jpg)
+   Optional 4th value 'fit' shows the whole image in the tile; optional 5th value is the tile background colour behind a fitted image. ---------- */
 const IMAGES = [
   ['nexus-lifestyle-red-f150.jpg', 'NEXUS on a Ford F-150', 'nexus'],
-  ['solis-cor-jeep-canyon.jpg', 'SOLIS + COR, canyon', 'solis'],
+  ['solis-cor-jeep-canyon.jpg', 'SOLIS and COR, canyon', 'solis'],
   ['hd3-silver-truck-mountains.jpg', 'HD3 in the mountains', 'hd3'],
   ['factory-assembly-line.jpg', 'Assembly line, Worksport Campus', 'factory'],
   ['nexus-open-bed-gear.jpg', 'NEXUS flipped open, bed loaded', 'nexus'],
@@ -95,13 +98,13 @@ const IMAGES = [
   ['solis-folded-barn.jpg', 'SOLIS folded', 'solis'],
   ['solis-lifestyle-sunset.png', 'SOLIS at sunset', 'solis'],
   ['solis-lifestyle-golden-hour.png', 'SOLIS, golden hour', 'solis'],
-  ['solis-cor-dodge-night.jpg', 'SOLIS + COR at night', 'solis'],
-  ['solis-cor-hero-closeup.jpg', 'SOLIS + COR close-up', 'solis'],
-  ['cor-battery-studio.png', 'COR, studio', 'solis'],
+  ['solis-cor-dodge-night.jpg', 'SOLIS and COR at night', 'solis'],
+  ['solis-cor-hero-closeup.jpg', 'SOLIS and COR close-up', 'solis'],
+  ['cor-battery-studio.png', 'COR, studio', 'solis', 'fit'],
   ['cor-home-use.jpg', 'COR at home', 'solis'],
   ['cor-moving-day.jpg', 'COR on moving day', 'solis'],
   ['solis-nexus-cor-family.png', 'SOLIS, NEXUS and COR', 'solis'],
-  ['terravis-dodge-worksite.jpg', 'SOLIS + COR on site', 'solis'],
+  ['terravis-dodge-worksite.jpg', 'SOLIS and COR on site', 'solis'],
   ['factory-floor-overview.jpg', 'Worksport Campus production floor', 'factory'],
   ['factory-panel-assembly.jpg', 'Panel assembly', 'factory'],
   ['factory-production-cell.jpg', 'Production cell', 'factory'],
@@ -109,6 +112,51 @@ const IMAGES = [
   ['factory-panel-build.jpg', 'Building a panel', 'factory'],
   ['factory-rail-inventory.jpg', 'Rail inventory', 'factory'],
   ['campus-exterior-flags.jpg', 'Worksport Campus, West Seneca, NY', 'factory'],
+  /* Product carousel images from worksport.com (file names keep the site's numbering) */
+  ['web-nexus-01.jpg', 'NEXUS, worksport.com', 'nexus'],
+  ['web-nexus-02.jpg', 'NEXUS on a red truck, worksport.com', 'nexus'],
+  ['web-nexus-04.jpg', 'NEXUS, orange truck, worksport.com', 'nexus'],
+  ['web-nexus-05.jpg', 'NEXUS open bed, worksport.com', 'nexus'],
+  ['web-nexus-07.jpg', 'Loading under a NEXUS, worksport.com', 'nexus'],
+  ['web-nexus-09.jpg', 'NEXUS latch, worksport.com', 'nexus'],
+  ['web-hd3-01.jpg', 'HD3 in the mountains, worksport.com', 'hd3'],
+  ['web-hd3-02.jpg', 'HD3 on the job, worksport.com', 'hd3'],
+  ['web-hd3-03.jpg', 'HD3 on a black truck, worksport.com', 'hd3'],
+  ['web-hd3-04.jpg', 'HD3 release, worksport.com', 'hd3'],
+  ['web-al4-01.png', 'AL4 on a silver truck, worksport.com', 'hd3'],
+  ['web-al4-06.png', 'AL4 on a Ram, worksport.com', 'hd3'],
+  ['web-al4-08.png', 'AL4 panel detail, worksport.com', 'hd3'],
+  ['web-al3-02.png', 'AL3 with gear, worksport.com', 'hd3'],
+  ['web-al3-04.png', 'AL3 on a white truck, worksport.com', 'hd3'],
+  ['web-solis-keagan-02.jpg', 'SOLIS deployed, worksport.com', 'solis'],
+  ['web-solis-frank-04.jpg', 'SOLIS and COR at the tailgate, worksport.com', 'solis'],
+  ['web-solis-tbs-01.jpg', 'SOLIS folded, worksport.com', 'solis'],
+  ['web-solis-01.png', 'SOLIS on a silver truck, worksport.com', 'solis'],
+  ['web-solis-03.png', 'SOLIS panels open, worksport.com', 'solis'],
+  ['web-solis-07.jpg', 'SOLIS in snow, worksport.com', 'solis'],
+  ['web-cor-tbs-01.jpg', 'COR at the tailgate, worksport.com', 'solis'],
+  ['web-cor-tbs-03.jpg', 'COR at camp, worksport.com', 'solis'],
+  ['web-cor-01.png', 'COR in the bed, worksport.com', 'solis'],
+  ['web-cor-03.png', 'COR on the bench, worksport.com', 'solis'],
+  ['web-cor-07.png', 'COR display, worksport.com', 'solis'],
+  ['web-cor-08.jpg', 'COR on site, worksport.com', 'solis'],
+];
+
+/* ---------- Video (click a poster to play; posters are in assets/video/) ---------- */
+const VIDEOS_INITIAL = 6;
+const VIDEOS = [
+  { src: 'vimeo', id: '1021123467', title: 'Worksport campaign video', note: 'Brand film, 4 min · investors.worksport.com', mp4: 'https://cdn.prod.website-files.com/675add148ab8737131a0a937/675add148ab8737131a0aa5b_Worksport%20Campaign%20Video_1-transcode.mp4' },
+  { src: 'vimeo', id: '1035606502', title: 'Live interview at the Nasdaq MarketSite with CEO Steven Rossi', note: '6 min · investors.worksport.com' },
+  { src: 'vimeo', id: '1037805972', title: 'Creating 280 new jobs: expanding production at the West Seneca campus', note: '3 min · investors.worksport.com' },
+  { src: 'yt', id: '_Jp9CY-74DM', title: 'Tonneau cover tech hasn’t changed in 20 years: why NEXUS exists', note: 'YouTube · Worksport' },
+  { src: 'yt', id: '5Tk5nwn2XKo', title: 'Inside the Worksport factory: how it runs every day', note: 'YouTube · Worksport' },
+  { src: 'yt', id: 'hQtDqjoLtlE', title: 'Solar tonneau cover: why you can throw weight on it', note: 'YouTube · SOLIS' },
+  { src: 'yt', id: '4AfKYQJ7YXE', title: 'Flip-up tonneau cover: why open both sides ever again?', note: 'YouTube · NEXUS' },
+  { src: 'yt', id: 'bsGoVrZO45E', title: 'Portable power station with a battery that pops out and goes', note: 'YouTube · COR' },
+  { src: 'yt', id: 'hU8BqjyHUjo', title: 'Portable power station uses you never thought of', note: 'YouTube · COR' },
+  { src: 'yt', id: 'WsfkLT8sYeA', title: 'Hard tonneau cover vs 396 lbs of limestone', note: 'YouTube · HD3' },
+  { src: 'yt', id: 'oQ3LwJ6lqSY', title: 'Auto-latching tonneau cover: once you try it, no going back', note: 'YouTube · NEXUS' },
+  { src: 'yt', id: '93aZHa1tI70', title: 'Behind the build: the people and engineering behind Worksport', note: 'YouTube · short' },
 ];
 
 /* ---------- Team (photo = file in leadership/) ---------- */
@@ -147,6 +195,42 @@ const NEWS = [
   ['June 25, 2026', 'Worksport Regains $1 Bid Price Requirement, Announces CEO Town Hall, Highlights Multiple Recent Growth Drivers in CEO Letter', 'https://investors.worksport.com/post/worksport-nasdaq-wksp-regains-1-bid-price-requirement-announces-ceo-town-hall-highlights-multiple-recent-growth-drivers-in-ceo-letter'],
   ['June 22, 2026', 'Worksport Achieves 35% May Gross Margin, Lands Meyer Distribution, Targets $36M+ Revenue Run-Rate', 'https://investors.worksport.com/post/worksport-nasdaq-wksp-achieves-35-may-gross-margin-lands-meyer-distribution-targets-36m-revenue-run-rate'],
 ];
+
+/* ---------- Social channels (icons render wherever an element has data-socials) ---------- */
+const SOCIALS = [
+  ['LinkedIn', 'https://www.linkedin.com/company/worksport/', '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>'],
+  ['X', 'https://x.com/WorksportLtd', '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg>'],
+  ['Instagram', 'https://www.instagram.com/worksportltd/', '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95C23.73 2.7 21.31.27 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>'],
+  ['Facebook', 'https://www.facebook.com/WorksportLtd/', '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>'],
+  ['YouTube', 'https://www.youtube.com/channel/UCmZTPFel5WeDi38c2ilPHRg', '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg>'],
+];
+
+/* ---------- Timeline (oldest first). Categories: company, capital, product, terravis.
+   When a new release lands on investors.worksport.com, tools/update-news.py adds it to NEWS; add a line here if it is a milestone. */
+const TIMELINE_INITIAL = 7;  /* items shown on mobile before "Show full timeline" */
+const TIMELINE = [
+  ['2011', 'Founded', 'Steven Rossi founds Worksport as a maker of pickup truck bed covers.', 'company'],
+  ['Aug 2021', 'Nasdaq listing', 'Worksport uplists to the Nasdaq Capital Market as WKSP with an upsized $18 million public offering.', 'capital'],
+  ['May 2022', 'An American campus', 'Buys the 152,000 sq. ft. manufacturing campus in West Seneca, New York, bringing production of its covers to the United States.', 'company'],
+  ['2022', 'Hyundai', 'Formal agreement with Hyundai America Technical Center to build SOLIS and COR prototypes for the Hyundai Santa Cruz; the SOLIS partnership is still active today.', 'product'],
+  ['May 2024', '280 new jobs', 'New York State announces Worksport’s $6 million expansion at the West Seneca campus, creating 280 jobs.', 'company'],
+  ['2024', '455% growth', 'Fiscal 2024 revenue grows 455% year over year as U.S. production ramps.', 'company'],
+  ['Feb 2025', 'AetherLux™ unveiled', 'Subsidiary Terravis Energy reveals AetherLux, the cold-climate heat pump with ZeroFrost™ technology that eliminates defrost cycles, tested from −57 °F to +131 °F.', 'terravis'],
+  ['Apr 2025', 'AL4 sets records', 'The U.S.-made AL4 drives a record sales month, with March B2B sales up 70% and the dealer network up 64% in the first quarter.', 'product'],
+  ['2025', 'ISO 9001', 'The Worksport Campus earns ISO 9001 certification, opening OEM and fleet pathways.', 'company'],
+  ['Fall 2025', 'SOLIS and COR launch', 'The SOLIS solar tonneau and COR portable energy system go on sale with UL and CSA certification; a $10 million Regulation A raise closes.', 'product'],
+  ['Oct 2025', 'HD3 and Alaska', 'The HD3 heavy-duty cover enters production, and Terravis wins a competitive NTAP award with the U.S. DOE’s NREL to analyse ZeroFrost in Alaska.', 'terravis'],
+  ['Jan 2026', 'Heat pump manufacturing partner', 'Terravis selects a major Asian manufacturing partner for AetherLux, with commercialisation planned within 2026.', 'terravis'],
+  ['Feb 2026', 'Breakout quarter', 'Q4 2025 revenue up 65% and gross profit up 380% year over year; a government agency begins evaluating AetherLux for a potential long-term supply deal.', 'company'],
+  ['Apr 2026', 'NEXUS', 'NEXUS, the flagship single-side flip-up cover, enters commercial production at the Worksport Campus and becomes the fastest-growing product in company history.', 'product'],
+  ['2026', 'ZeroFrost™ patented', 'U.S. Patent No. 12,624,872 B2 is granted for the AetherLux heat pump system with ZeroFrost technology.', 'terravis'],
+  ['Jun 2026', 'Strongest month ever', 'June 2026 is the strongest month in company history, with gross profit up 132% from April to June; Worksport regains Nasdaq’s $1 bid price requirement.', 'company'],
+  ['Sep 2026', 'COR on Amazon', 'The COR energy system launches on Amazon; August orders of $2.92 million put the annualised order run rate at $35 million.', 'product'],
+  ['Oct 2026', 'Slate Auto', 'Named a supplier on the Slate Auto Marketplace; SOLIS and COR shown on a Slate Truck at the Slate Collective Summit.', 'product'],
+  ['Nov 2026', 'Record quarter', 'Record Q3 net sales of $7.23 million, up 44% year over year, with net loss narrowing 28%; a term sheet is signed to acquire a U.S.-made truck bed accessory business and its IP.', 'company'],
+  ['Nov 2026', 'Largest distribution deal to date', 'Supplier agreement with The AAM Group puts NEXUS and HD3 in front of about 11,500 jobber locations and 60+ distribution centers across North America.', 'company'],
+];
+const TL_LABEL = { company: 'Enterprise', capital: 'Capital', product: 'Products', terravis: 'Terravis Energy' };
 
 /* ======================================================================= */
 
@@ -188,12 +272,12 @@ function renderProducts(list) {
   const el = document.getElementById('products-grid'); if (!el) return;
   el.innerHTML = list.map(p => `
     <article class="prod" id="prod-${p.id}">
-      <div class="img"><img src="${u(p.img)}" alt="${esc(p.name)}" loading="lazy"></div>
+      <div class="img ${p.fit ? 'fit' : ''}"><img src="${u(p.img)}" alt="${esc(p.name)}" loading="lazy"></div>
       <div class="body">
         ${p.logo ? `<img class="plogo" src="${u(p.logo)}" alt="${esc(p.name)} logo">` : `<h3>${esc(p.name)}</h3>`}
         <div class="tag">${esc(p.tag)}</div>
         <p>${esc(p.desc)}</p>
-        <div class="links">${p.links.map(([t, h]) => `<a href="${h}" ${h.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}>${esc(t)} →</a>`).join('')}</div>
+        <div class="links">${p.links.map(([t, h]) => `<a href="${h}" ${h.startsWith('http') ? 'target="_blank" rel="noopener"' : (h.startsWith('assets/') ? 'download' : '')}>${esc(t)} →</a>`).join('')}</div>
       </div>
     </article>`).join('');
 }
@@ -222,9 +306,9 @@ let galleryExpanded = false;
 function renderGallery(list, initial) {
   const el = document.getElementById('gallery'); if (!el) return;
   galleryIndex = list;
-  el.innerHTML = list.map(([f, cap, cat], i) => `
-    <button class="gal-item ${i >= initial ? 'collapsed' : ''}" data-cat="${cat}" data-i="${i}" type="button" aria-label="View ${esc(cap)}">
-      <img src="${u(KIT.dir + '/thumbs/' + webName(f))}" alt="${esc(cap)}" loading="lazy">
+  el.innerHTML = list.map(([f, cap, cat, fit, bg], i) => `
+    <button class="gal-item ${i >= initial ? 'collapsed' : ''} ${fit ? 'fit' : ''}" data-cat="${cat}" data-i="${i}" type="button" aria-label="View ${esc(cap)}">
+      <img src="${u(KIT.dir + '/thumbs/' + webName(f))}" alt="${esc(cap)}" loading="lazy" ${bg ? `style="background:${bg}"` : ''}>
       <span class="lbl">${esc(cap)}</span>
       <a class="dl" href="${u(KIT.dir + '/originals/' + f)}" download title="Download full resolution" aria-label="Download ${esc(cap)}" onclick="event.stopPropagation()">${ICON_DL}</a>
     </button>`).join('');
@@ -236,7 +320,44 @@ function renderGallery(list, initial) {
     const c = btn.dataset.filter;
     if (!galleryExpanded) { galleryExpanded = true; el.querySelectorAll('.collapsed').forEach(x => x.classList.remove('collapsed')); if (moreRow) moreRow.classList.add('hidden'); }
     el.querySelectorAll('.gal-item').forEach(it => it.classList.toggle('hidden', c !== 'all' && it.dataset.cat !== c));
+    updateSetButtons();
   }));
+  updateSetButtons();
+}
+
+/* Section downloads: zip the images currently shown (respects the filter) in the browser, full-res or web size. */
+function shownImages() { return [...document.querySelectorAll('.gal-item:not(.hidden)')].map(b => galleryIndex[+b.dataset.i]); }
+function updateSetButtons() {
+  const n = shownImages().length;
+  const f = document.querySelector('.filters [aria-pressed="true"]');
+  const what = f && f.dataset.filter !== 'all' ? f.textContent.trim() : 'all';
+  document.querySelectorAll('[data-dl-set]').forEach(b => { b.querySelector('.n').textContent = `${what === 'all' ? 'all ' : ''}${n} ${what === 'all' ? 'images' : what + ' images'}`; });
+}
+let zipBusy = false;
+async function downloadSet(kind) {
+  if (zipBusy) return;
+  if (!window.JSZip) { toast('Zip tool is still loading, try again in a moment'); return; }
+  const items = shownImages(); if (!items.length) return;
+  zipBusy = true;
+  const f = document.querySelector('.filters [aria-pressed="true"]');
+  const tag = f && f.dataset.filter !== 'all' ? f.dataset.filter : 'all';
+  const zip = new JSZip(); let n = 0;
+  try {
+    for (const [file] of items) {
+      const name = kind === 'web' ? webName(file) : file;
+      const path = KIT.dir + (kind === 'web' ? '/web/' : '/originals/') + name;
+      toast(`Adding ${++n} of ${items.length}…`);
+      const r = await fetch(u(path)); if (!r.ok) continue;
+      zip.file(name, await r.blob());
+    }
+    toast('Zipping…');
+    const blob = await zip.generateAsync({ type: 'blob' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+    a.download = `${KIT.name || 'Worksport'}-images-${tag}-${kind === 'web' ? 'web' : 'full-res'}.zip`;
+    document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 4000);
+    toast(`Download started (${items.length} files)`);
+  } catch (e) { toast('Could not build the zip'); }
+  zipBusy = false;
 }
 
 /* Lightbox */
@@ -253,6 +374,7 @@ function updateLB() {
   const orig = KIT.dir + '/originals/' + f;
   document.getElementById('lb-meta').textContent = `${f} · ${typeOf(f)} · ${sizeOf(orig)}`;
   const a = document.getElementById('lb-dl'); a.href = u(orig); a.setAttribute('download', '');
+  const w = document.getElementById('lb-dl-web'); if (w) { const web = KIT.dir + '/web/' + webName(f); w.href = u(web); w.setAttribute('download', ''); w.querySelector('.sz').textContent = sizeOf(web); }
 }
 
 
@@ -274,6 +396,46 @@ function renderNews(list, initial) {
   if (moreRow) { if (list.length <= initial) moreRow.classList.add('hidden'); moreBtn.addEventListener('click', () => { el.querySelectorAll('.collapsed').forEach(x => x.classList.remove('collapsed')); moreRow.classList.add('hidden'); }); }
 }
 
+function renderVideos(list, initial) {
+  const el = document.getElementById('video-grid'); if (!el) return;
+  el.innerHTML = list.map((v, i) => `
+    <figure class="vid ${i >= initial ? 'collapsed' : ''}" data-src="${v.src}" data-id="${v.id}">
+      <button class="poster" type="button" aria-label="Play: ${esc(v.title)}">
+        <img src="${u('video/' + (v.src === 'yt' ? 'yt-' : 'vimeo-') + v.id + '.jpg')}" alt="" loading="lazy">
+        <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
+      <figcaption>
+        <div class="vt">${esc(v.title)}</div>
+        <div class="vn">${esc(v.note)}${v.mp4 ? ` · <a href="${v.mp4}" download>Download MP4</a>` : ''} · <a href="${v.src === 'yt' ? 'https://www.youtube.com/watch?v=' + v.id : 'https://vimeo.com/' + v.id}" target="_blank" rel="noopener">Open ↗</a></div>
+      </figcaption>
+    </figure>`).join('');
+  el.addEventListener('click', e => {
+    const b = e.target.closest('.poster'); if (!b) return;
+    const f = b.closest('.vid'); const { src, id } = f.dataset;
+    const url = src === 'yt' ? `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0` : `https://player.vimeo.com/video/${id}?autoplay=1`;
+    b.outerHTML = `<div class="frame"><iframe src="${url}" title="Video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`;
+  });
+  const moreRow = document.getElementById('video-more'); const moreBtn = document.getElementById('video-more-btn');
+  if (moreRow) { if (list.length <= initial) moreRow.classList.add('hidden'); moreBtn.addEventListener('click', () => { el.querySelectorAll('.collapsed').forEach(x => x.classList.remove('collapsed')); moreRow.classList.add('hidden'); }); }
+}
+
+function renderTimeline(list, initial) {
+  const el = document.getElementById('timeline-list'); if (!el) return;
+  el.innerHTML = list.map(([d, t, txt, c], i) => `
+    <li class="tl-item ${c} ${i >= initial ? 'extra' : ''}">
+      <div class="tl-date">${esc(d)}</div>
+      <div class="tl-card"><span class="tl-tag">${TL_LABEL[c] || c}</span><h3>${esc(t)}</h3><p>${esc(txt)}</p></div>
+    </li>`).join('');
+  const btn = document.getElementById('timeline-more-btn');
+  if (btn) btn.addEventListener('click', () => { el.querySelectorAll('.extra').forEach(x => x.classList.remove('extra')); btn.parentElement.classList.add('hidden'); });
+}
+
+function renderSocials() {
+  document.querySelectorAll('[data-socials]').forEach(el => {
+    el.innerHTML = SOCIALS.map(([n, h, icon]) => `<a class="soc" href="${h}" target="_blank" rel="noopener" aria-label="Worksport on ${n}" title="${n}">${icon}</a>`).join('');
+  });
+}
+
 function copyText(id) {
   const t = document.getElementById(id).innerText;
   navigator.clipboard.writeText(t).then(() => toast('Copied to clipboard'), () => toast('Copy failed'));
@@ -288,6 +450,8 @@ function wireCommon() {
   document.getElementById('lb').addEventListener('click', e => { if (e.target.id === 'lb') closeLB(); });
   document.addEventListener('keydown', e => { if (!document.getElementById('lb').classList.contains('open')) return; if (e.key === 'Escape') closeLB(); if (e.key === 'ArrowLeft') stepLB(-1); if (e.key === 'ArrowRight') stepLB(1); });
   document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', () => copyText(b.dataset.copy)));
+  document.querySelectorAll('[data-dl-set]').forEach(b => b.addEventListener('click', () => downloadSet(b.dataset.dlSet)));
+  renderSocials();
   const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
 }
 
@@ -296,7 +460,7 @@ async function loadManifest() { try { MANIFEST = await (await fetch('js/manifest
 if (!window.KIT) {
   document.addEventListener('DOMContentLoaded', async () => {
     await loadManifest();
-    renderBundles(BUNDLES); renderProducts(PRODUCTS); renderLogos(BRAND_LOGOS, PRODUCT_LOGOS); renderGallery(IMAGES, GALLERY_INITIAL); renderTeam('team-exec', TEAM_EXEC); renderTeam('team-board', TEAM_BOARD); renderNews(NEWS, NEWS_INITIAL);
+    renderBundles(BUNDLES); renderProducts(PRODUCTS); renderLogos(BRAND_LOGOS, PRODUCT_LOGOS); renderGallery(IMAGES, GALLERY_INITIAL); renderTeam('team-exec', TEAM_EXEC); renderTeam('team-board', TEAM_BOARD); renderNews(NEWS, NEWS_INITIAL); renderTimeline(TIMELINE, TIMELINE_INITIAL); renderVideos(VIDEOS, VIDEOS_INITIAL);
     wireCommon();
   });
 }

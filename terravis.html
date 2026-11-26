@@ -6,7 +6,7 @@
 <title>Terravis Energy Media Room</title>
 <meta name="description" content="Terravis Energy press kit: company facts, AetherLux heat pump with ZeroFrost technology, logos, renders and media contact. A Worksport (Nasdaq: WKSP) subsidiary.">
 <meta property="og:title" content="Terravis Energy Media Room">
-<meta property="og:image" content="assets/terravis/web/aetherlux-home-winter.jpg">
+<meta property="og:image" content="assets/terravis/web/aetherlux-outdoor-front-right.jpg">
 <meta name="theme-color" content="#070708">
 <link rel="icon" type="image/png" href="assets/logos/terravis/20261119-AetherLux-AppLogo-PNG.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Exo+2:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/press.css">
 <link rel="stylesheet" href="css/terravis.css">
-<script>window.KIT = { dir: 'terravis' };</script>
+<script>window.KIT = { dir: 'terravis', name: 'Terravis' };</script>
 </head>
 <body>
 
@@ -132,7 +132,10 @@
         <h2>AetherLux™ with ZeroFrost™</h2>
         <p class="sub">Relentless heat. Zero interruptions. The AetherLux Multi-S heat pump heats continuously without reverse-cycle defrost.</p>
       </div>
-      <a class="btn btn-ghost btn-sm" href="https://aetherlux.terravisenergy.com" target="_blank" rel="noopener">aetherlux.terravisenergy.com ↗</a>
+      <div class="set-actions" style="margin-top:0">
+        <a class="btn btn-light btn-sm" href="assets/docs/AetherLux-Launch-Brochure-2026.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 19h16"/></svg>Launch brochure (PDF)</a>
+        <a class="btn btn-ghost btn-sm" href="https://aetherlux.terravisenergy.com" target="_blank" rel="noopener">aetherlux.terravisenergy.com ↗</a>
+      </div>
     </div>
     <div class="spec">
       <div class="s"><div class="n">0</div><div class="l">reverse-cycle defrost interruptions to indoor heating</div></div>
@@ -140,7 +143,7 @@
       <div class="s"><div class="n">20.0</div><div class="l">SEER2 · HSPF2 10.0 · ENERGY STAR certified</div></div>
       <div class="s"><div class="n">3 zones</div><div class="l">multi-split, 3.0 tons, patented and patents pending</div></div>
     </div>
-    <p class="sub" style="color:var(--ink-3);font-size:12px;margin-top:14px;max-width:none">Figures from the AetherLux launch brochure. Heating output may vary with outdoor conditions, system configuration and operating conditions; lab results reflect the unit and conditions tested.</p>
+    <p class="sub" style="color:var(--ink-3);font-size:12px;margin-top:14px;max-width:none">Figures from the AetherLux launch brochure (download above). Heating output may vary with outdoor conditions, system configuration and operating conditions; lab results reflect the unit and conditions tested.</p>
   </div>
 </section>
 
@@ -188,7 +191,11 @@
       <div>
         <div class="kicker">Renders</div>
         <h2>Images</h2>
-        <p class="sub">AetherLux outdoor and indoor units. Click to preview, use the arrow to download the full-resolution file.</p>
+        <p class="sub">The latest AetherLux outdoor-unit render package (November 2026), indoor units and in-situ scenes. Click to preview at web size, use the arrow to download one file, or download the whole set. Interior and exploded views are conceptual; material finishes are not final.</p>
+      </div>
+      <div class="set-actions">
+        <button class="btn btn-light btn-sm" type="button" data-dl-set="full"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 19h16"/></svg>Download&nbsp;<span class="n">all images</span>, full-res</button>
+        <button class="btn btn-ghost btn-sm" type="button" data-dl-set="web">Download&nbsp;<span class="n">all images</span>, web size</button>
       </div>
     </div>
     <div class="gal" id="gallery"></div>
@@ -219,7 +226,7 @@
     <div class="contact-grid">
       <div class="ccard">
         <h3>Media relations</h3>
-        <div class="big"><a href="mailto:theskar@worksport.com">theskar@worksport.com</a></div>
+        <div class="big"><a href="mailto:marketing@worksport.com">marketing@worksport.com</a></div>
         <p>Worksport Marketing, on behalf of Terravis Energy</p>
       </div>
       <div class="ccard">
@@ -229,11 +236,12 @@
       </div>
       <div class="ccard">
         <h3>Parent company</h3>
-        <div class="big">Worksport Ltd.</div>
-        <p>2500 North America Drive<br>West Seneca, NY 14224</p>
+        <div class="big">Worksport Ltd. (Nasdaq: WKSP)</div>
+        <p>Worksport Campus<br>2500 North America Drive<br>West Seneca, NY 14224</p>
       </div>
       <div class="ccard">
         <h3>Online</h3>
+        <div class="socials" data-socials></div>
         <div class="links">
           <a href="https://terravisenergy.com" target="_blank" rel="noopener">terravisenergy.com</a>
           <a href="https://aetherlux.terravisenergy.com" target="_blank" rel="noopener">aetherlux.terravisenergy.com</a>
@@ -250,6 +258,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <div>© <span id="year"></span> Terravis Energy, a subsidiary of Worksport Ltd. AetherLux and ZeroFrost are trademarks of Worksport Ltd. and its subsidiaries.</div>
+    <div class="socials" data-socials aria-label="Worksport social channels"></div>
     <div class="disc">Renders are for illustrative purposes only. Performance figures are from company testing and may vary with conditions. Assets are provided for editorial use and may not be used in advertising or resold.</div>
     <div><a href="index.html">Worksport press kit</a> · <a href="https://investors.worksport.com" target="_blank" rel="noopener">Investors</a></div>
   </div>
@@ -262,11 +271,15 @@
   <button class="next" id="lb-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button>
   <div class="bar">
     <div><div class="nm" id="lb-name"></div><div class="mt" id="lb-meta"></div></div>
-    <a class="btn btn-light btn-sm" id="lb-dl" href="#">Download full resolution</a>
+    <div class="acts">
+      <a class="btn btn-ghost btn-sm" id="lb-dl-web" href="#">Web size <span class="sz" style="opacity:.7;font-weight:500"></span></a>
+      <a class="btn btn-light btn-sm" id="lb-dl" href="#">Full resolution</a>
+    </div>
   </div>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" defer></script>
 <script src="js/press.js"></script>
 <script src="js/terravis.js"></script>
 </body>

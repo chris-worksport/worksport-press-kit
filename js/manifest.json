@@ -1,4 +1,64 @@
 {
+ "video/vimeo-1021123467.jpg": {
+  "bytes": 67589,
+  "size": "66 KB"
+ },
+ "video/vimeo-1035606502.jpg": {
+  "bytes": 61669,
+  "size": "60 KB"
+ },
+ "video/vimeo-1037805972.jpg": {
+  "bytes": 24480,
+  "size": "24 KB"
+ },
+ "video/yt-4AfKYQJ7YXE.jpg": {
+  "bytes": 9890,
+  "size": "10 KB"
+ },
+ "video/yt-5Tk5nwn2XKo.jpg": {
+  "bytes": 22983,
+  "size": "22 KB"
+ },
+ "video/yt-93aZHa1tI70.jpg": {
+  "bytes": 17780,
+  "size": "17 KB"
+ },
+ "video/yt-WsfkLT8sYeA.jpg": {
+  "bytes": 16546,
+  "size": "16 KB"
+ },
+ "video/yt-_Jp9CY-74DM.jpg": {
+  "bytes": 13037,
+  "size": "13 KB"
+ },
+ "video/yt-bsGoVrZO45E.jpg": {
+  "bytes": 17052,
+  "size": "17 KB"
+ },
+ "video/yt-hQtDqjoLtlE.jpg": {
+  "bytes": 14783,
+  "size": "14 KB"
+ },
+ "video/yt-hU8BqjyHUjo.jpg": {
+  "bytes": 15305,
+  "size": "15 KB"
+ },
+ "video/yt-oQ3LwJ6lqSY.jpg": {
+  "bytes": 13178,
+  "size": "13 KB"
+ },
+ "video/yt-rK_LIf8251M.jpg": {
+  "bytes": 12022,
+  "size": "12 KB"
+ },
+ "video/yt-vqTwsGq5RKs.jpg": {
+  "bytes": 12445,
+  "size": "12 KB"
+ },
+ "video/yt-yvBKFqkVED4.jpg": {
+  "bytes": 18529,
+  "size": "18 KB"
+ },
  "images/thumbs/al4-dodge-ram-rambox.jpg": {
   "bytes": 80688,
   "size": "79 KB"
@@ -150,6 +210,114 @@
  "images/thumbs/terravis-dodge-worksite.jpg": {
   "bytes": 80263,
   "size": "78 KB"
+ },
+ "images/thumbs/web-al3-02.jpg": {
+  "bytes": 150306,
+  "size": "147 KB"
+ },
+ "images/thumbs/web-al3-04.jpg": {
+  "bytes": 151790,
+  "size": "148 KB"
+ },
+ "images/thumbs/web-al4-01.jpg": {
+  "bytes": 103847,
+  "size": "101 KB"
+ },
+ "images/thumbs/web-al4-06.jpg": {
+  "bytes": 98855,
+  "size": "97 KB"
+ },
+ "images/thumbs/web-al4-08.jpg": {
+  "bytes": 111849,
+  "size": "109 KB"
+ },
+ "images/thumbs/web-cor-01.jpg": {
+  "bytes": 66643,
+  "size": "65 KB"
+ },
+ "images/thumbs/web-cor-03.jpg": {
+  "bytes": 60359,
+  "size": "59 KB"
+ },
+ "images/thumbs/web-cor-07.jpg": {
+  "bytes": 57782,
+  "size": "56 KB"
+ },
+ "images/thumbs/web-cor-08.jpg": {
+  "bytes": 78667,
+  "size": "77 KB"
+ },
+ "images/thumbs/web-cor-tbs-01.jpg": {
+  "bytes": 103960,
+  "size": "102 KB"
+ },
+ "images/thumbs/web-cor-tbs-03.jpg": {
+  "bytes": 119510,
+  "size": "117 KB"
+ },
+ "images/thumbs/web-hd3-01.jpg": {
+  "bytes": 104690,
+  "size": "102 KB"
+ },
+ "images/thumbs/web-hd3-02.jpg": {
+  "bytes": 60403,
+  "size": "59 KB"
+ },
+ "images/thumbs/web-hd3-03.jpg": {
+  "bytes": 90291,
+  "size": "88 KB"
+ },
+ "images/thumbs/web-hd3-04.jpg": {
+  "bytes": 46057,
+  "size": "45 KB"
+ },
+ "images/thumbs/web-nexus-01.jpg": {
+  "bytes": 88229,
+  "size": "86 KB"
+ },
+ "images/thumbs/web-nexus-02.jpg": {
+  "bytes": 64743,
+  "size": "63 KB"
+ },
+ "images/thumbs/web-nexus-04.jpg": {
+  "bytes": 112305,
+  "size": "110 KB"
+ },
+ "images/thumbs/web-nexus-05.jpg": {
+  "bytes": 76044,
+  "size": "74 KB"
+ },
+ "images/thumbs/web-nexus-07.jpg": {
+  "bytes": 85317,
+  "size": "83 KB"
+ },
+ "images/thumbs/web-nexus-09.jpg": {
+  "bytes": 54431,
+  "size": "53 KB"
+ },
+ "images/thumbs/web-solis-01.jpg": {
+  "bytes": 68721,
+  "size": "67 KB"
+ },
+ "images/thumbs/web-solis-03.jpg": {
+  "bytes": 91199,
+  "size": "89 KB"
+ },
+ "images/thumbs/web-solis-07.jpg": {
+  "bytes": 68111,
+  "size": "67 KB"
+ },
+ "images/thumbs/web-solis-frank-04.jpg": {
+  "bytes": 108354,
+  "size": "106 KB"
+ },
+ "images/thumbs/web-solis-keagan-02.jpg": {
+  "bytes": 111984,
+  "size": "109 KB"
+ },
+ "images/thumbs/web-solis-tbs-01.jpg": {
+  "bytes": 73300,
+  "size": "72 KB"
  },
  "images/web/al4-dodge-ram-rambox.jpg": {
   "bytes": 419760,
@@ -303,6 +471,114 @@
   "bytes": 396877,
   "size": "388 KB"
  },
+ "images/web/web-al3-02.jpg": {
+  "bytes": 560928,
+  "size": "548 KB"
+ },
+ "images/web/web-al3-04.jpg": {
+  "bytes": 578809,
+  "size": "565 KB"
+ },
+ "images/web/web-al4-01.jpg": {
+  "bytes": 465880,
+  "size": "455 KB"
+ },
+ "images/web/web-al4-06.jpg": {
+  "bytes": 383100,
+  "size": "374 KB"
+ },
+ "images/web/web-al4-08.jpg": {
+  "bytes": 399836,
+  "size": "390 KB"
+ },
+ "images/web/web-cor-01.jpg": {
+  "bytes": 301396,
+  "size": "294 KB"
+ },
+ "images/web/web-cor-03.jpg": {
+  "bytes": 179768,
+  "size": "176 KB"
+ },
+ "images/web/web-cor-07.jpg": {
+  "bytes": 191313,
+  "size": "187 KB"
+ },
+ "images/web/web-cor-08.jpg": {
+  "bytes": 320708,
+  "size": "313 KB"
+ },
+ "images/web/web-cor-tbs-01.jpg": {
+  "bytes": 377154,
+  "size": "368 KB"
+ },
+ "images/web/web-cor-tbs-03.jpg": {
+  "bytes": 548088,
+  "size": "535 KB"
+ },
+ "images/web/web-hd3-01.jpg": {
+  "bytes": 485288,
+  "size": "474 KB"
+ },
+ "images/web/web-hd3-02.jpg": {
+  "bytes": 200236,
+  "size": "196 KB"
+ },
+ "images/web/web-hd3-03.jpg": {
+  "bytes": 364736,
+  "size": "356 KB"
+ },
+ "images/web/web-hd3-04.jpg": {
+  "bytes": 157080,
+  "size": "153 KB"
+ },
+ "images/web/web-nexus-01.jpg": {
+  "bytes": 316122,
+  "size": "309 KB"
+ },
+ "images/web/web-nexus-02.jpg": {
+  "bytes": 393500,
+  "size": "384 KB"
+ },
+ "images/web/web-nexus-04.jpg": {
+  "bytes": 428752,
+  "size": "419 KB"
+ },
+ "images/web/web-nexus-05.jpg": {
+  "bytes": 281863,
+  "size": "275 KB"
+ },
+ "images/web/web-nexus-07.jpg": {
+  "bytes": 376048,
+  "size": "367 KB"
+ },
+ "images/web/web-nexus-09.jpg": {
+  "bytes": 238782,
+  "size": "233 KB"
+ },
+ "images/web/web-solis-01.jpg": {
+  "bytes": 224275,
+  "size": "219 KB"
+ },
+ "images/web/web-solis-03.jpg": {
+  "bytes": 367869,
+  "size": "359 KB"
+ },
+ "images/web/web-solis-07.jpg": {
+  "bytes": 292132,
+  "size": "285 KB"
+ },
+ "images/web/web-solis-frank-04.jpg": {
+  "bytes": 450628,
+  "size": "440 KB"
+ },
+ "images/web/web-solis-keagan-02.jpg": {
+  "bytes": 508820,
+  "size": "497 KB"
+ },
+ "images/web/web-solis-tbs-01.jpg": {
+  "bytes": 331421,
+  "size": "324 KB"
+ },
  "images/originals/al4-dodge-ram-rambox.png": {
   "bytes": 4336485,
   "size": "4.1 MB"
@@ -450,6 +726,114 @@
  "images/originals/terravis-dodge-worksite.jpg": {
   "bytes": 1625584,
   "size": "1.6 MB"
+ },
+ "images/originals/web-al3-02.png": {
+  "bytes": 2129306,
+  "size": "2.0 MB"
+ },
+ "images/originals/web-al3-04.png": {
+  "bytes": 2220907,
+  "size": "2.1 MB"
+ },
+ "images/originals/web-al4-01.png": {
+  "bytes": 624161,
+  "size": "610 KB"
+ },
+ "images/originals/web-al4-06.png": {
+  "bytes": 1916861,
+  "size": "1.8 MB"
+ },
+ "images/originals/web-al4-08.png": {
+  "bytes": 1973732,
+  "size": "1.9 MB"
+ },
+ "images/originals/web-cor-01.png": {
+  "bytes": 1351224,
+  "size": "1.3 MB"
+ },
+ "images/originals/web-cor-03.png": {
+  "bytes": 1117436,
+  "size": "1.1 MB"
+ },
+ "images/originals/web-cor-07.png": {
+  "bytes": 1284882,
+  "size": "1.2 MB"
+ },
+ "images/originals/web-cor-08.jpg": {
+  "bytes": 1439746,
+  "size": "1.4 MB"
+ },
+ "images/originals/web-cor-tbs-01.jpg": {
+  "bytes": 1323512,
+  "size": "1.3 MB"
+ },
+ "images/originals/web-cor-tbs-03.jpg": {
+  "bytes": 2264812,
+  "size": "2.2 MB"
+ },
+ "images/originals/web-hd3-01.jpg": {
+  "bytes": 749271,
+  "size": "732 KB"
+ },
+ "images/originals/web-hd3-02.jpg": {
+  "bytes": 247374,
+  "size": "242 KB"
+ },
+ "images/originals/web-hd3-03.jpg": {
+  "bytes": 519832,
+  "size": "508 KB"
+ },
+ "images/originals/web-hd3-04.jpg": {
+  "bytes": 182090,
+  "size": "178 KB"
+ },
+ "images/originals/web-nexus-01.jpg": {
+  "bytes": 421346,
+  "size": "411 KB"
+ },
+ "images/originals/web-nexus-02.jpg": {
+  "bytes": 720009,
+  "size": "703 KB"
+ },
+ "images/originals/web-nexus-04.jpg": {
+  "bytes": 571100,
+  "size": "558 KB"
+ },
+ "images/originals/web-nexus-05.jpg": {
+  "bytes": 381615,
+  "size": "373 KB"
+ },
+ "images/originals/web-nexus-07.jpg": {
+  "bytes": 569303,
+  "size": "556 KB"
+ },
+ "images/originals/web-nexus-09.jpg": {
+  "bytes": 325632,
+  "size": "318 KB"
+ },
+ "images/originals/web-solis-01.png": {
+  "bytes": 1398258,
+  "size": "1.3 MB"
+ },
+ "images/originals/web-solis-03.png": {
+  "bytes": 1674316,
+  "size": "1.6 MB"
+ },
+ "images/originals/web-solis-07.jpg": {
+  "bytes": 1129441,
+  "size": "1.1 MB"
+ },
+ "images/originals/web-solis-frank-04.jpg": {
+  "bytes": 2020460,
+  "size": "1.9 MB"
+ },
+ "images/originals/web-solis-keagan-02.jpg": {
+  "bytes": 1875542,
+  "size": "1.8 MB"
+ },
+ "images/originals/web-solis-tbs-01.jpg": {
+  "bytes": 1405798,
+  "size": "1.3 MB"
  },
  "logos/products/COR/COR-FullLogo-Rev-Black-EPS.eps": {
   "bytes": 1319886,
@@ -835,6 +1219,10 @@
   "bytes": 2641,
   "size": "3 KB"
  },
+ "docs/AetherLux-Launch-Brochure-2026.pdf": {
+  "bytes": 16516652,
+  "size": "15.8 MB"
+ },
  "docs/Terravis-Energy-Brand-Guide-2026.pdf": {
   "bytes": 897964,
   "size": "877 KB"
@@ -842,6 +1230,38 @@
  "docs/Worksport-Brand-Guide-2026.pdf": {
   "bytes": 2118941,
   "size": "2.0 MB"
+ },
+ "docs/brochures/Worksport-AL3-Brochure-2026.pdf": {
+  "bytes": 2579399,
+  "size": "2.5 MB"
+ },
+ "docs/brochures/Worksport-AL4-Brochure-2026.pdf": {
+  "bytes": 2351414,
+  "size": "2.2 MB"
+ },
+ "docs/brochures/Worksport-COR-Brochure-2026.pdf": {
+  "bytes": 1776043,
+  "size": "1.7 MB"
+ },
+ "docs/brochures/Worksport-HD3-Brochure-2026.pdf": {
+  "bytes": 2102764,
+  "size": "2.0 MB"
+ },
+ "docs/brochures/Worksport-NEXUS-Brochure-2026.pdf": {
+  "bytes": 2039747,
+  "size": "1.9 MB"
+ },
+ "docs/brochures/Worksport-SC3-Brochure-2026.pdf": {
+  "bytes": 2177062,
+  "size": "2.1 MB"
+ },
+ "docs/brochures/Worksport-SC4-Brochure-2026.pdf": {
+  "bytes": 1698118,
+  "size": "1.6 MB"
+ },
+ "docs/brochures/Worksport-SOLIS-Brochure-2026.pdf": {
+  "bytes": 1925289,
+  "size": "1.8 MB"
  },
  "terravis/thumbs/aetherlux-home-summer.jpg": {
   "bytes": 114383,
@@ -859,29 +1279,41 @@
   "bytes": 21974,
   "size": "21 KB"
  },
- "terravis/thumbs/aetherlux-outdoor-unit-angle.jpg": {
-  "bytes": 41547,
-  "size": "41 KB"
+ "terravis/thumbs/aetherlux-outdoor-exploded.jpg": {
+  "bytes": 35257,
+  "size": "34 KB"
  },
- "terravis/thumbs/aetherlux-outdoor-unit-badge.jpg": {
-  "bytes": 38838,
-  "size": "38 KB"
+ "terravis/thumbs/aetherlux-outdoor-front-left.jpg": {
+  "bytes": 64424,
+  "size": "63 KB"
  },
- "terravis/thumbs/aetherlux-outdoor-unit-dark.jpg": {
-  "bytes": 14029,
-  "size": "14 KB"
+ "terravis/thumbs/aetherlux-outdoor-front-right.jpg": {
+  "bytes": 62054,
+  "size": "61 KB"
  },
- "terravis/thumbs/aetherlux-outdoor-unit-detail.jpg": {
-  "bytes": 44134,
-  "size": "43 KB"
+ "terravis/thumbs/aetherlux-outdoor-front.jpg": {
+  "bytes": 64093,
+  "size": "63 KB"
  },
- "terravis/thumbs/aetherlux-outdoor-unit-front.jpg": {
-  "bytes": 33678,
+ "terravis/thumbs/aetherlux-outdoor-interior-detail.jpg": {
+  "bytes": 94472,
+  "size": "92 KB"
+ },
+ "terravis/thumbs/aetherlux-outdoor-interior.jpg": {
+  "bytes": 85900,
+  "size": "84 KB"
+ },
+ "terravis/thumbs/aetherlux-outdoor-rear-left.jpg": {
+  "bytes": 60645,
+  "size": "59 KB"
+ },
+ "terravis/thumbs/aetherlux-outdoor-rear-right.jpg": {
+  "bytes": 53603,
+  "size": "52 KB"
+ },
+ "terravis/thumbs/aetherlux-outdoor-service-side.jpg": {
+  "bytes": 33996,
   "size": "33 KB"
- },
- "terravis/thumbs/aetherlux-outdoor-unit-rear.jpg": {
-  "bytes": 49114,
-  "size": "48 KB"
  },
  "terravis/web/aetherlux-home-summer.jpg": {
   "bytes": 628133,
@@ -899,29 +1331,41 @@
   "bytes": 83807,
   "size": "82 KB"
  },
- "terravis/web/aetherlux-outdoor-unit-angle.jpg": {
-  "bytes": 173105,
-  "size": "169 KB"
- },
- "terravis/web/aetherlux-outdoor-unit-badge.jpg": {
-  "bytes": 178205,
-  "size": "174 KB"
- },
- "terravis/web/aetherlux-outdoor-unit-dark.jpg": {
-  "bytes": 58886,
-  "size": "58 KB"
- },
- "terravis/web/aetherlux-outdoor-unit-detail.jpg": {
-  "bytes": 196169,
-  "size": "192 KB"
- },
- "terravis/web/aetherlux-outdoor-unit-front.jpg": {
-  "bytes": 149164,
+ "terravis/web/aetherlux-outdoor-exploded.jpg": {
+  "bytes": 149910,
   "size": "146 KB"
  },
- "terravis/web/aetherlux-outdoor-unit-rear.jpg": {
-  "bytes": 204937,
-  "size": "200 KB"
+ "terravis/web/aetherlux-outdoor-front-left.jpg": {
+  "bytes": 387185,
+  "size": "378 KB"
+ },
+ "terravis/web/aetherlux-outdoor-front-right.jpg": {
+  "bytes": 374885,
+  "size": "366 KB"
+ },
+ "terravis/web/aetherlux-outdoor-front.jpg": {
+  "bytes": 393304,
+  "size": "384 KB"
+ },
+ "terravis/web/aetherlux-outdoor-interior-detail.jpg": {
+  "bytes": 507449,
+  "size": "496 KB"
+ },
+ "terravis/web/aetherlux-outdoor-interior.jpg": {
+  "bytes": 464387,
+  "size": "454 KB"
+ },
+ "terravis/web/aetherlux-outdoor-rear-left.jpg": {
+  "bytes": 388269,
+  "size": "379 KB"
+ },
+ "terravis/web/aetherlux-outdoor-rear-right.jpg": {
+  "bytes": 313329,
+  "size": "306 KB"
+ },
+ "terravis/web/aetherlux-outdoor-service-side.jpg": {
+  "bytes": 243413,
+  "size": "238 KB"
  },
  "terravis/originals/aetherlux-home-summer.jpg": {
   "bytes": 8462208,
@@ -939,29 +1383,41 @@
   "bytes": 710670,
   "size": "694 KB"
  },
- "terravis/originals/aetherlux-outdoor-unit-angle.jpg": {
-  "bytes": 296640,
-  "size": "290 KB"
+ "terravis/originals/aetherlux-outdoor-exploded.png": {
+  "bytes": 7428851,
+  "size": "7.1 MB"
  },
- "terravis/originals/aetherlux-outdoor-unit-badge.jpg": {
-  "bytes": 331772,
-  "size": "324 KB"
+ "terravis/originals/aetherlux-outdoor-front-left.png": {
+  "bytes": 5575973,
+  "size": "5.3 MB"
  },
- "terravis/originals/aetherlux-outdoor-unit-dark.jpg": {
-  "bytes": 102413,
-  "size": "100 KB"
+ "terravis/originals/aetherlux-outdoor-front-right.png": {
+  "bytes": 5464241,
+  "size": "5.2 MB"
  },
- "terravis/originals/aetherlux-outdoor-unit-detail.jpg": {
-  "bytes": 367143,
-  "size": "359 KB"
+ "terravis/originals/aetherlux-outdoor-front.png": {
+  "bytes": 5509324,
+  "size": "5.3 MB"
  },
- "terravis/originals/aetherlux-outdoor-unit-front.jpg": {
-  "bytes": 259452,
-  "size": "253 KB"
+ "terravis/originals/aetherlux-outdoor-interior-detail.png": {
+  "bytes": 6374056,
+  "size": "6.1 MB"
  },
- "terravis/originals/aetherlux-outdoor-unit-rear.jpg": {
-  "bytes": 369134,
-  "size": "360 KB"
+ "terravis/originals/aetherlux-outdoor-interior.png": {
+  "bytes": 6055899,
+  "size": "5.8 MB"
+ },
+ "terravis/originals/aetherlux-outdoor-rear-left.png": {
+  "bytes": 5576985,
+  "size": "5.3 MB"
+ },
+ "terravis/originals/aetherlux-outdoor-rear-right.png": {
+  "bytes": 5220534,
+  "size": "5.0 MB"
+ },
+ "terravis/originals/aetherlux-outdoor-service-side.png": {
+  "bytes": 5009935,
+  "size": "4.8 MB"
  },
  "leadership/Bill-Caragol.jpg": {
   "bytes": 83017,
@@ -1012,16 +1468,16 @@
   "size": "131 KB"
  },
  "downloads/Terravis-AetherLux-Renders.zip": {
-  "bytes": 14620302,
-  "size": "13.9 MB"
+  "bytes": 65191214,
+  "size": "62.2 MB"
  },
  "downloads/Terravis-Brand-Guide.zip": {
   "bytes": 800206,
   "size": "781 KB"
  },
  "downloads/Terravis-Energy-Press-Kit.zip": {
-  "bytes": 15678509,
-  "size": "15.0 MB"
+  "bytes": 82573715,
+  "size": "78.7 MB"
  },
  "downloads/Terravis-Logos.zip": {
   "bytes": 257151,
@@ -1044,15 +1500,23 @@
   "size": "37.3 MB"
  },
  "downloads/Worksport-Press-Kit-All.zip": {
-  "bytes": 198394290,
-  "size": "189.2 MB"
+  "bytes": 231350966,
+  "size": "220.6 MB"
+ },
+ "downloads/Worksport-Product-Brochures.zip": {
+  "bytes": 15543621,
+  "size": "14.8 MB"
  },
  "downloads/Worksport-Product-Images.zip": {
-  "bytes": 136827700,
-  "size": "130.5 MB"
+  "bytes": 168569690,
+  "size": "160.8 MB"
  },
  "downloads/Worksport-Web-Ready-Images.zip": {
-  "bytes": 16938062,
-  "size": "16.2 MB"
+  "bytes": 26625718,
+  "size": "25.4 MB"
+ },
+ "downloads/Worksport-Website-Images.zip": {
+  "bytes": 31743520,
+  "size": "30.3 MB"
  }
 }
