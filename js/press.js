@@ -25,7 +25,7 @@ const BUNDLES = [
   { file: 'downloads/Worksport-Web-Ready-Images.zip', name: 'Web-Ready Images', thumb: 'images/thumbs/hd3-silver-truck-mountains.jpg',
     desc: 'Every photo in this kit resized to 1,600 px JPEG for web and social use.',
     items: () => IMAGES.map(i => imageItem(i, true)) },
-  { file: 'downloads/Worksport-Leadership-Headshots.zip', name: 'Leadership Headshots', thumb: 'leadership/Steven-Rossi-CEO.jpg', pos: 'top',
+  { file: 'downloads/Worksport-Leadership-Headshots.zip', name: 'Leadership Headshots', thumb: 'images/thumbs/leadership-strip.jpg',
     desc: 'Steven Rossi, the executive team and the board of directors. Square portraits on a dark background.',
     items: () => teamItems() },
   { file: 'downloads/Worksport-Product-Brochures.zip', name: 'Product Brochures (PDF)', thumb: 'images/thumbs/all-hard-covers-lineup.jpg',
