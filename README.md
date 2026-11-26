@@ -26,7 +26,7 @@ then visit http://localhost:8000/.
 | `terravis.html` | The Terravis Energy media room. |
 | `brand-guide/*.html` | Sources for the two brand guide PDFs. Edit, then re-render with headless Chrome (see below). |
 | `css/press.css` | All styles. Design tokens at the top match the worksport.com rebuild (Poppins, Worksport blue `#0072CE`). |
-| `js/press.js` | Data-driven sections: download bundles, products, logos, gallery images, videos, the timeline, social links and press releases are arrays at the top of the file. Edit those to add or swap assets. `GALLERY_INITIAL`, `NEWS_INITIAL`, `VIDEOS_INITIAL` and `TIMELINE_INITIAL` set how many items show before "Show all". A 4th value `'fit'` on an image shows the whole picture in its tile instead of cropping (studio renders). |
+| `js/press.js` | Data-driven sections (each Downloads bundle also lists its `items()` so a click on the card browses the files in the lightbox): download bundles, products, logos, gallery images, videos, the timeline, social links and press releases are arrays at the top of the file. Edit those to add or swap assets. `GALLERY_INITIAL`, `NEWS_INITIAL`, `VIDEOS_INITIAL` and `TIMELINE_INITIAL` set how many items show before "Show all". A 4th value `'fit'` on an image shows the whole picture in its tile instead of cropping (studio renders). |
 | `tools/update-news.py` | Pulls new press releases from investors.worksport.com/press into `NEWS` (and `TVE_NEWS` for Terravis items). Run it, review, then add any milestone to `TIMELINE` by hand. |
 | `js/terravis.js` | The same data for the Terravis page. |
 | `js/manifest.json` | File sizes shown on the cards. Regenerate with `python3 tools/build-manifest.py` after adding files. |
@@ -35,7 +35,8 @@ then visit http://localhost:8000/.
 | `assets/images/web/` | Same images at 1,600 px JPEG, used by the lightbox. |
 | `assets/images/thumbs/` | 720 px thumbnails used by the cards and gallery grid. |
 | `assets/terravis/` | AetherLux renders (originals, 1,600 px web, 720 px thumbs). Outdoor-unit views are the November 2026 render package from the TVE Library (`Image Assets/AetherLux_Outdoor_Colour_Package`); interior and exploded views are conceptual. |
-| `assets/video/` | Poster images for the Video section (YouTube and Vimeo thumbnails). Players load from YouTube/Vimeo on click. |
+| `assets/video/` | Poster images for the Video sections (YouTube and Vimeo thumbnails), the AetherLux commercial (720p web copy, 64 MB; the 4K master is in Box › Marketing › 3. Media Repository › 2. Videos › Video-Other › Non-Product Specific › 2025 › TVE) and the short AetherLux Pro clip from aetherlux.terravisenergy.com. |
+| `tools/transcode.swift` | AVFoundation re-encoder for making web copies of large videos: `swift tools/transcode.swift in.mp4 out.mp4 1280 2600`. |
 | `assets/leadership/` | CEO headshot. |
 | `assets/docs/` | Worksport Brand Guide 2026, Terravis Energy Brand Guide 2026, the AetherLux Launch Brochure (v5.6) and `brochures/` with the eight 2026 product tri-folds from Box (Marketing › 3. Media Repository › 5. Print › 2. B2B Marketing Collateral › Brochures). Also filed in Box (Marketing › 1. Corporate Branding) and the TVE SharePoint library (05_Marketing › 1. TVE Media Asset Folder › Corporate Branding › 2. Brand Guide). |
 | `assets/downloads/` | Zip bundles linked from the Downloads section. |
@@ -78,7 +79,7 @@ Same for `brand-guide/terravis.html` → `assets/docs/Terravis-Energy-Brand-Guid
 
 - Media contact is marketing@worksport.com on both pages; investor relations stays on the IR line.
 - When a new release goes up on the IR site: `python3 tools/update-news.py`, then add a `TIMELINE` entry in js/press.js if it is a milestone, commit and push.
-- Leadership headshots other than the CEO and COO were pulled from investors.worksport.com, where most are small circular crops on white. Replace them with original full-frame headshots when marketing has them (drop the file in assets/leadership and update TEAM_EXEC / TEAM_BOARD in js/press.js).
+- Leadership portraits (all except Steven Rossi's original) are the November 2026 edited set matched to a dark background; some were reconstructed from low-resolution sources. Replace any with studio originals when available (same filenames in assets/leadership).
 - The ZeroFrost patent release has no day in its list entry (the IR post dateline is a placeholder, "May XX, 2026"); fill it in when known.
 - The AetherLux brochure on the Terravis page is v5.6 from the TVE Library (05_Marketing › 2. Brochure › Zerofrost Brochures Oct 2026 › Brochure remake). Swap the file in assets/docs when a newer version is approved.
 - Photography is the company's own shoots and renders. Confirm nothing in the gallery is customer UGC before it goes public.

@@ -81,7 +81,7 @@
       <div>
         <div class="kicker">Downloads</div>
         <h2>Asset bundles</h2>
-        <p class="sub">Grab everything at once, or just the folder you need: logos, photography, website images, product brochures, headshots and the brand guide. Full-resolution files are inside each archive; web-ready versions are a separate, lighter download.</p>
+        <p class="sub">Click a bundle to browse what is inside and download files one at a time, or use the arrow to download the whole zip. Full-resolution files are inside each archive; web-ready versions are a separate, lighter download.</p>
       </div>
     </div>
     <div class="dl-grid" id="bundles"></div>
@@ -407,10 +407,15 @@
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image preview">
   <button class="x" id="lb-x" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
   <button class="prev" id="lb-prev" type="button" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></button>
-  <img id="lb-img" src="" alt="">
+  <div class="stage" id="lb-stage">
+    <img id="lb-img" src="" alt="">
+    <iframe id="lb-frame" title="Document preview" hidden></iframe>
+    <div class="none" id="lb-none" hidden>No preview for this file type. Use the download button.</div>
+  </div>
   <button class="next" id="lb-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button>
   <div class="bar">
     <div><div class="nm" id="lb-name"></div><div class="mt" id="lb-meta"></div></div>
+    <div class="cnt" id="lb-count"></div>
     <div class="acts">
       <a class="btn btn-ghost btn-sm" id="lb-dl-web" href="#">Web size <span class="sz" style="opacity:.7;font-weight:500"></span></a>
       <a class="btn btn-light btn-sm" id="lb-dl" href="#">

@@ -1,4 +1,12 @@
 {
+ "video/AetherLux-Commercial-720p.mp4": {
+  "bytes": 64037810,
+  "size": "61.1 MB"
+ },
+ "video/aetherlux-pro-in-action.mp4": {
+  "bytes": 766598,
+  "size": "749 KB"
+ },
  "video/vimeo-1021123467.jpg": {
   "bytes": 67589,
   "size": "66 KB"
@@ -1420,52 +1428,52 @@
   "size": "4.8 MB"
  },
  "leadership/Bill-Caragol.jpg": {
-  "bytes": 83017,
-  "size": "81 KB"
+  "bytes": 316628,
+  "size": "309 KB"
  },
  "leadership/Chris-Bernaudo-COO.jpg": {
-  "bytes": 179043,
-  "size": "175 KB"
+  "bytes": 339572,
+  "size": "332 KB"
  },
  "leadership/Chris-Lofstrand.jpg": {
-  "bytes": 92430,
-  "size": "90 KB"
+  "bytes": 304126,
+  "size": "297 KB"
  },
  "leadership/Chris-Lundberg.jpg": {
-  "bytes": 156572,
-  "size": "153 KB"
+  "bytes": 399706,
+  "size": "390 KB"
  },
  "leadership/Craig-Loverock.jpg": {
-  "bytes": 153425,
-  "size": "150 KB"
+  "bytes": 352820,
+  "size": "345 KB"
  },
  "leadership/Jennifer-Kartychak.jpg": {
-  "bytes": 111791,
-  "size": "109 KB"
+  "bytes": 376942,
+  "size": "368 KB"
  },
  "leadership/Josh-Swanigan.jpg": {
-  "bytes": 142576,
-  "size": "139 KB"
+  "bytes": 336480,
+  "size": "329 KB"
  },
  "leadership/Lorenzo-Rossi.jpg": {
-  "bytes": 104041,
-  "size": "102 KB"
+  "bytes": 423523,
+  "size": "414 KB"
  },
  "leadership/Ned-Siegel.jpg": {
-  "bytes": 123498,
-  "size": "121 KB"
+  "bytes": 405176,
+  "size": "396 KB"
  },
  "leadership/Nilay-Choksi.jpg": {
-  "bytes": 101157,
-  "size": "99 KB"
+  "bytes": 402785,
+  "size": "393 KB"
  },
  "leadership/Steven-Rossi-CEO.jpg": {
   "bytes": 73783,
   "size": "72 KB"
  },
  "leadership/Tyler-Sunderville.jpg": {
-  "bytes": 134407,
-  "size": "131 KB"
+  "bytes": 405857,
+  "size": "396 KB"
  },
  "downloads/Terravis-AetherLux-Renders.zip": {
   "bytes": 65191214,
@@ -1488,8 +1496,8 @@
   "size": "1.9 MB"
  },
  "downloads/Worksport-Leadership-Headshots.zip": {
-  "bytes": 1428271,
-  "size": "1.4 MB"
+  "bytes": 4133441,
+  "size": "3.9 MB"
  },
  "downloads/Worksport-Logos.zip": {
   "bytes": 4706037,
@@ -1500,8 +1508,8 @@
   "size": "37.3 MB"
  },
  "downloads/Worksport-Press-Kit-All.zip": {
-  "bytes": 231350966,
-  "size": "220.6 MB"
+  "bytes": 234056760,
+  "size": "223.2 MB"
  },
  "downloads/Worksport-Product-Brochures.zip": {
   "bytes": 15543621,

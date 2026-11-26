@@ -2,15 +2,20 @@
 
 const TVE_BUNDLES = [
   { file: 'downloads/Terravis-Energy-Press-Kit.zip', name: 'Terravis Energy Press Kit — Everything', thumb: 'terravis/thumbs/aetherlux-outdoor-front-right.jpg',
-    desc: 'Terravis and AetherLux logos, full-resolution AetherLux renders and the Terravis brand guide.', all: true },
+    desc: 'Terravis and AetherLux logos, full-resolution AetherLux renders and the Terravis brand guide.', all: true,
+    items: () => [...TVE_IMAGES.map(i => imageItem(i)), ...logoItems(TVE_LOGOS, null), pdfItem('AetherLux Launch Brochure 2026', 'docs/AetherLux-Launch-Brochure-2026.pdf'), pdfItem('Terravis Energy Brand Guide 2026', 'docs/Terravis-Energy-Brand-Guide-2026.pdf')] },
   { file: 'downloads/Terravis-Logos.zip', name: 'Terravis & AetherLux Logos', thumb: 'logos/terravis/TVE-logo-white.svg', pad: true, dark: true,
-    desc: 'Terravis Energy wordmark (SVG, PNG) and the AetherLux logo and badge.' },
+    desc: 'Terravis Energy wordmark (SVG, PNG) and the AetherLux logo and badge.',
+    items: () => logoItems(TVE_LOGOS, null) },
   { file: 'downloads/Terravis-AetherLux-Renders.zip', name: 'AetherLux Renders (Full Resolution)', thumb: 'terravis/thumbs/aetherlux-home-winter.jpg',
-    desc: 'The November 2026 outdoor-unit render package (nine views), indoor units and two in-situ scenes.' },
+    desc: 'The November 2026 outdoor-unit render package (nine views), indoor units and two in-situ scenes.',
+    items: () => TVE_IMAGES.map(i => imageItem(i)) },
   { file: 'docs/AetherLux-Launch-Brochure-2026.pdf', name: 'AetherLux Launch Brochure (PDF)', thumb: 'terravis/thumbs/aetherlux-outdoor-front.jpg',
-    desc: 'The AetherLux™ launch brochure (v5.6, November 2026): product story, ZeroFrost™ technology, specifications and lab results.' },
+    desc: 'The AetherLux™ launch brochure (v5.6, November 2026): product story, ZeroFrost™ technology, specifications and lab results.',
+    items: () => [pdfItem('AetherLux Launch Brochure 2026', 'docs/AetherLux-Launch-Brochure-2026.pdf')] },
   { file: 'downloads/Terravis-Brand-Guide.zip', name: 'Terravis Brand Guide (PDF)', thumb: 'logos/terravis/20261119-AetherLux-AppLogo-PNG.png', pad: true, dark: true,
-    desc: 'Logo usage, colour and typography for Terravis Energy, AetherLux and ZeroFrost.' },
+    desc: 'Logo usage, colour and typography for Terravis Energy, AetherLux and ZeroFrost.',
+    items: () => [pdfItem('Terravis Energy Brand Guide 2026', 'docs/Terravis-Energy-Brand-Guide-2026.pdf')] },
 ];
 
 const TVE_LOGOS = [
@@ -38,6 +43,12 @@ const TVE_IMAGES = [
   ['aetherlux-outdoor-interior-detail.png', 'Interior detail (illustrative finishes)', 'render', 'fit', '#b9c1c9'],
 ];
 
+/* Video: finished pieces only. Raw demo footage (Oct 2026 "Unstoppable", "Death Valley", IDU mass production) stays in the TVE Library. */
+const TVE_VIDEOS = [
+  { src: 'mp4', file: 'video/AetherLux-Commercial-720p.mp4', poster: 'terravis/web/aetherlux-home-winter.jpg', title: 'AetherLux™ commercial', note: '3 min · 720p web copy; 4K master on request' },
+  { src: 'mp4', file: 'video/aetherlux-pro-in-action.mp4', poster: 'terravis/web/aetherlux-outdoor-front-right.jpg', title: 'AetherLux Pro in action', note: 'Short clip from aetherlux.terravisenergy.com' },
+];
+
 const TVE_NEWS = [
   ['February 12, 2026', 'Worksport Confirms Government Evaluating AetherLux™ Heat Pump for Potential Long-Term Supply Deal; Certification Accelerated', 'https://investors.worksport.com/post/worksport-confirms-government-evaluating-aetherlux-tm-heat-pump-for-potentiallong-term-supply-deal-certification-accelerated'],
   ['January 27, 2026', 'Worksport Subsidiary Terravis Energy Selects Major Asian Manufacturing Partner for Breakthrough ZeroFrost™ Heat Pump; Announces Path to Commercialization Within 2026', 'https://investors.worksport.com/post/worksport-subsidiary-terravis-energy-selects-major-asian-manufacturing-partner-for-breakthrough-zerofrost-tm-heat-pump-announces-path-to-commercialization-within-2026'],
@@ -50,6 +61,6 @@ const TVE_NEWS = [
 
 document.addEventListener('DOMContentLoaded', async () => {
   await loadManifest();
-  renderBundles(TVE_BUNDLES); renderLogos(TVE_LOGOS, null); renderGallery(TVE_IMAGES, 99); renderNews(TVE_NEWS, 99);
+  renderBundles(TVE_BUNDLES); renderLogos(TVE_LOGOS, null); renderGallery(TVE_IMAGES, 99); renderVideos(TVE_VIDEOS, 99); renderNews(TVE_NEWS, 99);
   wireCommon();
 });

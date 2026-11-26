@@ -5,26 +5,37 @@
 
 const ASSET_BASE = 'assets/';
 
-/* ---------- Download bundles ---------- */
+/* ---------- Download bundles ----------
+   Each bundle has a zip (file) and items(): the files inside it, so a click on the card opens them in the lightbox
+   one at a time while the arrow button downloads the whole zip. */
 const BUNDLES = [
   { file: 'downloads/Worksport-Press-Kit-All.zip', name: 'Worksport Press Kit — Everything', thumb: 'images/thumbs/nexus-lifestyle-red-f150.jpg',
-    desc: 'Logos, full-resolution product and campus photography, leadership headshots and the brand guide in one archive. Terravis Energy assets are in the Terravis media room.', all: true },
+    desc: 'Logos, full-resolution product and campus photography, leadership headshots and the brand guide in one archive. Terravis Energy assets are in the Terravis media room.', all: true,
+    items: () => [...IMAGES.map(imageItem), ...logoItems(BRAND_LOGOS, PRODUCT_LOGOS), ...teamItems(), ...brochureItems(), pdfItem('Worksport Brand Guide 2026', 'docs/Worksport-Brand-Guide-2026.pdf')] },
   { file: 'downloads/Worksport-Logos.zip', name: 'Worksport Logos', thumb: 'logos/worksport/WKSP-FullLogo-ColoredBlack-PNG.png', pad: true,
-    desc: 'Full logo, emblem and Nasdaq: WKSP lockup in SVG, PNG and PDF. Product wordmarks for NEXUS, HD3, AL4, AL3, SC4, SC3, SOLIS and COR.' },
+    desc: 'Full logo, emblem and Nasdaq: WKSP lockup in SVG, PNG and PDF. Product wordmarks for NEXUS, HD3, AL4, AL3, SC4, SC3, SOLIS and COR.',
+    items: () => logoItems(BRAND_LOGOS, PRODUCT_LOGOS) },
   { file: 'downloads/Worksport-Product-Images.zip', name: 'Product Photography (Full Resolution)', thumb: 'images/thumbs/solis-cor-jeep-canyon.jpg',
-    desc: 'NEXUS, HD3, AL4, SOLIS and COR lifestyle and studio imagery, up to 5,000 px wide.' },
+    desc: 'NEXUS, HD3, AL4, SOLIS and COR lifestyle and studio imagery, up to 5,000 px wide.',
+    items: () => IMAGES.filter(i => i[2] !== 'factory' && !i[0].startsWith('web-')).map(imageItem) },
   { file: 'downloads/Worksport-Manufacturing-Images.zip', name: 'Worksport Campus & Manufacturing', thumb: 'images/thumbs/factory-assembly-line.jpg',
-    desc: 'The 152,000 sq. ft. Worksport Campus in West Seneca, New York: production floor, assembly and campus exterior.' },
+    desc: 'The 152,000 sq. ft. Worksport Campus in West Seneca, New York: production floor, assembly and campus exterior.',
+    items: () => IMAGES.filter(i => i[2] === 'factory').map(imageItem) },
   { file: 'downloads/Worksport-Web-Ready-Images.zip', name: 'Web-Ready Images', thumb: 'images/thumbs/hd3-silver-truck-mountains.jpg',
-    desc: 'Every photo in this kit resized to 1,600 px JPEG for web and social use.' },
-  { file: 'downloads/Worksport-Leadership-Headshots.zip', name: 'Leadership Headshots', thumb: 'images/thumbs/steven-rossi.jpg',
-    desc: 'Steven Rossi, the executive team and the board of directors, as shown on investors.worksport.com.' },
+    desc: 'Every photo in this kit resized to 1,600 px JPEG for web and social use.',
+    items: () => IMAGES.map(i => imageItem(i, true)) },
+  { file: 'downloads/Worksport-Leadership-Headshots.zip', name: 'Leadership Headshots', thumb: 'leadership/Steven-Rossi-CEO.jpg', pos: 'top',
+    desc: 'Steven Rossi, the executive team and the board of directors. Square portraits on a dark background.',
+    items: () => teamItems() },
   { file: 'downloads/Worksport-Product-Brochures.zip', name: 'Product Brochures (PDF)', thumb: 'images/thumbs/all-hard-covers-lineup.jpg',
-    desc: 'The 2026 tri-fold brochures for NEXUS, HD3, AL4, AL3, SC4, SC3, SOLIS and COR: specs, features and fitment in print-ready PDF.' },
-  { file: 'downloads/Worksport-Website-Images.zip', name: 'Website Product Images', thumb: 'images/thumbs/web-nexus-02.jpg',
-    desc: 'The product carousel images from worksport.com, 1,260 to 5,040 px wide, as individual files.' },
+    desc: 'The 2026 tri-fold brochures for NEXUS, HD3, AL4, AL3, SC4, SC3, SOLIS and COR: specs, features and fitment in print-ready PDF.',
+    items: () => brochureItems() },
+  { file: 'downloads/Worksport-Website-Images.zip', name: 'Website Product Images', thumb: 'images/thumbs/web-nexus-01.jpg',
+    desc: 'The product carousel images from worksport.com, 1,260 to 5,040 px wide, as individual files.',
+    items: () => IMAGES.filter(i => i[0].startsWith('web-')).map(imageItem) },
   { file: 'downloads/Worksport-Brand-Guide.zip', name: 'Brand Guide (PDF)', thumb: 'logos/worksport/WKSP-Emblem-Blue-PNG.png', pad: true,
-    desc: 'Logo usage, colour and typography for Worksport and its product wordmarks, 2026 edition.' },
+    desc: 'Logo usage, colour and typography for Worksport and its product wordmarks, 2026 edition.',
+    items: () => [pdfItem('Worksport Brand Guide 2026', 'docs/Worksport-Brand-Guide-2026.pdf')] },
 ];
 
 /* ---------- Products ---------- */
@@ -142,7 +153,8 @@ const IMAGES = [
   ['web-cor-08.jpg', 'COR on site, worksport.com', 'solis'],
 ];
 
-/* ---------- Video (click a poster to play; posters are in assets/video/) ---------- */
+/* ---------- Video (click a poster to play; posters are in assets/video/).
+   src 'yt' or 'vimeo' with id, or src 'mp4' with file (path under assets/) and poster. ---------- */
 const VIDEOS_INITIAL = 6;
 const VIDEOS = [
   { src: 'vimeo', id: '1021123467', title: 'Worksport campaign video', note: 'Brand film, 4 min · investors.worksport.com', mp4: 'https://cdn.prod.website-files.com/675add148ab8737131a0a937/675add148ab8737131a0aa5b_Worksport%20Campaign%20Video_1-transcode.mp4' },
@@ -247,24 +259,63 @@ const webName = f => f.replace(/\.(png|jpeg)$/i, '.jpg');
 /* Image folders: the main kit uses images/, the Terravis page sets window.KIT = { dir: 'terravis' } */
 const KIT = window.KIT || { dir: 'images' };
 
+/* Lightbox items: { name, view, dl, web?, meta, kind: 'img' | 'pdf' | 'file', bg? } */
+function imageItem([f, cap], webOnly) {
+  const orig = KIT.dir + '/originals/' + f, web = KIT.dir + '/web/' + webName(f);
+  return { name: cap, view: u(web), dl: u(webOnly ? web : orig), web: webOnly ? null : u(web), webSize: sizeOf(web), kind: 'img',
+    meta: webOnly ? `${webName(f)} · 1,600 px JPEG · ${sizeOf(web)}` : `${f} · ${typeOf(f)} · ${sizeOf(orig)}` };
+}
+function fileItem(name, path, bg) {
+  const ext = path.split('.').pop().toLowerCase();
+  const kind = ext === 'pdf' ? 'pdf' : (['png', 'jpg', 'jpeg', 'svg', 'webp'].includes(ext) ? 'img' : 'file');
+  return { name, view: u(path), dl: u(path), kind, bg, meta: `${path.split('/').pop()} · ${typeOf(path)} · ${sizeOf(path)}` };
+}
+const pdfItem = (name, path) => fileItem(name, path);
+const TILE_BG = { '': '#FFFFFF', dark: '#0B0D10', blue: '#0072CE', yellow: '#FFCE2D' };
+function logoItems(brand, product) {
+  const out = [];
+  (brand || []).forEach(l => Object.entries(l.files).forEach(([k, f]) => out.push(fileItem(`${l.name} (${k})`, f, TILE_BG[l.bg] || '#fff'))));
+  (product || []).forEach(l => { out.push(fileItem(`${l.name} wordmark, black (PNG)`, l.light, '#fff')); out.push(fileItem(`${l.name} wordmark, white (PNG)`, l.dark, '#0B0D10')); out.push(fileItem(`${l.name} wordmark (${l.svgLabel || 'SVG'})`, l.svg, '#fff')); });
+  return out;
+}
+function teamItems() {
+  if (typeof TEAM_BOARD === 'undefined') return [];
+  return [...TEAM_BOARD, ...TEAM_EXEC].map(([n, t, f]) => ({ name: `${n}, ${t}`, view: u('leadership/' + f), dl: u('leadership/' + f), kind: 'img', meta: `${f} · ${typeOf(f)} · ${sizeOf('leadership/' + f)}` }));
+}
+function brochureItems() { return ['NEXUS', 'HD3', 'AL4', 'AL3', 'SC4', 'SC3', 'SOLIS', 'COR'].map(p => pdfItem(`${p} brochure 2026`, `docs/brochures/Worksport-${p}-Brochure-2026.pdf`)); }
+let BUNDLE_LIST = [];
+
 function renderBundles(list) {
   const el = document.getElementById('bundles'); if (!el) return;
-  el.innerHTML = list.map(b => `
-    <a class="dl-card" href="${u(b.file)}" download>
-      <div class="thumb ${b.pad ? 'pad' : ''} ${b.dark ? 'dark' : ''}"><img src="${u(b.thumb)}" alt="" loading="lazy"></div>
+  BUNDLE_LIST = list;
+  el.innerHTML = list.map((b, i) => {
+    const n = b.items ? b.items().length : 0;
+    return `
+    <article class="dl-card" data-b="${i}">
+      <button class="thumb ${b.pad ? 'pad' : ''} ${b.dark ? 'dark' : ''}" type="button" aria-label="Browse ${esc(b.name)}">
+        <img src="${u(b.thumb)}" alt="" loading="lazy" ${b.pos ? `style="object-position:center ${b.pos}"` : ''}>
+        ${n ? `<span class="browse">Browse ${n} file${n === 1 ? '' : 's'}</span>` : ''}
+      </button>
       <div class="body">
         <div>
-          <div class="name">${esc(b.name)}</div>
-          <div class="meta"><span>${typeOf(b.file)}</span><span>${sizeOf(b.file)}</span></div>
+          <button class="name" type="button">${esc(b.name)}</button>
+          <div class="meta">${n ? `<span>${n} file${n === 1 ? '' : 's'}</span>` : ''}<span>${typeOf(b.file)}</span><span>${sizeOf(b.file)}</span></div>
           <div class="desc">${esc(b.desc)}</div>
         </div>
-        <span class="icon">${ICON_DL}</span>
+        <a class="icon" href="${u(b.file)}" download title="Download ${esc(b.name)} (${typeOf(b.file).split('/').pop()})" aria-label="Download ${esc(b.name)}">${ICON_DL}</a>
       </div>
-    </a>`).join('');
+    </article>`; }).join('');
+  el.addEventListener('click', e => {
+    if (e.target.closest('.icon')) return;
+    const card = e.target.closest('.dl-card'); if (!card) return;
+    const b = BUNDLE_LIST[+card.dataset.b];
+    const items = b.items ? b.items() : [];
+    if (items.length) openLBItems(items, 0); else window.location.href = u(b.file);
+  });
   const all = list.find(b => b.all);
   if (all) {
     document.querySelectorAll('[data-download-all]').forEach(a => { a.href = u(all.file); a.setAttribute('download', ''); });
-    const s = document.getElementById('all-size'); if (s) s.textContent = sizeOf(all.file);
+    const sz = document.getElementById('all-size'); if (sz) sz.textContent = sizeOf(all.file);
   }
 }
 
@@ -360,23 +411,28 @@ async function downloadSet(kind) {
   zipBusy = false;
 }
 
-/* Lightbox */
-let lbIdx = 0;
-function openLB(i) { lbIdx = i; updateLB(); document.getElementById('lb').classList.add('open'); document.body.style.overflow = 'hidden'; }
-function closeLB() { document.getElementById('lb').classList.remove('open'); document.body.style.overflow = ''; }
-function stepLB(d) { const vis = visibleIdx(); const k = vis.indexOf(lbIdx); lbIdx = vis[(k + d + vis.length) % vis.length]; updateLB(); }
+/* Lightbox: browses any list of items (gallery images, a bundle's files, headshots, PDFs) with one-at-a-time downloads */
+const LB = { items: [], i: 0 };
+function openLBItems(items, i) { LB.items = items; LB.i = i; updateLB(); document.getElementById('lb').classList.add('open'); document.body.style.overflow = 'hidden'; }
+function openLB(i) { const vis = visibleIdx(); openLBItems(vis.map(k => imageItem(galleryIndex[k])), Math.max(0, vis.indexOf(i))); }
+function closeLB() { document.getElementById('lb').classList.remove('open'); document.body.style.overflow = ''; const fr = document.getElementById('lb-frame'); if (fr) fr.src = 'about:blank'; }
+function stepLB(d) { if (LB.items.length < 2) return; LB.i = (LB.i + d + LB.items.length) % LB.items.length; updateLB(); }
 function visibleIdx() { return [...document.querySelectorAll('.gal-item:not(.hidden):not(.collapsed)')].map(b => +b.dataset.i); }
 function updateLB() {
-  const [f, cap] = galleryIndex[lbIdx];
-  document.getElementById('lb-img').src = u(KIT.dir + '/web/' + webName(f));
-  document.getElementById('lb-img').alt = cap;
-  document.getElementById('lb-name').textContent = cap;
-  const orig = KIT.dir + '/originals/' + f;
-  document.getElementById('lb-meta').textContent = `${f} · ${typeOf(f)} · ${sizeOf(orig)}`;
-  const a = document.getElementById('lb-dl'); a.href = u(orig); a.setAttribute('download', '');
-  const w = document.getElementById('lb-dl-web'); if (w) { const web = KIT.dir + '/web/' + webName(f); w.href = u(web); w.setAttribute('download', ''); w.querySelector('.sz').textContent = sizeOf(web); }
+  const it = LB.items[LB.i]; if (!it) return;
+  const img = document.getElementById('lb-img'), fr = document.getElementById('lb-frame'), none = document.getElementById('lb-none'), stage = document.getElementById('lb-stage');
+  img.hidden = it.kind !== 'img'; if (fr) fr.hidden = it.kind !== 'pdf'; if (none) none.hidden = it.kind !== 'file';
+  if (it.kind === 'img') { img.src = it.view; img.alt = it.name; } else img.removeAttribute('src');
+  if (fr) fr.src = it.kind === 'pdf' ? it.view + '#view=FitH' : 'about:blank';
+  if (stage) stage.style.background = it.bg || 'transparent';
+  if (stage) stage.classList.toggle('padded', !!it.bg);
+  document.getElementById('lb-name').textContent = it.name;
+  document.getElementById('lb-meta').textContent = it.meta || '';
+  const c = document.getElementById('lb-count'); if (c) c.textContent = LB.items.length > 1 ? `${LB.i + 1} / ${LB.items.length}` : '';
+  const a = document.getElementById('lb-dl'); a.href = it.dl; a.setAttribute('download', '');
+  const w = document.getElementById('lb-dl-web'); if (w) { w.hidden = !it.web; if (it.web) { w.href = it.web; w.setAttribute('download', ''); w.querySelector('.sz').textContent = it.webSize || ''; } }
+  const pv = document.getElementById('lb-prev'), nx = document.getElementById('lb-next'); const many = LB.items.length > 1; if (pv) pv.hidden = !many; if (nx) nx.hidden = !many;
 }
-
 
 function renderTeam(id, list) {
   const el = document.getElementById(id); if (!el) return;
@@ -399,19 +455,20 @@ function renderNews(list, initial) {
 function renderVideos(list, initial) {
   const el = document.getElementById('video-grid'); if (!el) return;
   el.innerHTML = list.map((v, i) => `
-    <figure class="vid ${i >= initial ? 'collapsed' : ''}" data-src="${v.src}" data-id="${v.id}">
+    <figure class="vid ${i >= initial ? 'collapsed' : ''}" data-src="${v.src}" data-id="${v.id || ''}" data-file="${v.file ? u(v.file) : ''}">
       <button class="poster" type="button" aria-label="Play: ${esc(v.title)}">
-        <img src="${u('video/' + (v.src === 'yt' ? 'yt-' : 'vimeo-') + v.id + '.jpg')}" alt="" loading="lazy">
+        <img src="${u(v.poster || ('video/' + (v.src === 'yt' ? 'yt-' : 'vimeo-') + v.id + '.jpg'))}" alt="" loading="lazy">
         <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
       </button>
       <figcaption>
         <div class="vt">${esc(v.title)}</div>
-        <div class="vn">${esc(v.note)}${v.mp4 ? ` · <a href="${v.mp4}" download>Download MP4</a>` : ''} · <a href="${v.src === 'yt' ? 'https://www.youtube.com/watch?v=' + v.id : 'https://vimeo.com/' + v.id}" target="_blank" rel="noopener">Open ↗</a></div>
+        <div class="vn">${esc(v.note)}${v.mp4 ? ` · <a href="${v.mp4}" download>Download MP4</a>` : ''}${v.file ? ` · <a href="${u(v.file)}" download>Download MP4 ${sizeOf(v.file)}</a>` : ''}${v.src === 'mp4' ? '' : ` · <a href="${v.src === 'yt' ? 'https://www.youtube.com/watch?v=' + v.id : 'https://vimeo.com/' + v.id}" target="_blank" rel="noopener">Open ↗</a>`}</div>
       </figcaption>
     </figure>`).join('');
   el.addEventListener('click', e => {
     const b = e.target.closest('.poster'); if (!b) return;
-    const f = b.closest('.vid'); const { src, id } = f.dataset;
+    const f = b.closest('.vid'); const { src, id, file } = f.dataset;
+    if (src === 'mp4') { b.outerHTML = `<div class="frame"><video src="${file}" controls autoplay playsinline></video></div>`; return; }
     const url = src === 'yt' ? `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0` : `https://player.vimeo.com/video/${id}?autoplay=1`;
     b.outerHTML = `<div class="frame"><iframe src="${url}" title="Video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`;
   });
