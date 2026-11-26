@@ -420,7 +420,11 @@ let MANIFEST = {};
 const sizeOf = p => (MANIFEST[p] && MANIFEST[p].size) || '';
 const typeOf = p => { const e = p.split('.').pop().toLowerCase(); return ({ zip: 'application/zip', pdf: 'application/pdf', svg: 'image/svg+xml', png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', eps: 'application/postscript' })[e] || e; };
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const u = p => ASSET_BASE + p;
+const RELEASE_BUNDLES = {
+  'downloads/Worksport-Press-Kit-All.zip': 'https://github.com/chris-worksport/worksport-press-kit/releases/download/press-assets-v1/Worksport-Press-Kit-All.zip',
+  'downloads/Worksport-Product-Images.zip': 'https://github.com/chris-worksport/worksport-press-kit/releases/download/press-assets-v1/Worksport-Product-Images.zip',
+};
+const u = p => RELEASE_BUNDLES[p] || ASSET_BASE + p;
 const webName = f => f.replace(/\.(png|jpeg)$/i, '.jpg');
 
 /* Image folders: the main kit uses images/, the Terravis page sets window.KIT = { dir: 'terravis' } */
