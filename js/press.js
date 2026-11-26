@@ -31,8 +31,14 @@ const BUNDLES = [
     desc: 'The 2026 tri-fold brochures for NEXUS, HD3, AL4, AL3, SC4, SC3, SOLIS and COR: specs, features and fitment in print-ready PDF.',
     items: () => brochureItems() },
   { file: 'downloads/Worksport-Website-Images.zip', name: 'Website Product Images', thumb: 'images/thumbs/web-nexus-01.jpg',
-    desc: 'The product carousel images from worksport.com, 1,260 to 5,040 px wide, as individual files.',
-    items: () => IMAGES.filter(i => i[0].startsWith('web-')).map(imageItem) },
+    desc: 'The product carousel and soft-cover images from worksport.com, 1,260 to 5,040 px wide, as individual files.',
+    items: () => IMAGES.filter(i => /^(web-|soft-)/.test(i[0])).map(imageItem) },
+  { file: 'downloads/Worksport-Studio-Infographics.zip', name: 'Studio Views & Infographics', thumb: 'images/thumbs/info-panel-cross-section.jpg', pad: true,
+    desc: 'White-background studio views of SOLIS and COR and the feature infographics from worksport.com: panel cross-sections, seals, latches and installation steps.',
+    items: () => IMAGES.filter(i => /^(info-|solis-studio|cor-studio|cor-battery-three)/.test(i[0])).map(imageItem) },
+  { file: 'downloads/Worksport-Website-Clips.zip', name: 'Product Animation Clips (MP4)', thumb: 'video/clip-nexus-flip-up.jpg',
+    desc: 'Short product animations from the worksport.com and investor-site players: NEXUS, HD3, AL4, AL3, SOLIS and COR, 4 to 24 seconds, 1280 px web encodes for B-roll.',
+    items: () => VIDEOS.filter(v => v.src === 'mp4').map(v => ({ name: v.title, view: u(v.poster), dl: u(v.file), kind: 'img', meta: `${v.file.split('/').pop()} · video/mp4 · ${sizeOf(v.file)} · ${v.note}` })) },
   { file: 'downloads/Worksport-Brand-Guide.zip', name: 'Brand Guide (PDF)', thumb: 'logos/worksport/WKSP-Emblem-Blue-PNG.png', pad: true,
     desc: 'Logo usage, colour and typography for Worksport and its product wordmarks, 2026 edition.',
     items: () => [pdfItem('Worksport Brand Guide 2026', 'docs/Worksport-Brand-Guide-2026.pdf')] },
@@ -55,7 +61,7 @@ const PRODUCTS = [
   { id: 'cor', tag: 'Portable energy system', name: 'COR', logo: 'logos/products/COR/COR-FullLogo-Rev-White-PNG.png', img: 'images/thumbs/cor-battery-studio.jpg', fit: true,
     desc: 'Portable battery generator and mobile energy storage system, sold on its own. UL and CSA certified and available through worksport.com and Amazon; charges from SOLIS, the wall or the vehicle.',
     links: [['Product page', 'https://www.worksport.com/products/cor'], ['Brochure (PDF)', 'assets/docs/brochures/Worksport-COR-Brochure-2026.pdf'], ['Logo files', '#logos']] },
-  { id: 'accessories', tag: 'Accessories', name: 'SOLIS & COR accessories', logo: null, img: 'images/thumbs/cor-home-use.jpg',
+  { id: 'accessories', tag: 'Accessories', name: 'SOLIS & COR accessories', logo: null, img: 'images/thumbs/cor-battery-three-pack.jpg', fit: true,
     desc: 'Add-on COR battery packs (1 kWh each), the COR battery charger and the accessories that let SOLIS and COR work together as one mobile power system.',
     links: [['Shop accessories', 'https://www.worksport.com/products/cor']] },
 ];
@@ -151,6 +157,47 @@ const IMAGES = [
   ['web-cor-03.png', 'COR on the bench, worksport.com', 'solis'],
   ['web-cor-07.png', 'COR display, worksport.com', 'solis'],
   ['web-cor-08.jpg', 'COR on site, worksport.com', 'solis'],
+  ['web-al4-spring-driveway.jpg', 'AL4 in the driveway, worksport.com', 'hd3'],
+  ['web-cor-11.jpg', 'COR in the living room, worksport.com', 'solis'],
+  ['web-cor-swap-batteries.png', 'COR swappable batteries, worksport.com banner', 'solis', 'fit', '#0b0d10'],
+  ['web-solis-charge-anything.jpg', 'SOLIS charges anything, worksport.com banner', 'solis', 'fit', '#0b0d10'],
+  ['web-solis-custom-fit.jpg', 'SOLIS custom fit, worksport.com banner', 'solis', 'fit', '#0b0d10'],
+  /* Studio product views from worksport.com (white background) */
+  ['solis-studio-01.png', 'SOLIS, studio view 1', 'solis', 'fit'],
+  ['solis-studio-02.png', 'SOLIS, studio view 2', 'solis', 'fit'],
+  ['solis-studio-05.png', 'SOLIS folded, studio', 'solis', 'fit'],
+  ['solis-studio-06.png', 'SOLIS underside, studio', 'solis', 'fit'],
+  ['cor-studio-01.png', 'COR, studio view 1', 'solis', 'fit'],
+  ['cor-studio-02.png', 'COR, studio view 2', 'solis', 'fit'],
+  ['cor-studio-03.png', 'COR, studio view 3', 'solis', 'fit'],
+  ['cor-studio-06.png', 'COR battery, studio', 'solis', 'fit'],
+  ['cor-battery-three-pack.png', 'COR battery three-pack (accessory)', 'solis', 'fit'],
+  /* Soft covers */
+  ['soft-sc4-intro.png', 'SC4 soft flip-up cover', 'soft'],
+  ['soft-sc4-quick-latch.png', 'SC4 quick latch', 'soft'],
+  ['soft-sc4-full-bed.png', 'SC4 full bed access', 'soft'],
+  ['soft-sc3-intro.png', 'SC3 soft tri-fold cover', 'soft'],
+  ['soft-sc3-q-seals.png', 'SC3 weather-resistant Q-seals', 'soft'],
+  ['soft-sc3-bed-access.png', 'SC3 bed access', 'soft'],
+  /* Infographics and feature explainers from worksport.com */
+  ['info-panel-cross-section.png', 'Panel cross-section: Worksport vs a typical competitor', 'info', 'fit'],
+  ['info-panel-edge.png', 'Worksport panel edge, folded from one aluminum sheet', 'info', 'fit'],
+  ['info-panel-profile.png', 'Worksport folded aluminum profile', 'info', 'fit'],
+  ['info-hard-covers-lineup.png', 'Hard cover line-up graphic', 'info', 'fit'],
+  ['info-soft-covers-lineup.png', 'Soft cover line-up graphic', 'info', 'fit'],
+  ['info-active-lock-mark.png', 'Active Lock Technology mark', 'info', 'fit'],
+  ['info-nexus-dual-lock-seal.jpg', 'NEXUS Dual-Lock perimeter and rail seal', 'info'],
+  ['info-nexus-active-lock-latch.jpg', 'NEXUS Active Lock latch holds the cover open', 'info', 'fit'],
+  ['info-nexus-reinforced-panels.jpg', 'NEXUS reinforced low-profile panels', 'info'],
+  ['info-hd3-latching-points.jpg', 'HD3 latching points and alignment clips', 'info'],
+  ['info-hd3-dual-lock-seal.jpg', 'HD3 EPDM Dual-Lock seal', 'info', 'fit'],
+  ['info-hd3-full-length-rails.jpg', 'HD3 full-length rails', 'info'],
+  ['info-hd3-toolboxes.png', 'Toolboxes on reinforced HD3 panels', 'info'],
+  ['info-al4-install.png', 'AL4 lifted above the rails during installation', 'info'],
+  ['info-al4-flip-up.png', 'AL4 flipped up for full bed access', 'info'],
+  ['info-al4-epdm-seal.png', 'AL4 EPDM seal along the rail', 'info', 'fit'],
+  ['info-al3-folded.png', 'AL3 folded toward the cab', 'info'],
+  ['info-al3-cases.png', 'Cases on closed AL3 panels', 'info'],
 ];
 
 /* ---------- Video (click a poster to play; posters are in assets/video/).
@@ -169,6 +216,18 @@ const VIDEOS = [
   { src: 'yt', id: 'WsfkLT8sYeA', title: 'Hard tonneau cover vs 396 lbs of limestone', note: 'YouTube · HD3' },
   { src: 'yt', id: 'oQ3LwJ6lqSY', title: 'Auto-latching tonneau cover: once you try it, no going back', note: 'YouTube · NEXUS' },
   { src: 'yt', id: '93aZHa1tI70', title: 'Behind the build: the people and engineering behind Worksport', note: 'YouTube · short' },
+  /* Product animation clips from the worksport.com and investors.worksport.com players (re-encoded at 1280 px) */
+  { src: 'mp4', file: 'video/clip-nexus-flip-up.mp4', poster: 'video/clip-nexus-flip-up.jpg', title: 'NEXUS flip-up animation', note: '14 s · worksport.com' },
+  { src: 'mp4', file: 'video/clip-nexus-vertical.mp4', poster: 'video/clip-nexus-vertical.jpg', title: 'NEXUS animation, vertical (for social)', note: '14 s · worksport.com' },
+  { src: 'mp4', file: 'video/clip-hd3-cargo.mp4', poster: 'video/clip-hd3-cargo.jpg', title: 'HD3 with cargo, animation', note: '13 s · worksport.com' },
+  { src: 'mp4', file: 'video/clip-hd3-fold.mp4', poster: 'video/clip-hd3-fold.jpg', title: 'HD3 folding animation', note: '10 s · worksport.com' },
+  { src: 'mp4', file: 'video/clip-al4-flip.mp4', poster: 'video/clip-al4-flip.jpg', title: 'AL4 animation', note: '18 s · worksport.com' },
+  { src: 'mp4', file: 'video/clip-al3.mp4', poster: 'video/clip-al3.jpg', title: 'AL3 animation', note: '4 s · worksport.com' },
+  { src: 'mp4', file: 'video/clip-solis-cor-bed.mp4', poster: 'video/clip-solis-cor-bed.jpg', title: 'SOLIS and COR in the bed, animation', note: '16 s · worksport.com' },
+  { src: 'mp4', file: 'video/clip-solis-closed.mp4', poster: 'video/clip-solis-closed.jpg', title: 'SOLIS closed, animation', note: '16 s · worksport.com' },
+  { src: 'mp4', file: 'video/clip-solis-600w.mp4', poster: 'video/clip-solis-600w.jpg', title: 'SOLIS 600 W callout', note: '7 s · worksport.com' },
+  { src: 'mp4', file: 'video/clip-solis-night-scene.mp4', poster: 'video/clip-solis-night-scene.jpg', title: 'SOLIS night scene', note: '24 s · investors.worksport.com' },
+  { src: 'mp4', file: 'video/clip-ir-hero-loop.mp4', poster: 'video/clip-ir-hero-loop.jpg', title: 'Investor site hero loop', note: '11 s · investors.worksport.com' },
 ];
 
 /* ---------- Team (photo = file in leadership/) ---------- */
@@ -238,7 +297,7 @@ const TIMELINE = [
   ['2026', 'ZeroFrost™ patented', 'U.S. Patent No. 12,624,872 B2 is granted for the AetherLux heat pump system with ZeroFrost technology.', 'terravis'],
   ['Jun 2026', 'Strongest month ever', 'June 2026 is the strongest month in company history, with gross profit up 132% from April to June; Worksport regains Nasdaq’s $1 bid price requirement.', 'company'],
   ['Sep 2026', 'COR on Amazon', 'The COR energy system launches on Amazon; August orders of $2.92 million put the annualised order run rate at $35 million.', 'product'],
-  ['Oct 2026', 'Slate Auto', 'Named a supplier on the Slate Auto Marketplace; SOLIS and COR shown on a Slate Truck at the Slate Collective Summit.', 'product'],
+  /* HOLD until Dec 3, 2026 (embargo): ['Oct 2026', 'Slate Auto', 'Named a supplier on the Slate Auto Marketplace; SOLIS and COR shown on a Slate Truck at the Slate Collective Summit.', 'product'], */
   ['Nov 2026', 'Record quarter', 'Record Q3 net sales of $7.23 million, up 44% year over year, with net loss narrowing 28%; a term sheet is signed to acquire a U.S.-made truck bed accessory business and its IP.', 'company'],
   ['Nov 2026', 'Largest distribution deal to date', 'Supplier agreement with The AAM Group puts NEXUS and HD3 in front of about 11,500 jobber locations and 60+ distribution centers across North America.', 'company'],
 ];
@@ -510,6 +569,12 @@ function wireCommon() {
   document.querySelectorAll('[data-dl-set]').forEach(b => b.addEventListener('click', () => downloadSet(b.dataset.dlSet)));
   renderSocials();
   const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+  const tt = document.getElementById('totop');
+  if (tt) {
+    const onScroll = () => tt.classList.toggle('show', window.scrollY > 700);
+    window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    tt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
 }
 
 async function loadManifest() { try { MANIFEST = await (await fetch('js/manifest.json')).json(); } catch (e) { MANIFEST = {}; } }

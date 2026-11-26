@@ -71,13 +71,14 @@ Same for `brand-guide/terravis.html` → `assets/docs/Terravis-Energy-Brand-Guid
 - Logos, product wordmarks, fonts and the brand guide: OneDrive, `OLD - Marketing - Internal/.../Creative Development/1. Branding/Worksport`.
 - Product and manufacturing photography: Box, `Marketing/3. Media Repository/3. Images` (Product-Specific and Not-Product-Specific), plus released lifestyle edits from `Creative Development/4. MediaDevelopment/3. Product-Media`.
 - Boilerplate, contacts and company facts: the November 2026 AAM and Slate Auto press releases and investors.worksport.com. Timeline facts before 2024 (Nasdaq uplisting, campus purchase, Hyundai) come from the 2021 and 2022 releases and SEC filings, since the IR site listing only goes back to late 2024.
-- Website product images (`web-*`): the product carousels on worksport.com product pages. Videos: Vimeo embeds on investors.worksport.com and the Worksport YouTube channel.
+- Website images: `web-*` are the product carousels on worksport.com, `soft-*` the SC3/SC4 pages, `*-studio-*` the white-background product views and `info-*` the feature infographics (panel cross-sections, seals, latches, installation). Videos: Vimeo embeds on investors.worksport.com, the Worksport YouTube channel, and the short product animation clips from the worksport.com and IR players (`assets/video/clip-*`, re-encoded at 1280 px with tools/transcode.swift; posters via tools/poster.swift).
 - CEO headshot: Investor Relations file share.
 - Terravis: logos from Box › Marketing › 1. Corporate Branding › Terravis Energy; AetherLux renders from Box › 3. Media Repository › 4. 3D Renders › Terravis; facts from the AetherLux launch brochure (TVE SharePoint › 05_Marketing › 2. Brochure).
 
 ## Before publishing
 
 - Media contact is marketing@worksport.com on both pages; investor relations stays on the IR line.
+- Slate Auto Marketplace is under embargo until **December 3, 2026**: the timeline entry (commented out in TIMELINE), the About distribution sentence and the fast-facts partnership line go back on that day.
 - When a new release goes up on the IR site: `python3 tools/update-news.py`, then add a `TIMELINE` entry in js/press.js if it is a milestone, commit and push.
 - Leadership portraits (all except Steven Rossi's original) are the November 2026 edited set matched to a dark background; some were reconstructed from low-resolution sources. Replace any with studio originals when available (same filenames in assets/leadership).
 - The ZeroFrost patent release has no day in its list entry (the IR post dateline is a placeholder, "May XX, 2026"); fill it in when known.
