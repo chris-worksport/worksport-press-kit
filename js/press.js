@@ -549,14 +549,16 @@ function renderGallery(list, initial) {
   const el = document.getElementById('gallery'); if (!el) return;
   galleryIndex = list;
   el.innerHTML = list.map(([f, cap, cat, fit, bg], i) => `
-    <button class="gal-item ${i >= initial ? 'collapsed' : ''} ${fit ? 'fit' : ''}" data-cat="${cat}" data-i="${i}" type="button" aria-label="View ${esc(cap)}">
-      <img src="${u(KIT.dir + '/thumbs/' + webName(f))}" alt="${esc(cap)}" loading="lazy" ${bg ? `style="background:${bg}"` : ''}>
-      <span class="lbl">${esc(cap)}</span>
-      <a class="dl" href="${u(KIT.dir + '/originals/' + f)}" download title="Download full resolution" aria-label="Download ${esc(cap)}" onclick="event.stopPropagation()">${ICON_DL}</a>
-    </button>`).join('');
-  el.addEventListener('click', e => { const b = e.target.closest('.gal-item'); if (b) openLB(+b.dataset.i); });
+    <div class="gal-item ${i >= initial ? 'collapsed' : ''} ${fit ? 'fit' : ''}" data-cat="${cat}" data-i="${i}">
+      <button class="view" type="button" aria-label="View ${esc(cap)}">
+        <img src="${u(KIT.dir + '/thumbs/' + webName(f))}" alt="${esc(cap)}" loading="lazy" ${bg ? `style="background:${bg}"` : ''}>
+        <span class="lbl" aria-hidden="true">${esc(cap)}</span>
+      </button>
+      <a class="dl" href="${u(KIT.dir + '/originals/' + f)}" download title="Download full resolution" aria-label="Download ${esc(cap)}, full resolution">${ICON_DL}</a>
+    </div>`).join('');
+  el.addEventListener('click', e => { const b = e.target.closest('.gal-item .view'); if (b) openLB(+b.closest('.gal-item').dataset.i); });
   const moreRow = document.getElementById('gallery-more'); const moreBtn = document.getElementById('gallery-more-btn');
-  if (moreRow) { if (list.length <= initial) moreRow.classList.add('hidden'); moreBtn.addEventListener('click', () => { galleryExpanded = true; el.querySelectorAll('.collapsed').forEach(x => x.classList.remove('collapsed')); moreRow.classList.add('hidden'); }); }
+  if (moreRow) { if (list.length <= initial) moreRow.classList.add('hidden'); moreBtn.addEventListener('click', () => { galleryExpanded = true; el.querySelectorAll('.collapsed').forEach(x => x.classList.remove('collapsed')); moreBtn.setAttribute('aria-expanded', 'true'); moreRow.classList.add('hidden'); }); }
   document.querySelectorAll('.filters button').forEach(btn => btn.addEventListener('click', () => {
     document.querySelectorAll('.filters button').forEach(b => b.setAttribute('aria-pressed', b === btn));
     const c = btn.dataset.filter;
@@ -604,9 +606,9 @@ async function downloadSet(kind) {
 
 /* Lightbox: browses any list of items (gallery images, a bundle's files, headshots, PDFs) with one-at-a-time downloads */
 const LB = { items: [], i: 0 };
-function openLBItems(items, i) { LB.items = items; LB.i = i; updateLB(); document.getElementById('lb').classList.add('open'); document.body.style.overflow = 'hidden'; }
+function openLBItems(items, i) { LB.items = items; LB.i = i; LB.opener = document.activeElement; updateLB(); document.getElementById('lb').classList.add('open'); document.body.style.overflow = 'hidden'; document.getElementById('lb-x').focus(); }
 function openLB(i) { const vis = visibleIdx(); openLBItems(vis.map(k => imageItem(galleryIndex[k])), Math.max(0, vis.indexOf(i))); }
-function closeLB() { document.getElementById('lb').classList.remove('open'); document.body.style.overflow = ''; const fr = document.getElementById('lb-frame'); if (fr) fr.src = 'about:blank'; }
+function closeLB() { document.getElementById('lb').classList.remove('open'); document.body.style.overflow = ''; const fr = document.getElementById('lb-frame'); if (fr) fr.src = 'about:blank'; if (LB.opener && LB.opener.focus) { LB.opener.focus(); } LB.opener = null; }
 function stepLB(d) { if (LB.items.length < 2) return; LB.i = (LB.i + d + LB.items.length) % LB.items.length; updateLB(); }
 function visibleIdx() { return [...document.querySelectorAll('.gal-item:not(.hidden):not(.collapsed)')].map(b => +b.dataset.i); }
 function updateLB() {
@@ -646,7 +648,7 @@ function renderNews(list, initial) {
 function renderVideos(list, initial) {
   const el = document.getElementById('video-grid'); if (!el) return;
   const card = (v, i) => `
-    <figure class="vid ${i >= initial ? 'collapsed' : ''}" data-src="${v.src}" data-id="${v.id || ''}" data-file="${v.file ? u(v.file) : ''}">
+    <figure class="vid ${i >= initial ? 'collapsed' : ''}" data-src="${v.src}" data-id="${v.id || ''}" data-file="${v.file ? u(v.file) : ''}" data-title="${esc(v.title)}">
       <button class="poster" type="button" aria-label="Play: ${esc(v.title)}">
         <img src="${u(v.poster || ('video/' + (v.src === 'yt' ? 'yt-' : 'vimeo-') + v.id + '.jpg'))}" alt="" loading="lazy">
         <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
@@ -664,13 +666,13 @@ function renderVideos(list, initial) {
   }).join('');
   el.addEventListener('click', e => {
     const b = e.target.closest('.poster'); if (!b) return;
-    const f = b.closest('.vid'); const { src, id, file } = f.dataset;
-    if (src === 'mp4') { b.outerHTML = `<div class="frame"><video src="${file}" controls autoplay playsinline></video></div>`; return; }
+    const f = b.closest('.vid'); const { src, id, file, title } = f.dataset;
+    if (src === 'mp4') { b.outerHTML = `<div class="frame"><video src="${file}" controls autoplay playsinline aria-label="${title}"></video></div>`; return; }
     const url = src === 'yt' ? `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0` : `https://player.vimeo.com/video/${id}?autoplay=1`;
-    b.outerHTML = `<div class="frame"><iframe src="${url}" title="Video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`;
+    b.outerHTML = `<div class="frame"><iframe src="${url}" title="${title}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`;
   });
   const moreRow = document.getElementById('video-more'); const moreBtn = document.getElementById('video-more-btn');
-  if (moreRow) { if (!el.querySelector('.vid.collapsed')) moreRow.classList.add('hidden'); moreBtn.addEventListener('click', () => { el.querySelectorAll('.vid.collapsed').forEach(x => x.classList.remove('collapsed')); moreRow.classList.add('hidden'); }); }
+  if (moreRow) { if (!el.querySelector('.vid.collapsed')) moreRow.classList.add('hidden'); moreBtn.addEventListener('click', () => { el.querySelectorAll('.vid.collapsed').forEach(x => x.classList.remove('collapsed')); moreBtn.setAttribute('aria-expanded', 'true'); moreRow.classList.add('hidden'); }); }
 }
 
 function renderTimeline(list, initial) {
@@ -686,7 +688,7 @@ function renderTimeline(list, initial) {
 
 function renderSocials() {
   document.querySelectorAll('[data-socials]').forEach(el => {
-    el.innerHTML = SOCIALS.map(([n, h, icon]) => `<a class="soc" href="${h}" target="_blank" rel="noopener" aria-label="Worksport on ${n}" title="${n}">${icon}</a>`).join('');
+    el.innerHTML = SOCIALS.map(([n, h, icon]) => `<a class="soc" href="${h}" target="_blank" rel="noopener" aria-label="Worksport on ${n} (opens in a new tab)" title="${n}">${icon}</a>`).join('');
   });
 }
 
@@ -696,7 +698,7 @@ function collapseGrid(sel, n, label) {
   const items = [...el.children]; if (items.length <= n) return;
   items.slice(n).forEach(x => x.classList.add('m-hide'));
   const row = document.createElement('div'); row.className = 'more-row m-more';
-  row.innerHTML = `<button class="btn btn-ghost btn-sm" type="button">${label} (${items.length})</button>`;
+  row.innerHTML = `<button class="btn btn-ghost btn-sm" type="button" aria-expanded="false">${label} (${items.length})</button>`;
   row.querySelector('button').addEventListener('click', () => { items.forEach(x => x.classList.remove('m-hide')); row.remove(); });
   el.after(row);
 }
@@ -749,7 +751,16 @@ function wireCommon() {
   document.getElementById('lb-prev').addEventListener('click', () => stepLB(-1));
   document.getElementById('lb-next').addEventListener('click', () => stepLB(1));
   document.getElementById('lb').addEventListener('click', e => { if (e.target.id === 'lb') closeLB(); });
-  document.addEventListener('keydown', e => { if (!document.getElementById('lb').classList.contains('open')) return; if (e.key === 'Escape') closeLB(); if (e.key === 'ArrowLeft') stepLB(-1); if (e.key === 'ArrowRight') stepLB(1); });
+  document.addEventListener('keydown', e => {
+    const lb = document.getElementById('lb'); if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLB(); if (e.key === 'ArrowLeft') stepLB(-1); if (e.key === 'ArrowRight') stepLB(1);
+    if (e.key === 'Tab') { // keep keyboard focus inside the dialog
+      const f = [...lb.querySelectorAll('button, a[href], iframe')].filter(x => !x.hidden && x.offsetParent !== null);
+      if (!f.length) return; const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && (document.activeElement === first || !lb.contains(document.activeElement))) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
   document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', () => copyText(b.dataset.copy)));
   document.querySelectorAll('[data-dl-set]').forEach(b => b.addEventListener('click', () => downloadSet(b.dataset.dlSet)));
   renderSocials();
@@ -763,7 +774,8 @@ function wireCommon() {
     if (hdr) { if (y > 160) hdr.classList.add('show'); else if (y < 90) hdr.classList.remove('show'); }  // hysteresis so the bar never flickers at the threshold
   };
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
-  if (tt) tt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (tt) tt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: REDUCED ? 'auto' : 'smooth' }));
   trackSections();
 }
 
@@ -778,8 +790,8 @@ function trackSections() {
     if (id === current) return; current = id;
     links.forEach(a => {
       const on = a.getAttribute('href') === '#' + id;
-      a.classList.toggle('active', on);
-      if (on && a.closest('.jump')) a.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+      a.classList.toggle('active', on); if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+      if (on && a.closest('.jump')) a.scrollIntoView({ block: 'nearest', inline: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     });
   };
   const pick = () => {

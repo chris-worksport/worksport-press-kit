@@ -21,7 +21,7 @@
 .site-header{background:rgba(0,0,0,.72)}
 .hero .bg::after{background:linear-gradient(180deg,rgba(7,7,8,.2) 0%,rgba(7,7,8,.45) 45%,rgba(7,7,8,.96) 100%)}
 .hero h1{letter-spacing:-.01em;font-weight:800}
-.hero .eyebrow::before,.kicker{color:var(--brand)}
+.hero .eyebrow{color:var(--brand);text-shadow:none}.hero .eyebrow::before{background:var(--brand);box-shadow:none}.kicker{color:var(--brand)}
 .btn-primary{color:#0B0B0B}
 .btn-ghost:hover{background:#fff;color:#000;border-color:#fff}
 .dl-card .icon{color:#0B0B0B}
@@ -47,3 +47,5 @@
 @media(max-width:640px){.back{font-size:13px;padding:8px 13px 8px 10px}.back svg{width:16px;height:16px}}
 .parent{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--ink-3)}
 .parent img{height:20px;width:auto;opacity:.8}
+
+.site-header .logo img{height:24px}
