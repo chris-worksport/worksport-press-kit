@@ -29,13 +29,13 @@ then visit http://localhost:8000/.
 | `js/press.js` | Data-driven sections (each Downloads bundle also lists its `items()` so a click on the card browses the files in the lightbox): download bundles, products, logos, gallery images, videos, the timeline, social links and press releases are arrays at the top of the file. Edit those to add or swap assets. `GALLERY_INITIAL`, `NEWS_INITIAL`, `VIDEOS_INITIAL` and `TIMELINE_INITIAL` set how many items show before "Show all". A 4th value `'fit'` on an image shows the whole picture in its tile instead of cropping (studio renders). |
 | `tools/update-news.py` | Pulls new press releases from investors.worksport.com/press into `NEWS` (and `TVE_NEWS` for Terravis items). Run it, review, then add any milestone to `TIMELINE` by hand. |
 | `js/terravis.js` | The same data for the Terravis page. |
-| `js/manifest.json` | File sizes shown on the cards. Regenerate with `python3 tools/build-manifest.py` after adding files. |
+| `js/manifest.json` | File sizes shown on the cards. After running `python3 tools/build-manifest.py`, restore the existing entries for externally hosted files from the previous manifest. |
 | `assets/logos/` | Worksport full logo, emblem and Nasdaq lockup (SVG, PNG, PDF) and product wordmarks (SVG/PNG, COR in EPS). |
 | `assets/images/originals/` | Full-resolution photography (1,920 to 5,472 px). |
 | `assets/images/web/` | Same images at 1,600 px JPEG, used by the lightbox. |
 | `assets/images/thumbs/` | 720 px thumbnails used by the cards and gallery grid. |
 | `assets/terravis/` | AetherLux renders (originals, 1,600 px web, 720 px thumbs). Outdoor-unit views are the November 2026 render package from the TVE Library (`Image Assets/AetherLux_Outdoor_Colour_Package`); interior and exploded views are conceptual. Home scenes are from `AetherLux_True3D_Winter.zip` in the same folder (modern winter environment; the earlier traditional-house renders were retired on 2026-11-25). |
-| `assets/video/` | Poster images for the Video sections (YouTube and Vimeo thumbnails), the AetherLux commercial (720p web copy, 64 MB; the 4K master is in Box › Marketing › 3. Media Repository › 2. Videos › Video-Other › Non-Product Specific › 2025 › TVE) and the short AetherLux Pro clip from aetherlux.terravisenergy.com. |
+| `assets/video/` | Video posters and locally hosted videos. The AetherLux commercial and selected large videos are hosted on Shopify; the 4K commercial master is in Box › Marketing › 3. Media Repository › 2. Videos › Video-Other › Non-Product Specific › 2025 › TVE. |
 | `tools/transcode.swift` | AVFoundation re-encoder for making web copies of large videos: `swift tools/transcode.swift in.mp4 out.mp4 1280 2600`. |
 | `assets/leadership/` | CEO headshot. |
 | `assets/docs/` | Worksport Brand Guide 2026, Terravis Energy Brand Guide 2026, the AetherLux Launch Brochure (v5.6) and `brochures/` with the eight 2026 product tri-folds from Box (Marketing › 3. Media Repository › 5. Print › 2. B2B Marketing Collateral › Brochures). Also filed in Box (Marketing › 1. Corporate Branding) and the TVE SharePoint library (05_Marketing › 1. TVE Media Asset Folder › Corporate Branding › 2. Brand Guide). |
@@ -43,12 +43,14 @@ then visit http://localhost:8000/.
 
 ## Large files
 
-GitHub rejects single files over 100 MB, so two bundles are not in this repository and must be uploaded to the host (Shopify Files, S3, etc.) alongside the page, or regenerated:
+The large ZIP bundles are attached to the `press-assets-v1` GitHub Release, and selected large videos are hosted on Shopify. `RELEASE_BUNDLES` and `SHOPIFY_VIDEOS` in `js/press.js` map their original asset paths to those public URLs. Upload and verify replacements before changing the mappings; do not remove a release asset while it is still linked.
+
+The two largest bundles are:
 
 - `assets/downloads/Worksport-Press-Kit-All.zip` (about 390 MB)
 - `assets/downloads/Worksport-Product-Images.zip` (about 325 MB)
 
-Both are kept in OneDrive: `1. Chris Bernaudo/_Claude/Website Builds/Worksport Press Kit - Large Downloads`. The "Download shown" buttons in the Images section do not depend on these: they zip the selected images in the browser (JSZip from cdnjs).
+Both are also kept in OneDrive: `1. Chris Bernaudo/_Claude/Website Builds/Worksport Press Kit - Large Downloads`. The "Download shown" buttons in the Images section do not depend on these: they zip the selected images in the browser (JSZip from cdnjs).
 
 To rebuild them from the originals in this repo, from the `press-kit` folder:
 

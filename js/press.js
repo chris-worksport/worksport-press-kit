@@ -423,8 +423,27 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;',
 const RELEASE_BUNDLES = {
   'downloads/Worksport-Press-Kit-All.zip': 'https://github.com/chris-worksport/worksport-press-kit/releases/download/press-assets-v1/Worksport-Press-Kit-All.zip',
   'downloads/Worksport-Product-Images.zip': 'https://github.com/chris-worksport/worksport-press-kit/releases/download/press-assets-v1/Worksport-Product-Images.zip',
+  'downloads/Terravis-Energy-Press-Kit.zip': 'https://github.com/chris-worksport/worksport-press-kit/releases/download/press-assets-v1/Terravis-Energy-Press-Kit.zip',
+  'downloads/Worksport-Website-Covers.zip': 'https://github.com/chris-worksport/worksport-press-kit/releases/download/press-assets-v1/Worksport-Website-Covers.zip',
+  'downloads/Terravis-AetherLux-Renders.zip': 'https://github.com/chris-worksport/worksport-press-kit/releases/download/press-assets-v1/Terravis-AetherLux-Renders.zip',
+  'downloads/Worksport-Website-Clips.zip': 'https://github.com/chris-worksport/worksport-press-kit/releases/download/press-assets-v1/Worksport-Website-Clips.zip',
+  'downloads/Worksport-Studio-Infographics.zip': 'https://github.com/chris-worksport/worksport-press-kit/releases/download/press-assets-v1/Worksport-Studio-Infographics.zip',
+  'downloads/Worksport-Website-Energy.zip': 'https://github.com/chris-worksport/worksport-press-kit/releases/download/press-assets-v1/Worksport-Website-Energy.zip',
+  'downloads/Worksport-Web-Ready-Images.zip': 'https://github.com/chris-worksport/worksport-press-kit/releases/download/press-assets-v1/Worksport-Web-Ready-Images.zip',
+  'downloads/Worksport-Manufacturing-Images.zip': 'https://github.com/chris-worksport/worksport-press-kit/releases/download/press-assets-v1/Worksport-Manufacturing-Images.zip',
 };
-const u = p => RELEASE_BUNDLES[p] || ASSET_BASE + p;
+const SHOPIFY_VIDEOS = {
+  'video/box-nexus-with-jonny.mp4': 'https://cdn.shopify.com/videos/c/o/v/d0ec2c402bd24e13b8765712e3a494cc.mp4',
+  'video/box-cor-with-jonny.mp4': 'https://cdn.shopify.com/videos/c/o/v/314b806675584bb9bdf4b4ca0b01b66a.mp4',
+  'video/box-behind-the-brand-ep3.mp4': 'https://cdn.shopify.com/videos/c/o/v/95d8787c59094898932c0a813966f9e0.mp4',
+  'video/box-behind-the-brand-ep2.mp4': 'https://cdn.shopify.com/videos/c/o/v/fd927047d98141f5961e89d9ab7c5878.mp4',
+  'video/AetherLux-Commercial-720p.mp4': 'https://cdn.shopify.com/videos/c/o/v/cd80f1a8f0fb4c4da6451cf6177de0b6.mp4',
+  'video/box-behind-the-brand-ep1.mp4': 'https://cdn.shopify.com/videos/c/o/v/701b774dc28549bea6bbfd4a962a20a6.mp4',
+  'video/box-hd3-features.mp4': 'https://cdn.shopify.com/videos/c/o/v/726f480e64f24f7fb3844a6619b24762.mp4',
+  'video/box-al4-drip-to-dry.mp4': 'https://cdn.shopify.com/videos/c/o/v/c2c93d47218449868cd7b1328d4102bf.mp4',
+  'video/box-sc4-features.mp4': 'https://cdn.shopify.com/videos/c/o/v/66ce6e1b8a27449fb8d3acddf1d434c0.mp4',
+};
+const u = p => RELEASE_BUNDLES[p] || SHOPIFY_VIDEOS[p] || ASSET_BASE + p;
 const webName = f => f.replace(/\.(png|jpeg)$/i, '.jpg');
 
 /* Image folders: the main kit uses images/, the Terravis page sets window.KIT = { dir: 'terravis' } */
@@ -701,7 +720,31 @@ function copyText(id) {
 let toastT;
 function toast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 1800); }
 
+async function downloadShopifyVideo(path, url) {
+  try {
+    toast('Preparing video download…');
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`Video download failed: ${response.status}`);
+    const blob = await response.blob();
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = path.split('/').pop();
+    document.body.appendChild(a); a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 4000);
+    toast('Download started');
+  } catch (e) {
+    console.error('Could not download video', e);
+    toast('Could not download video; please try again');
+  }
+}
+
 function wireCommon() {
+  document.addEventListener('click', e => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const a = e.target.closest('a[download]'); if (!a) return;
+    const video = Object.entries(SHOPIFY_VIDEOS).find(([, url]) => url === a.href);
+    if (video) { e.preventDefault(); downloadShopifyVideo(...video); }
+  });
   document.getElementById('lb-x').addEventListener('click', closeLB);
   document.getElementById('lb-prev').addEventListener('click', () => stepLB(-1));
   document.getElementById('lb-next').addEventListener('click', () => stepLB(1));
